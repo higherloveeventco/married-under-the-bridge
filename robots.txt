@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.marriedunderthebridge.com/sitemap.xml
+Sitemap: https://marriedunderthebridge.com/sitemap.xml
