@@ -91,9 +91,9 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 .hero{position:relative;min-height:88vh;min-height:88svh;display:flex;align-items:flex-end;overflow:hidden;padding-top:var(--nav-h);}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:0;}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;
-  background:linear-gradient(to right,rgba(20,20,18,0.72) 0%,rgba(20,20,18,0.34) 46%,rgba(20,20,18,0.10) 100%),
-             linear-gradient(to top,rgba(20,20,18,0.92) 0%,rgba(20,20,18,0.62) 48%,rgba(20,20,18,0.45) 100%);}
-@media(max-width:640px){.hero::after{background:linear-gradient(to top,rgba(20,20,18,0.94) 0%,rgba(20,20,18,0.74) 45%,rgba(20,20,18,0.55) 100%);}}
+  background:linear-gradient(to right,rgba(20,20,18,0.62) 0%,rgba(20,20,18,0.26) 48%,rgba(20,20,18,0.04) 100%),
+             linear-gradient(to top,rgba(20,20,18,0.86) 0%,rgba(20,20,18,0.48) 50%,rgba(20,20,18,0.28) 100%);}
+@media(max-width:640px){.hero::after{background:linear-gradient(to top,rgba(20,20,18,0.88) 0%,rgba(20,20,18,0.58) 48%,rgba(20,20,18,0.30) 100%);}}
 .hero-content{position:relative;z-index:2;padding-bottom:5rem;}
 .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.8rem,7vw,6rem);line-height:.95;color:var(--white);margin-bottom:1.8rem;max-width:14ch;text-shadow:0 2px 32px rgba(0,0,0,0.8),0 1px 8px rgba(0,0,0,0.9);}
 .hero-sub{max-width:580px;font-size:1rem;line-height:1.85;color:rgba(255,255,255,.95);margin-bottom:2.4rem;text-shadow:0 1px 16px rgba(0,0,0,0.9),0 1px 4px rgba(0,0,0,1);}
@@ -366,7 +366,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
   /* --- hero: no forced viewport height, so CTAs are never pushed
          under the iOS toolbar --- */
-  .hero{min-height:auto;padding-top:calc(var(--nav-h) + 2rem);}
+  .hero{min-height:72svh;padding-top:calc(var(--nav-h) + 2rem);}
   .hero-content{padding-bottom:3.5rem;}
   .hero h1{font-size:2.3rem;max-width:none;margin-bottom:1.3rem;}
   .hero-sub{font-size:.98rem;line-height:1.75;margin-bottom:1.8rem;}
@@ -375,6 +375,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   .hero-eyebrow span{font-size:.68rem;letter-spacing:.14em;line-height:1.7;}
   .hero .cta-row{flex-direction:column;align-items:stretch;margin-top:2rem;}
   .hero-credit{left:1.25rem;right:1.25rem;bottom:.5rem;text-align:right;font-size:.68rem;}
+  /* narrow viewports crop a landscape hero to a slice — aim it at the tower */
+  .hero-img{object-position:46% 58%;}
 
   /* --- photo bands --- */
   .band{height:230px;}
@@ -486,12 +488,12 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 <meta property="og:url" content="https://marriedunderthebridge.com">
 <meta property="og:title" content="Married Under the Bridge | Cathedral Park Elopement | St. Johns, Portland">
 <meta property="og:description" content="Exchange vows beneath the St. Johns Bridge at Cathedral Park, then gather for a styled picnic reception. A collaboration between Higher Love Event Co. and Weddinglandia.">
-<meta property="og:image" content="https://marriedunderthebridge.com/images/Kitta-Bodmer-Photography-7276-Abramson-128__1_.jpg">
+<meta property="og:image" content="https://marriedunderthebridge.com/images/StJohnsBridgeCathedralParkPortlandOregon_300KB.jpg">
 <meta property="og:site_name" content="Married Under the Bridge">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Married Under the Bridge | Cathedral Park Elopement | St. Johns, Portland">
 <meta name="twitter:description" content="Exchange vows beneath the St. Johns Bridge at Cathedral Park, then gather for a styled picnic reception. A collaboration between Higher Love Event Co. and Weddinglandia.">
-<meta name="twitter:image" content="https://marriedunderthebridge.com/images/Kitta-Bodmer-Photography-7276-Abramson-128__1_.jpg">
+<meta name="twitter:image" content="https://marriedunderthebridge.com/images/StJohnsBridgeCathedralParkPortlandOregon_300KB.jpg">
 
 <script type="application/ld+json">
 {
@@ -503,7 +505,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   "telephone": "+15032178500",
   "email": "hello@higherloveeventco.com",
   "priceRange": "$2500-$5000",
-  "image": "https://marriedunderthebridge.com/images/Kitta-Bodmer-Photography-7276-Abramson-128__1_.jpg",
+  "image": "https://marriedunderthebridge.com/images/StJohnsBridgeCathedralParkPortlandOregon_300KB.jpg",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Portland",
@@ -631,7 +633,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <!-- Once srcset derivatives exist, replace the src line with:
        srcset="/images/StJohnsBridge-800.jpg 800w, /images/StJohnsBridge-1200.jpg 1200w, /images/StJohnsBridge-1800.jpg 1800w"
        sizes="100vw" -->
-  <img class="hero-img" src="/images/Kitta-Bodmer-Photography-7276-Abramson-128__1_.jpg" alt="A couple standing together beneath the gothic arches of the St. Johns Bridge at Cathedral Park" width="1024" height="683" fetchpriority="high" decoding="async" style="object-position:center 45%;">
+  <img class="hero-img" src="/images/StJohnsBridgeCathedralParkPortlandOregon_300KB.jpg" alt="The St. Johns Bridge seen in profile from Cathedral Park, green steel spans rising over the Willamette and the forested West Hills" width="2048" height="1365" fetchpriority="high" decoding="async" style="object-position:30% 55%;">
   <div class="wrap hero-content">
     <div class="hero-eyebrow"><span>A collaboration &middot; Higher Love Event Co. &amp; Weddinglandia &middot; St. Johns, Portland</span></div>
     <h1>Get Married <br><em>Under the Bridge.</em></h1>
@@ -641,7 +643,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <a class="btn btn-light" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book your date</a>
     </div>
   </div>
-  <span class="hero-credit">Cathedral Park, Portland &middot; Photo: Kitta Bodmer</span>
+  <span class="hero-credit">Cathedral Park &middot; St. Johns, Portland</span>
 </header>
 
 <!-- INTRO -->
@@ -704,7 +706,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
 <!-- PHOTO BAND 2 -->
 <div style="line-height:0;">
-  <img class="band" src="/images/StJohnsCathedralParkPortlandOregonWeddingPicnicElopement0668.jpg" alt="A styled picnic table set for two with florals, candlelight, desserts, and bubbles drifting past" width="1024" height="1536" loading="lazy" decoding="async" style="object-position:center 84%;">
+  <img class="band" src="/images/PicnicReceptionWeddingPortland__1_.jpg" alt="A styled picnic table with dahlias, taper candles, stone fruit and a sliced loaf, set outdoors" width="2400" height="1600" loading="lazy" decoding="async" style="object-position:center 62%;">
 </div>
 
 <!-- COLLAB -->
@@ -1100,7 +1102,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
 <!-- PHOTO BAND 3 -->
 <div style="line-height:0;">
-  <img class="band" src="/images/StJohnsCathedralParkPortlandOregonWeddingPicnicElopement0684.jpg" alt="A tiered dessert stand of cupcakes and bars beside a summer floral arrangement on a picnic table" width="1024" height="1536" loading="lazy" decoding="async" style="object-position:center 76%;">
+  <img class="band" src="/images/PicnicPortlandCathedralParkWedding__1_.jpg" alt="An overhead view of a blanket picnic with cheese, grapes, baguette, wine and wildflowers" width="2400" height="1600" loading="lazy" decoding="async" style="object-position:center 55%;">
 </div>
 
 <!-- PICNIC SETUP -->
@@ -1130,7 +1132,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       </div>
       <div class="setup-card">
         <span class="setup-label">Entertainment</span>
-        <h3>Music, games, and a camera to remember it by.</h3>
+        <h3>Music, games, and a send-off.</h3>
         <p>A Bluetooth speaker set to your playlist. Bocce and cornhole set up and ready for your guests. A bubble send-off to close out the celebration. Included in The Garden Party and The Soirée.</p>
       </div>
     </div>
@@ -1145,7 +1147,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 </section>
 
 <div style="line-height:0;">
-  <img class="band" src="/images/StJohnsCathedralParkPortlandOregonWeddingPicnicElopement0706.jpg" alt="Blankets, cushions, candlelight and cornhole set up on the lawn for a picnic reception" width="1024" height="1536" loading="lazy" decoding="async" style="object-position:center 60%;">
+  <img class="band" src="/images/BlanketPicnicElopementWeddingPortland__1_.jpg" alt="A candlelit picnic tray of fruit, bread and nuts on blankets and cushions at dusk" width="2400" height="1600" loading="lazy" decoding="async" style="object-position:center 55%;">
 </div>
 
 <!-- WEATHER -->
@@ -1225,9 +1227,9 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
 <!-- WEDDINGLANDIA BAND -->
 <div style="line-height:0;">
-  <img class="band" src="/images/Kitta-Bodmer-Photography-7276-Abramson-133__1_.jpg" alt="A couple walking hand in hand down the Cathedral Park staircase toward the gothic arches of the St. Johns Bridge" width="1024" height="1536" loading="lazy" decoding="async" style="object-position:center 34%;">
+  <img class="band" src="/images/NewlywedsStJohnsBridgeWeddingStJohnsInnPortlandOregon__1_.jpg" alt="Newlyweds walking together across the St. Johns Bridge at dusk" width="1242" height="828" loading="lazy" decoding="async" style="object-position:center 58%;">
 </div>
-<span class="photo-credit">Photo: Kitta Bodmer</span>
+
 
 <!-- CLOSING CTA -->
 <section class="closing" id="book">
