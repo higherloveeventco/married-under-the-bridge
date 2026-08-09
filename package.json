@@ -1,0 +1,23 @@
+{
+  "name": "married-under-the-bridge",
+  "version": "1.0.0",
+  "description": "Married Under the Bridge - Cathedral Park Elopement Experience",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "dev": "npx serve .",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [
+    "wedding",
+    "elopement",
+    "portland"
+  ],
+  "author": "Higher Love Event Co.",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.15"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
