@@ -141,6 +141,34 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 .flow-time{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem;}
 @media(max-width:860px){.experience-inner{grid-template-columns:1fr;gap:3rem;}}
 
+/* CEREMONY CHOICE */
+.choice{margin-top:4rem;padding-top:3rem;border-top:0.5px solid var(--border);}
+.choice-head{max-width:680px;margin-bottom:2.5rem;}
+.choice-head h3{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.15;margin-top:.4rem;margin-bottom:1rem;}
+.choice-head p{font-size:.98rem;line-height:1.9;color:var(--charcoal);margin:0;}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:0.5px solid var(--border);}
+.choice-card{background:var(--cream);padding:2.4rem 2.2rem;display:flex;flex-direction:column;}
+.choice-label{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1.1rem;}
+.choice-card h4{font-family:var(--serif);font-size:1.3rem;font-weight:400;line-height:1.2;margin-bottom:.9rem;}
+.choice-card p{font-size:.88rem;color:var(--muted);line-height:1.85;margin:0;}
+.choice-card p + p{margin-top:.9rem;}
+.choice-card p:last-of-type{margin-bottom:1.4rem;}
+.choice-who{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.06em;color:var(--gold-deep);margin-top:auto;padding-top:1.1rem;border-top:0.5px solid var(--border);display:block;line-height:1.6;}
+.choice-note{margin-top:1.6rem;font-size:.86rem;color:var(--muted);line-height:1.85;max-width:680px;font-family:var(--serif);font-style:italic;}
+@media(max-width:760px){.choice-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){
+  .choice{margin-top:2.75rem;padding-top:2.25rem;}
+  .choice-head{margin-bottom:1.8rem;}
+  .choice-head h3{font-size:1.5rem;}
+  .choice-head p{font-size:1rem;}
+  .choice-card{padding:1.8rem 1.5rem;}
+  .choice-card h4{font-size:1.2rem;}
+  .choice-card p{font-size:.94rem;line-height:1.75;}
+  .choice-label{font-size:.66rem;letter-spacing:.16em;}
+  .choice-who{font-size:.8rem;}
+  .choice-note{font-size:.94rem;}
+}
+
 /* PACKAGES */
 .tiers-section{background:var(--cream);padding:5rem 0;}
 .tier-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:0.5px solid var(--border);}
@@ -201,7 +229,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 .addon-item p{font-size:.82rem;color:var(--muted);line-height:1.7;margin:0;flex:1;}
 .addon-item a{border-bottom:1px solid var(--gold);}
 .addon-price{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);display:block;margin-top:1rem;}
-.addon-item.feature{grid-column:span 3;background:var(--cream);}
+.addon-item.feature{grid-column:span 2;background:var(--cream);}
 .addon-item.feature h3{font-size:1.35rem;margin-bottom:.8rem;}
 .addon-item.feature p{font-size:.88rem;}
 .addon-item.feature .addon-price{font-size:.68rem;}
@@ -232,6 +260,20 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 .dates-note{margin-top:1.2rem;font-size:.82rem;color:rgba(245,240,232,.5);font-family:var(--serif);font-style:italic;line-height:1.8;}
 .dates-note a{color:var(--gold);border-bottom:1px solid rgba(184,137,42,.4);}
 .invite-line{max-width:520px;margin:2.5rem auto 0;border:0.5px solid rgba(245,240,232,.14);padding:1.6rem 1.8rem;text-align:left;}
+.year-note{max-width:760px;margin:2.5rem auto 0;border:0.5px solid rgba(245,240,232,.14);padding:2rem 2rem;text-align:left;}
+.year-note h3{font-family:var(--serif);font-weight:300;font-size:1.5rem;color:var(--cream);line-height:1.15;margin:0 0 1rem;}
+.year-note p{font-size:.86rem;color:rgba(245,240,232,.62);line-height:1.85;margin:0;}
+.year-note p + p{margin-top:.9rem;}
+.year-note ul{list-style:none;margin:1.1rem 0 0;}
+.year-note li{font-size:.86rem;color:rgba(245,240,232,.62);line-height:1.8;padding-left:1.1rem;position:relative;margin-bottom:.7rem;}
+.year-note li::before{content:"";position:absolute;left:0;top:.8em;width:5px;height:1px;background:var(--gold);}
+.year-note li strong{color:var(--cream);font-weight:600;}
+.year-note a{color:var(--gold);border-bottom:1px solid rgba(184,137,42,.4);}
+@media(max-width:480px){
+  .year-note{padding:1.6rem 1.4rem;margin-top:2rem;}
+  .year-note h3{font-size:1.35rem;}
+  .year-note p,.year-note li{font-size:.94rem;line-height:1.75;}
+}
 .invite-line .date-month{margin-bottom:.8rem;}
 .invite-line p{font-family:var(--serif);font-size:1.05rem;color:var(--cream);line-height:1.7;margin:0;}
 .invite-caption{display:block;font-family:var(--sans);font-size:.76rem;color:rgba(245,240,232,.55);margin-top:.9rem;line-height:1.7;}
@@ -561,7 +603,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       "name": "How many people can come to the ceremony?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Five: the two of you, your officiant, and two witnesses. The deck and staircase beneath the St. Johns Bridge can normally hold a larger wedding, but those permits have been unavailable since 2022. Until they return, an elopement is the only way to marry beneath the bridge, and an elopement is limited to the people a marriage legally requires. The picnic area is separate and can be reserved, so guests join you at 4:30."
+        "text": "That depends on where you say your vows. The Cathedral Park staircase is one of two locations Portland Parks treats as an official wedding venue, and reserving it requires a wedding permit the couple must obtain themselves. Without that permit the staircase may be used for a simple ceremony of five people only: the couple, the officiant, and two witnesses, with children counting toward the limit. Elsewhere in Cathedral Park, the Restricted Special Permit held for the picnic reception allows up to thirty people at the ceremony, so every guest in the package may attend standing. Couples choose between the two ten days before their date."
       }
     },
     {
@@ -569,7 +611,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       "name": "When should we tell our guests to arrive?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "4:30 PM at Cathedral Park. The ceremony and portraits happen before then, so the first hour and a half belongs to the two of you."
+        "text": "For a staircase ceremony, 4:30 PM at Cathedral Park. The ceremony and portraits happen before then, so the first hour and a half belongs to the two of you. If you choose a reserved ceremony location in the park instead, your guests are invited to the ceremony and we confirm that arrival time with you."
       }
     },
     {
@@ -653,7 +695,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <span class="eyebrow">The experience</span>
       <h2>A Cathedral Park wedding experience.<br>A collaboration of St. Johns creatives.</h2>
       <p>Higher Love Event Co. and Weddinglandia both call St. Johns home. We are neighbors who love this community — the people, the St. Johns Bridge, the parks, the small town feel that has somehow survived in the middle of one of the busiest cities in the Pacific Northwest. This package is what happens when local businesses choose collaboration and community over competition.</p>
-      <p>Weddinglandia coordinates the elopement: just the couple, two witnesses, and the officiant. Higher Love coordinates the picnic reception for you and your favorite people, the vendor team, and all logistics. Wedding permits beneath the St. Johns Bridge are currently unavailable while repairs wrap up, but between the two of us we found a way to help you get Married Under the Bridge.</p>
+      <p>Weddinglandia coordinates the ceremony. Higher Love coordinates the picnic reception for you and your favorite people, the vendor team, and all logistics. Wedding permits beneath the St. Johns Bridge are currently unavailable while repairs wrap up, but between the two of us we found a way to help you get Married Under the Bridge.</p>
       <p>The rest of the day belongs to our neighbors. The photography, the florals, the charcuterie, the desserts, the wine and the beer all come from St. Johns and North Portland businesses — people we know by name and have worked with directly. One neighborhood, showing up for your wedding day.</p>
     </div>
   </div>
@@ -681,7 +723,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <div>
             <span class="flow-time">3:00 &mdash; 3:30 PM</span>
             <h3>Ceremony at Cathedral Park</h3>
-            <p>A legal ceremony beneath the St. Johns Bridge with an ordained officiant, ceremony recording, and marriage license filing, coordinated by Weddinglandia. You apply for your Oregon marriage license in advance at any county clerk's office in the state and bring it with you &mdash; we complete the paperwork afterward. The ceremony beneath the St. Johns Bridge is limited to five: the two of you, your officiant, and two witnesses — the number a marriage legally requires. Everyone else joins you at the picnic.</p>
+            <p>A legal ceremony beneath the St. Johns Bridge with an ordained officiant, ceremony recording, and marriage license filing, coordinated by Weddinglandia. You apply for your Oregon marriage license in advance at any county clerk's office in the state and bring it with you &mdash; we complete the paperwork afterward. You choose where the ceremony happens and who is there for it, which is explained just below.</p>
           </div>
         </div>
         <div class="flow-step">
@@ -701,6 +743,32 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="choice rise" id="ceremony-options">
+      <div class="choice-head">
+        <span class="eyebrow">Where you say your vows</span>
+        <h3>Two ways to do the ceremony.</h3>
+        <p>Cathedral Park has two spots that Portland Parks treats as official wedding venues, and the staircase is one of them. Booking either takes a wedding permit that only you can apply for. The rest of the park works differently, and that difference is what gives you a choice. You tell us which one 10 days before your date.</p>
+      </div>
+      <div class="choice-grid">
+        <div class="choice-card">
+          <span class="choice-label">Option one</span>
+          <h4>The staircase.</h4>
+          <p>The spot beneath the arches, and one of the two locations Portland Parks treats as an official wedding venue. Reserving it takes a wedding permit, which isn't part of your package and which only you can apply for.</p>
+          <p>Without that permit you can still marry there, but only as a simple ceremony: five people, on a first come, first served basis. Everyone else waits at the picnic and sees you walk up married, which is its own kind of moment.</p>
+          <p>If someone else is on the staircase at 3:00, we move to our reserved spot in the park and carry on.</p>
+          <span class="choice-who">Five people: the two of you, your officiant, and two witnesses. Witnesses must be 18 or older. Everyone counts, including children. Guests arrive at 4:30.</span>
+        </div>
+        <div class="choice-card">
+          <span class="choice-label">Option two</span>
+          <h4>A reserved spot in the park.</h4>
+          <p>Everywhere in Cathedral Park outside those two official venues is covered by the special use permit we already hold for your reception. So we choose a spot with the bridge overhead, confirm it in advance, and it is genuinely yours for the afternoon.</p>
+          <p>That permit allows up to 30 people at the ceremony, which is more than any of our packages hold. So everyone on your guest list can be there, children included. There is no seating, so your guests stand, and then you all walk over to the picnic together.</p>
+          <span class="choice-who">Everyone in your package. Guests arrive for the ceremony.</span>
+        </div>
+      </div>
+      <p class="choice-note">From 2027, Portland Parks is bringing back full wedding permits, which means couples will be able to reserve the staircase in advance and another wedding may hold it on your date. We cannot apply for that permit on your behalf. If a confirmed location and having everyone present matter more to you than the staircase itself, option two is the one we would point you toward.</p>
     </div>
   </div>
 </section>
@@ -845,7 +913,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <li>Charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
           <li>Dessert spread from Flower &amp; Flour</li>
           <li>Fresh floral table arrangements from Still City Flowers</li>
-          <li>$60 beverage allowance &mdash; Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
+          <li>$75 beverage allowance &mdash; Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
           <li>Seasonally infused water</li>
           <li>Bluetooth speaker set to your playlist</li>
         </ul>
@@ -868,9 +936,9 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <ul class="tier-items">
           <li>Legal ceremony at Cathedral Park, 3:00 PM</li>
           <li>Ordained officiant &amp; marriage license filing</li>
-          <li>Ceremony attendance is limited to five &mdash; the couple, officiant &amp; two witnesses, the number a marriage legally requires</li>
+          <li>Your choice of ceremony location: the staircase, limited to five, or a reserved spot in the park where all your guests can attend</li>
           <li>Two of your guests serve as witnesses, or Weddinglandia can provide them</li>
-          <li>Guests arrive at 4:30 PM, after portraits</li>
+          <li>Guest arrival time depends on the ceremony you choose</li>
           <li>Gift bags for the couple courtesy of Weddinglandia</li>
           <li>Ceremony recording</li>
         </ul>
@@ -880,12 +948,12 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <li>2 hours of photography: 30 min ceremony, 1 hr couple portraits, 30 min guest candids</li>
           <li>48-hour sneak peek, full gallery in four to six weeks</li>
           <li>Styled picnic for up to 10 with blankets &amp; cushions</li>
-          <li>Both reserved picnic tables, plus a separate styled dessert table</li>
+          <li>One reserved picnic table seating up to 10, plus a separate styled dessert table</li>
           <li>Linens, place settings &amp; votives</li>
           <li>Charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
           <li>Dessert spread from Flower &amp; Flour</li>
           <li>Fresh floral table arrangements from Still City Flowers</li>
-          <li>$200 beverage allowance &mdash; Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
+          <li>$225 beverage allowance &mdash; Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
           <li>Seasonally infused water</li>
           <li>Bluetooth speaker set to your playlist</li>
           <li>Bocce and cornhole</li>
@@ -910,9 +978,9 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <ul class="tier-items">
           <li>Legal ceremony at Cathedral Park, 3:00 PM</li>
           <li>Ordained officiant &amp; marriage license filing</li>
-          <li>Ceremony attendance is limited to five &mdash; the couple, officiant &amp; two witnesses, the number a marriage legally requires</li>
+          <li>Your choice of ceremony location: the staircase, limited to five, or a reserved spot in the park where all your guests can attend</li>
           <li>Two of your guests serve as witnesses, or Weddinglandia can provide them</li>
-          <li>Guests arrive at 4:30 PM, after portraits</li>
+          <li>Guest arrival time depends on the ceremony you choose</li>
           <li>Gift bags for the couple courtesy of Weddinglandia</li>
           <li>Ceremony recording</li>
         </ul>
@@ -922,12 +990,12 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <li>2 hours of photography: 30 min ceremony, 1 hr couple portraits, 30 min guest candids</li>
           <li>48-hour sneak peek, full gallery in four to six weeks</li>
           <li>Styled picnic for up to 20 with blankets &amp; cushions</li>
-          <li>Both reserved picnic tables, plus a separate styled dessert table</li>
+          <li>Two reserved picnic tables seating up to 10 each, plus a separate styled dessert table</li>
           <li>Linens, place settings &amp; votives</li>
           <li>Expanded charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
           <li>Dessert spread from Flower &amp; Flour</li>
           <li>Fresh floral table arrangements from Still City Flowers</li>
-          <li>$400 beverage allowance &mdash; Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
+          <li>$450 beverage allowance &mdash; Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
           <li>Seasonally infused water</li>
           <li>Bluetooth speaker set to your playlist</li>
           <li>Bocce and cornhole</li>
@@ -956,12 +1024,13 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="prebook-col">
         <span class="prebook-label">Before you book</span>
         <p>A deposit reserves your date &mdash; $1,000 for Just the Two of Us, $1,500 for The Garden Party, $2,100 for The Soir&eacute;e. The balance is due 7 days before your event.</p>
-        <p>Deposits and payments are non-refundable and non-transferable. Rescheduling is available only where conditions make travel or outdoor activity genuinely unsafe.</p>
-        <p>Guest count, dietary needs, add-ons, and personal florals are all confirmed 10 days before your date. Full terms are provided at booking, and we're happy to send them ahead of time &mdash; just <a href="mailto:hello@higherloveeventco.com">email us</a>.</p>
+        <p>Deposits and payments are non-refundable and non-transferable, with one exception: if Portland Parks cancels on us, you are covered. Rescheduling is available where conditions make travel or outdoor activity genuinely unsafe.</p>
+        <p>Guest count, dietary needs, add-ons, and personal florals are all confirmed 10 days before your date. Children three and older count toward your guest count. Children under three don't, and are seated with a parent rather than given a place setting.</p>
+        <p>Full terms are provided at booking, and we're happy to send them ahead of time &mdash; just <a href="mailto:hello@higherloveeventco.com">email us</a>.</p>
       </div>
     </div>
 
-    <p class="tier-note-plain">Looking for a different date? Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a> with your preferred date and we will check availability with our team.</p>
+    <p class="tier-note-plain">Looking for a different date? Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a> or click Join Waitlist on our booking page with your preferred date, and we'll check availability with our team.</p>
   </div>
 </section>
 
@@ -971,19 +1040,9 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
     <div class="sec-head rise" style="max-width:680px;">
       <span class="eyebrow" style="color:var(--gold);">Book your date</span>
       <h2 style="color:var(--cream);">These dates are available right now.</h2>
-      <p style="color:rgba(245,240,232,.62);">We release a small number of dates each season for Married Under the Bridge. Each one is instantly bookable — no back and forth, no waiting. When a date books, it's gone. If you don't see a date that works for you, email us and we'll do our best to find something that does.</p>
+      <p style="color:rgba(245,240,232,.62);">We release a small number of dates each season for Married Under the Bridge. Each one is instantly bookable, no back and forth, no waiting. When a date books, it's gone. If you don't see a date that works for you, email us or click Join Waitlist on our booking page with the date you have in mind, and we'll be in touch.</p>
     </div>
     <div class="dates-grid rise">
-      <div class="date-card">
-        <span class="date-month">August 2026</span>
-        <p class="date-day">Friday, August 21</p>
-        <span class="date-time">Ceremony 3:00 PM &middot; Guests 4:30 PM</span>
-      </div>
-      <div class="date-card">
-        <span class="date-month">September 2026</span>
-        <p class="date-day">Saturday, September 5</p>
-        <span class="date-time">Ceremony 3:00 PM &middot; Guests 4:30 PM</span>
-      </div>
       <div class="date-card">
         <span class="date-month">September 2026</span>
         <p class="date-day">Saturday, September 26</p>
@@ -997,11 +1056,22 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
     </div>
     <div style="text-align:center;" class="rise">
       <a class="btn btn-gold" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book your date now</a>
-      <p class="dates-note">Winter dates are coming soon. Beginning in November the ceremony still takes place beneath the St. Johns Bridge and the reception moves indoors to Weddinglandia. Looking for a different date, or planning a winter wedding? <a href="mailto:hello@higherloveeventco.com">Email us</a> and we will be in touch.</p>
+      <p class="dates-note">Don't see your date? <a href="mailto:hello@higherloveeventco.com">Email us</a> or click Join Waitlist on our booking page and we'll be in touch. Winter dates are coming soon. Beginning in November the ceremony still takes place beneath the St. Johns Bridge and the reception moves indoors to Weddinglandia.</p>
+      <div class="year-note">
+        <h3>Planning a 2027 wedding?</h3>
+        <p>2027 dates aren't listed yet, and that isn't us being slow. Portland Parks publishes the list of dates the park is closed to private events in January of each year, so the 2027 list won't exist until January 2027. Nobody knows those dates yet, us included.</p>
+        <p>If you're looking that far out, you have two ways to go:</p>
+        <ul>
+          <li><strong>Reserve now, choose your date in January.</strong> You book using January 1, 2027 as a placeholder, which locks today's pricing and holds the vendor team for you. When the calendar publishes, we pick your real date together and update your booking. Nothing about your package or price changes. If nothing on the calendar works for you, you can withdraw and we refund your deposit in full.</li>
+          <li><strong>Wait and book in January.</strong> You see the calendar first and decide with full information. The tradeoff is that another couple may book the team for your date before you do.</li>
+        </ul>
+        <p>One date we already know is out: July 16 through 18, 2027 is the Cathedral Park Jazz Festival, and the park is closed to events that weekend.</p>
+        <p>The staircase also works differently from 2027 onward, which we've explained in <a href="#ceremony-options">the ceremony options above</a>. <a href="mailto:hello@higherloveeventco.com">Email us</a> and we'll walk you through all of it.</p>
+      </div>
       <div class="invite-line">
         <span class="date-month">For your invitations</span>
         <p>Reception at 4:30 PM<br>Cathedral Park, St. Johns</p>
-        <span class="invite-caption">Copy this onto your invitations. The ceremony beneath the St. Johns Bridge is limited to five, so 4:30 is when your guests should plan to arrive.</span>
+        <span class="invite-caption">If you choose the staircase ceremony, copy this onto your invitations. The staircase is limited to five, so 4:30 is when your guests should plan to arrive. If you choose a reserved spot in the park, everyone is welcome at the ceremony and we will give you the right time to share instead.</span>
       </div>
     </div>
   </div>
@@ -1048,17 +1118,17 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="addon-item">
         <h3>Digital Videography</h3>
         <p>Short-form ceremony and reception coverage from Lost Fox Creative, edited and delivered digitally.</p>
-        <span class="addon-price">$500&ndash;$600</span>
+        <span class="addon-price">Starting at $500</span>
       </div>
       <div class="addon-item">
         <h3>Super 8 Videography</h3>
         <p>Your day shot on Super 8 film by <a href="https://www.hummingbird-films.com/" target="_blank" rel="noopener">Hummingbird Films</a>. Grainy, warm, and unmistakably nostalgic, delivered as a short digital transfer you can keep and share.</p>
-        <span class="addon-price">$1,000&ndash;$1,500</span>
+        <span class="addon-price">From $1,000</span>
       </div>
       <div class="addon-item">
         <h3>Film Photography</h3>
         <p>A roll of 35mm shot by <a href="https://megansphoto.mypixieset.com/" target="_blank" rel="noopener">Megan Moore</a> alongside your digital coverage. Warmer color, softer grain, and a handful of frames worth printing.</p>
-        <span class="addon-price">$50</span>
+        <span class="addon-price">$50 per roll</span>
       </div>
       <div class="addon-item">
         <h3>Ceremony Livestream</h3>
@@ -1083,12 +1153,17 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="addon-item">
         <h3>Polaroid Camera</h3>
         <p>A Polaroid camera loaded with film so your guests can document the afternoon as it happens. You leave with the prints.</p>
-        <span class="addon-price">$50</span>
+        <span class="addon-price">$30</span>
       </div>
       <div class="addon-item">
         <h3>Cutting Cake</h3>
-        <p>A cutting cake from Flower &amp; Flour, with slices enough to share around the table. The dessert spread already includes individual sweets like cookies, brownies, and cupcakes.</p>
-        <span class="addon-price">Pricing on request</span>
+        <p>A cutting cake from Flower &amp; Flour, in three sizes. The dessert spread already includes individual sweets like cookies, brownies, and cupcakes.</p>
+        <span class="addon-price">Serves 2, $75 &middot; Serves 10, $105 &middot; Serves 20, $165</span>
+      </div>
+      <div class="addon-item">
+        <h3>Additional Guests</h3>
+        <p>Up to four people beyond your package count, for The Garden Party and The Soir&eacute;e. Additional guests are seated in the blanket picnic area rather than at a table, since table seating can't be extended. Your beverage allowance goes up $25 per person.</p>
+        <span class="addon-price">$75 each</span>
       </div>
       <div class="addon-item feature">
         <h3>Live Event Painting</h3>
@@ -1111,7 +1186,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
     <div class="sec-head rise">
       <span class="eyebrow">The setup</span>
       <h2>How the picnic is set up.</h2>
-      <p>Cathedral Park is bigger than it looks, and not every corner of it feels the same. There's one spot we'd choose for ourselves &mdash; quieter, more tucked away, with two picnic tables set close together, each seating up to 10 &mdash; and it's the one we reserve for you. Both tables are yours for the afternoon, and they anchor the whole setup: florals, charcuterie, candles, and place settings share the surface. For The Garden Party and The Soir&eacute;e, a third table is styled separately for the dessert spread, so sweets have a home of their own and the main tables stay comfortable.</p>
+      <p>Cathedral Park is bigger than it looks, and not every corner of it feels the same. There's one spot we'd choose for ourselves &mdash; quieter, more tucked away, with picnic tables set close together, each seating up to 10 &mdash; and it's the one we reserve for you. The Garden Party includes one of those tables and The Soir&eacute;e includes two. Your table is the anchor of the whole setup: florals, charcuterie, candles, and place settings share the surface. For both tiers, a third table is styled separately for the dessert spread, so sweets have a home of their own and the main table stays comfortable.</p>
     </div>
     <div class="setup-grid rise">
       <div class="setup-card">
@@ -1140,7 +1215,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <span class="setup-label">Permits &amp; park rules</span>
       <h3>Cathedral Park is a public park, and we treat it like one.</h3>
       <p>Your picnic reception is fully permitted, and the permit fee is included in your package. Because the permit has to be held in your name as host, there's one short application only you can submit &mdash; we send you everything you need and remind you well ahead of the deadline. If it isn't submitted in time, your reception moves indoors to the Weddinglandia chapel instead, so it's worth doing early.</p>
-      <p>Because the permit is in your name, you are the host and the alcohol is yours. Your package includes a beverage allowance, and we buy your beer and wine for you at cost with no markup &mdash; a straight pass-through, receipts available. It arrives sealed for you to serve. The park allows no glass, so cans or plastic only, and no hard alcohol or spirits.</p>
+      <p>Because the permit is in your name, you are the host and the alcohol is yours. Your package includes a beverage allowance, and we buy your beer and wine for you at cost with no markup, a straight pass-through with receipts available. It arrives sealed for you to serve. The park allows no glass, so cans or plastic only, and no hard alcohol or spirits.</p>
       <p>Cathedral Park stays open to the public throughout, so expect a little life around you &mdash; walkers, dogs, someone else admiring the St. Johns Bridge. When the afternoon is over, we pack out everything we brought in and leave the park exactly as we found it.</p>
     </div>
   </div>
@@ -1190,17 +1265,19 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <details class="faq-item">
         <summary>How many people can come to the ceremony?</summary>
         <div class="faq-answer">
-          <p>Five: the two of you, your officiant, and two witnesses.</p>
-          <p>The deck and staircase beneath the St. Johns Bridge can normally hold a much larger wedding — but the permits for that have been unavailable since 2022. Until they come back, an elopement is the only way to marry beneath the bridge, and an elopement is limited to the people a marriage legally requires. That's five, and it isn't something we can flex, even by one.</p>
-          <p>The picnic area is separate, and that we can reserve. So everyone you love is still there. They're waiting at 4:30 with a table already set, and the first thing they see is the two of you walking up married.</p>
+          <p>That depends on where you'd like to say your vows, and it's your choice to make.</p>
+          <p>On the staircase, five: the two of you, your officiant, and two witnesses. The staircase is one of Portland Parks' official wedding venues, and reserving it takes a wedding permit that only you can apply for. Without one you can still marry there as a simple ceremony, but five is the limit and everyone counts, children included. That part isn't something we can flex. Everyone else waits at the picnic and sees you walk up married.</p>
+          <p>At a reserved spot elsewhere in the park, everyone in your package. That part of the park is covered by the special use permit we hold for your reception, which allows up to 30 people at the ceremony. That's more than any of our packages hold, so your whole guest list can watch, children included. There's no seating, so they stand, and then you all walk over to the picnic together.</p>
+          <p>You tell us which one 10 days before your date. <a href="#ceremony-options">Both options are laid out here</a>.</p>
         </div>
       </details>
 
       <details class="faq-item">
         <summary>When should we tell our guests to arrive?</summary>
         <div class="faq-answer">
-          <p>4:30 PM. Not 3:00 — that's your ceremony time, and it's just for the five of you.</p>
+          <p>If you're doing the staircase ceremony, 4:30 PM. Not 3:00 — that's your ceremony time, and it's just for the five of you.</p>
           <p>We'd suggest putting <em>Reception at 4:30 PM, Cathedral Park</em> on your invitations and leaving the ceremony time off entirely. It saves a lot of explaining, and it means nobody turns up early hoping to watch.</p>
+          <p>If you've chosen a reserved spot in the park, your guests are invited to the ceremony, so we'll confirm the arrival time with you and you can put that on the invitations instead.</p>
         </div>
       </details>
 
