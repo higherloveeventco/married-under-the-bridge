@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#F5F0E8">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F5F0E8'/%3E%3Cpath d='M8 46 Q32 10 56 46' fill='none' stroke='%23B8892A' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M8 46 L56 46' stroke='%231A1A18' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="canonical" href="https://marriedunderthebridge.com">
-<meta name="description" content="Married Under the Bridge is a Cathedral Park elopement experience in St. Johns, Portland. A collaboration between Higher Love Event Co. and Weddinglandia. Legal ceremonies beneath the St. Johns Bridge with a styled picnic reception.">
+<meta name="description" content="A legal ceremony beneath the St. Johns Bridge, portraits in Cathedral Park, and a styled picnic reception. All-inclusive from $2,500, with permits, food, florals and photography handled. A collaboration between Higher Love Event Co. and Weddinglandia in St. Johns, Portland.">
 <title>Married Under the Bridge | Cathedral Park Elopement | St. Johns, Portland</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -144,6 +144,71 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 .flow-step p{font-size:.88rem;color:var(--muted);line-height:1.75;margin:0;}
 .flow-time{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem;}
 @media(max-width:860px){.experience-inner{grid-template-columns:1fr;gap:3rem;}}
+
+/* REAL TOTAL / PAYMENT PLAN */
+.total{max-width:900px;margin:2.5rem auto 0;border:0.5px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.total-col{background:var(--cream);padding:2.2rem 2rem;}
+.total-label{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1.1rem;}
+.total-col h3{font-family:var(--serif);font-size:1.2rem;font-weight:400;line-height:1.2;margin-bottom:1rem;}
+.total-col p{font-size:.84rem;color:var(--muted);line-height:1.8;margin:0;}
+.total-col p + p{margin-top:.8rem;}
+.total-row{display:flex;justify-content:space-between;gap:1rem;font-size:.86rem;color:var(--muted);line-height:1.6;padding:.55rem 0;border-bottom:0.5px solid var(--border);}
+.total-row span:last-child{white-space:nowrap;font-variant-numeric:tabular-nums;}
+.total-row.sum{border-bottom:none;border-top:1px solid var(--gold);margin-top:.4rem;padding-top:.8rem;color:var(--black);font-weight:600;}
+.total-row.sub{color:var(--muted);opacity:.85;}
+.total-note{font-size:.8rem;color:var(--muted);line-height:1.75;margin-top:1rem;font-style:italic;font-family:var(--serif);}
+@media(max-width:760px){.total{grid-template-columns:1fr;}}
+@media(max-width:480px){
+  .total-col{padding:1.8rem 1.5rem;}
+  .total-col p,.total-row{font-size:.94rem;}
+  .total-label{font-size:.66rem;}
+  .total-row{padding:.6rem 0;}
+  .total-note{font-size:.9rem;}
+}
+
+/* PROTECTED / DEPOSIT REASSURANCE */
+.protect{border-left:2px solid var(--gold);padding:.9rem 0 .9rem 1.1rem;margin:1rem 0 0;}
+.protect-label{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.6rem;}
+.protect ul{list-style:none;margin:0;}
+.protect li{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:.5rem;padding-left:0;}
+.protect li:last-child{margin-bottom:0;}
+.protect li strong{color:var(--black);font-weight:600;}
+@media(max-width:480px){.protect li{font-size:.94rem;line-height:1.7;}.protect-label{font-size:.66rem;}}
+
+/* MEET KYLIE */
+.meet{background:var(--cream);padding:5rem 0;}
+.meet-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:start;}
+/* If the photo file isn't there yet, collapse to a single full-width column
+   instead of stranding the text in a 280px gutter. */
+.meet-inner.no-photo{grid-template-columns:1fr;}
+.meet-inner.no-photo .meet-photo-wrap{display:none;}
+.meet-photo{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--linen);}
+.meet-photo-wrap{position:relative;}
+.meet-body h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.1;margin-top:.4rem;margin-bottom:1.3rem;}
+.meet-body p{font-size:.98rem;line-height:1.9;color:var(--charcoal);margin-bottom:1.3rem;}
+.meet-sig{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--gold);display:block;margin-top:1.8rem;}
+.meet-role{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.5rem;}
+.meet-contact{margin-top:1.8rem;padding-top:1.4rem;border-top:0.5px solid var(--border);font-size:.88rem;color:var(--muted);line-height:1.9;}
+.meet-contact a{color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);}
+@media(max-width:720px){
+  .meet-inner{grid-template-columns:1fr;gap:2rem;}
+  .meet-photo{aspect-ratio:3/2;}
+}
+@media(max-width:480px){
+  .meet{padding:3.5rem 0;}
+  .meet-body h2{font-size:1.75rem;}
+  .meet-body p{font-size:1rem;line-height:1.8;}
+  .meet-contact{font-size:.94rem;}
+}
+
+/* TALK IT THROUGH */
+.talk-link{display:block;text-align:center;margin-top:1.4rem;font-family:var(--sans);font-size:.78rem;color:var(--muted);line-height:1.7;}
+.talk-link a{color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);}
+.closing .talk-link,.dates-section .talk-link{color:rgba(245,240,232,.6);}
+.closing .talk-link a,.dates-section .talk-link a{color:var(--gold);border-bottom-color:rgba(184,137,42,.5);}
+.hero .talk-link{text-align:left;color:rgba(255,255,255,.85);text-shadow:0 1px 8px rgba(0,0,0,.9);}
+.hero .talk-link a{color:#E7D8B5;border-bottom-color:rgba(231,216,181,.6);}
+@media(max-width:480px){.talk-link{font-size:.9rem;}.hero .talk-link{text-align:center;}}
 
 /* AT A GLANCE */
 .glance{background:var(--linen);padding:2.5rem 0;border-bottom:0.5px solid var(--border);}
@@ -712,6 +777,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <a href="#addons">Add-ons</a>
   <a href="#weather">Weather Policy</a>
   <a href="#neighborhood">The Neighborhood</a>
+  <a href="#kylie">Meet Kylie</a>
   <a href="#vendors">Vendor Team</a>
   <a href="/faq">FAQ</a>
   <a href="https://higherloveeventco.com" target="_blank" rel="noopener">Higher Love</a>
@@ -729,11 +795,12 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <div class="wrap hero-content">
     <div class="hero-eyebrow"><span>A collaboration &middot; Higher Love Event Co. &amp; Weddinglandia &middot; St. Johns, Portland</span></div>
     <h1>Get Married <br><em>Under the Bridge.</em></h1>
-    <p class="hero-sub">Wedding permits beneath the St. Johns Bridge have been unavailable since 2022. Higher Love Event Co. and Weddinglandia found a way around it, and we handle the permitting that is required. An intimate elopement beneath it, portraits in the park, and a picnic feast waiting when you return.</p>
+    <p class="hero-sub">A legal ceremony beneath the St. Johns Bridge. Portraits in Cathedral Park while the tables are set. A styled picnic reception waiting when you walk back. One price, one team of St. Johns neighbours, and the permits handled for you.</p>
     <div class="cta-row" style="justify-content:flex-start;">
       <a class="btn btn-gold" href="#packages">See the packages</a>
       <a class="btn btn-light" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book your date</a>
     </div>
+    <p class="talk-link">Rather talk it through first? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call with Kylie.</a></p>
   </div>
   <span class="hero-credit">Cathedral Park &middot; St. Johns, Portland</span>
 </header>
@@ -766,7 +833,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         </div>
         <div class="glance-cell">
           <span class="glance-q">How to book</span>
-          <p class="glance-a">Pick a date and pay a deposit online. No inquiry form, no waiting to hear back. <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book now</a></p>
+          <p class="glance-a">Pick a date and pay a deposit online. No inquiry form, no waiting to hear back. Or <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">book a free call</a> first if you'd rather talk. <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book now</a></p>
         </div>
       </div>
     </div>
@@ -780,7 +847,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <span class="eyebrow">The experience</span>
       <h2>A Cathedral Park wedding experience.<br>A collaboration of St. Johns creatives.</h2>
       <p>Higher Love Event Co. and Weddinglandia both call St. Johns home. We are neighbors who love this community: the people, the St. Johns Bridge, the parks, the small town feel that has somehow survived in the middle of one of the busiest cities in the Pacific Northwest. This package is what happens when local businesses choose collaboration and community over competition.</p>
-      <p>Weddinglandia coordinates the ceremony. Higher Love coordinates the picnic reception for you and your favorite people, the vendor team, and all logistics. Wedding permits beneath the St. Johns Bridge are currently unavailable while repairs wrap up, but between the two of us we found a way to help you get Married Under the Bridge.</p>
+      <p>Weddinglandia coordinates the ceremony. Higher Love coordinates the picnic reception for you and your favorite people, the vendor team, and all logistics. Between the two of us, everything that has to be permitted, booked, cooked, arranged, set up and packed down is already handled before you arrive.</p>
       <p>The rest of the day belongs to our neighbors. The photography, the florals, the charcuterie, the desserts, the wine and the beer all come from St. Johns and North Portland businesses. People we know by name and have worked with directly. One neighborhood, showing up for your wedding day.</p>
     </div>
   </div>
@@ -843,6 +910,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <p>The spot beneath the arches, and one of the two locations Portland Parks treats as an official wedding venue. Reserving it takes a wedding permit, which isn't part of your package and which only you can apply for.</p>
           <p>Without that permit you can still marry there, but only as a simple ceremony: five people, on a first come, first served basis. Everyone else waits at the picnic and sees you walk up married, which is its own kind of moment.</p>
           <p>If someone else is on the staircase at 3:00, we move to our reserved spot in the park and carry on.</p>
+          <p>The staircase is not ADA accessible, which is worth knowing if stairs are hard for either of you.</p>
           <span class="choice-who">Five people: the two of you, your officiant, and two witnesses. Witnesses must be 18 or older. Everyone counts, including children. Guests arrive at 4:30.</span>
         </div>
         <div class="choice-card">
@@ -1012,12 +1080,52 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="prebook-col">
         <span class="prebook-label">Before you book</span>
         <p>A deposit reserves your date: $1,000 for Just the Two of Us, $1,500 for The Garden Party, $2,100 for The Soir&eacute;e. The balance is due 7 days before your event.</p>
-        <p>Deposits and payments are non-refundable and non-transferable, with one exception: if Portland Parks cancels on us, you are covered. Rescheduling is available where conditions make travel or outdoor activity genuinely unsafe.</p>
+        <p>Deposits and payments are non-refundable and non-transferable if you change your mind. But there are things outside your control, and you are not on the hook for those.</p>
+        <div class="protect">
+          <span class="protect-label">You get your money back if</span>
+          <ul>
+            <li><strong>Portland Parks cancels on you.</strong> If they declare your date unavailable, or withdraw or refuse a permit for reasons that aren't your fault, you choose: reschedule, or a full refund of everything you have paid.</li>
+            <li><strong>You reserved a 2027 date and nothing works.</strong> If you hold a booking ahead of the Parks calendar and no date on it suits you, you can withdraw and we refund your deposit in full.</li>
+          </ul>
+          <span class="protect-label" style="margin-top:1.2rem;">And we'll reschedule if</span>
+          <ul>
+            <li>Conditions make travel or being outdoors genuinely unsafe, like a declared weather emergency or road closures. One reschedule within 12 months, subject to the team being free.</li>
+          </ul>
+        </div>
         <p>Guest count, dietary needs, add-ons, and personal florals are all confirmed 10 days before your date. Children three and older count toward your guest count. Children under three don't, and are seated with a parent rather than given a place setting.</p>
         <p>Full terms are provided at booking, and we're happy to send them ahead of time. Just <a href="mailto:hello@higherloveeventco.com">email us</a>.</p>
       </div>
     </div>
 
+
+    <div class="total rise">
+      <div class="total-col">
+        <span class="total-label">What it really costs</span>
+        <h3>A Garden Party wedding, all in.</h3>
+        <p>Here is a real example so you can see the whole number rather than working it out yourself.</p>
+        <div style="margin-top:1.2rem;">
+          <div class="total-row"><span>The Garden Party package</span><span>$3,600</span></div>
+          <div class="total-row"><span>Bouquet and boutonniere</span><span>$195</span></div>
+          <div class="total-row"><span>Oregon marriage license</span><span>$60</span></div>
+          <div class="total-row sum"><span>Total</span><span>$3,855</span></div>
+        </div>
+        <p class="total-note">The license fee is paid to the county, not to us. It is $60 in Multnomah County and most Oregon counties, or $65 if you ask to waive the three day wait. Skip the personal florals and your total is $3,660.</p>
+        <p>Still to budget for on your own: rings, what you wear, hair and makeup, and travel or lodging for anyone coming from out of town. Everything else on your wedding day is in the package price.</p>
+      </div>
+      <div class="total-col">
+        <span class="total-label">How you pay</span>
+        <h3>A deposit now, the rest before the day.</h3>
+        <p>Your deposit reserves the date and holds the whole vendor team for you. The balance is due 7 days before your wedding.</p>
+        <p>Between those two points there is no schedule to keep to. Pay the balance in one go at the end, or send whatever you like whenever you like and chip away at it. We will always tell you what is outstanding if you ask.</p>
+        <div style="margin-top:1.2rem;">
+          <div class="total-row"><span>Deposit at booking</span><span>$1,500</span></div>
+          <div class="total-row"><span>Balance, due 7 days before</span><span>$2,355</span></div>
+        </div>
+        <p class="total-note">Based on the example alongside. Deposits are $1,000 for Just the Two of Us, $1,500 for The Garden Party, and $2,100 for The Soir&eacute;e.</p>
+      </div>
+    </div>
+
+    <p class="talk-link">Not sure which package fits? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call with Kylie</a> and she'll talk it through with you. No pressure, no sales pitch.</p>
     <p class="tier-note-plain">Looking for a different date? Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a> or click Join Waitlist on our booking page with your preferred date, and we'll check availability with our team.</p>
   </div>
 </section>
@@ -1263,7 +1371,14 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="setup-card">
         <span class="setup-label">Comfort is key</span>
         <h3>Tables for everyone, lawn for those who want it.</h3>
-        <p>We use picnic tables rather than a ground spread because we believe every guest should be comfortable and included. Blankets and cushions are on the lawn for those who want to settle in closer to the ground. If you have any accessibility needs, please let us know and we will do everything we can to accommodate.</p>
+        <p>We use picnic tables rather than a ground spread because we believe every guest should be comfortable and included. Blankets and cushions are on the lawn for those who want to settle in closer to the ground.</p>
+      </div>
+      <div class="setup-card">
+        <span class="setup-label">Accessibility</span>
+        <h3>What the park is actually like to get around.</h3>
+        <p>Cathedral Park has paved, accessible paths and accessible restrooms. The picnic area we reserve is reachable on paved path, and seating is at picnic tables rather than on the ground, so nobody has to get down to a blanket to be part of the day.</p>
+        <p>The staircase and deck beneath the bridge is not ADA accessible. If a guest uses a wheelchair or walker, or stairs are difficult for anyone you love, the reserved ceremony spot in the park is the better choice, and it is the one where everyone can attend anyway.</p>
+        <p>The permanent restrooms sit lower in the park, a few minutes' walk from the picnic area. Tell us what your group needs when you book and we will place everything accordingly. If something here would make the day hard for someone, say so and we will work it out with you rather than leaving you to guess.</p>
       </div>
       <div class="setup-card">
         <span class="setup-label">Entertainment</span>
@@ -1308,6 +1423,38 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <p>Packages are non-refundable and non-transferable. Rescheduling is available if conditions make travel or outdoor activity genuinely unsafe, such as a declared weather emergency or road closures.</p>
           <p class="weather-note">Rain, clouds, or cooler temperatures on their own are not grounds for rescheduling.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET KYLIE -->
+<section class="meet" id="kylie">
+  <div class="wrap">
+    <div class="meet-inner">
+      <div class="meet-photo-wrap rise">
+        <!-- ADD A PHOTO: save one at /images/KylieForslundHigherLoveEventCo.jpg.
+             Until that file exists this block hides itself and the text runs full width,
+             so nothing looks broken. A photo here does real work, so it is worth adding. -->
+        <img class="meet-photo" src="/images/KylieForslundHigherLoveEventCo.jpg"
+             alt="Kylie Forslund, founder of Higher Love Event Co., in St. Johns, Portland"
+             width="560" height="700" loading="lazy" decoding="async"
+             onerror="this.closest('.meet-inner').classList.add('no-photo')">
+      </div>
+      <div class="meet-body rise">
+        <span class="eyebrow">Who you're booking with</span>
+        <h2>Hi, I'm Kylie.</h2>
+        <p>I founded Higher Love Event Co. and I live in St. Johns, about two miles from Cathedral Park. I walk there. I know which corner is quiet on a Saturday afternoon, where the light lands at five o'clock in October, and how far it really is from the picnic tables to the nearest restroom. That last one matters more than you would think.</p>
+        <p>Married Under the Bridge exists because Jasmine at Weddinglandia and I are neighbours, four blocks apart, and we kept meeting couples who wanted to get married under that bridge and could not find a way to do it. So we built one, and then we filled it with people from our own neighbourhood.</p>
+        <p>The part I care most about is that you are not left guessing. Portland Parks permitting is genuinely confusing, and I would rather over-explain something than have you piece it together on your own. If you email me with a question, you will get a real answer from me, usually the same day, and usually longer than you expected.</p>
+        <p>If something on this page is unclear, that is on me and I would like to know. Ask me anything, including the things that feel too small to ask.</p>
+        <span class="meet-sig">Kylie</span>
+        <span class="meet-role">Founder &amp; Event Specialist &middot; Higher Love Event Co.</span>
+        <p class="meet-contact">
+          Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a><br>
+          Call or text <a href="tel:5032178500">503-217-8500</a><br>
+          Or <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">book a free 20 minute call</a> and we'll go through it together.
+        </p>
       </div>
     </div>
   </div>
@@ -1456,6 +1603,24 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
 
       <details class="faq-item">
+        <summary>Is Cathedral Park accessible?</summary>
+        <div class="faq-answer">
+          <p>Mostly yes, with one exception. The park has paved, accessible paths and accessible restrooms, and the picnic area we reserve is reachable on paved path. Everyone sits at picnic tables rather than on the ground, so no guest has to get down to a blanket to be included.</p>
+          <p>The exception is the staircase and deck beneath the bridge, which is not ADA accessible. If anyone in your group uses a wheelchair or a walker, or finds stairs difficult, choose the reserved ceremony spot in the park instead. It is on level ground, and it is also the option where all your guests can attend the ceremony.</p>
+          <p>The permanent restrooms are lower in the park, a few minutes' walk away. Tell us what your group needs when you book. We would much rather plan around it than have you find out on the day.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>When should we get our marriage license?</summary>
+        <div class="faq-answer">
+          <p>Close to your date, but not too close. An Oregon license takes three days to become valid, and it expires 60 days after it is issued. So the window is roughly two months before your wedding, and no later than about a week out to be safe.</p>
+          <p>It costs $60 in Multnomah County and most Oregon counties, or $65 if you ask to waive the three day wait. Any county clerk's office in Oregon works, it does not have to be Multnomah, and you both need to go in person with photo ID.</p>
+          <p>If you are booking a 2027 date, do not get it early. It would expire long before your wedding.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
         <summary>How many guests can we have in total?</summary>
         <div class="faq-answer">
           <p>Ten for The Garden Party, which is the two of you plus 8. Twenty for The Soir&eacute;e, the two of you plus 18. Just the Two of Us is exactly that.</p>
@@ -1490,6 +1655,14 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       </details>
 
       <details class="faq-item">
+        <summary>When do we have to pay, and how much?</summary>
+        <div class="faq-answer">
+          <p>A deposit at booking, and the balance 7 days before your wedding. Deposits are $1,000 for Just the Two of Us, $1,500 for The Garden Party, and $2,100 for The Soir&eacute;e.</p>
+          <p>There is nothing scheduled in between. If you would rather pay the balance down in pieces over the months before your date instead of all at once at the end, you can, and we will tell you where you stand any time you ask. The only fixed date is that 7 day deadline.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
         <summary>Can we book a date for 2027?</summary>
         <div class="faq-answer">
           <p>Yes, with one wrinkle. Portland Parks publishes the list of dates the park is closed to events in January of each year, so nobody knows the 2027 dates yet.</p>
@@ -1518,6 +1691,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <a class="btn btn-gold" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge" aria-label="Book your elopement package">Book your date</a>
       <a class="btn btn-light" href="mailto:hello@higherloveeventco.com" aria-label="Send us a message">Send us a message</a>
     </div>
+    <p class="talk-link" style="margin-top:2rem;">Prefer to speak to a person before you book? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call with Kylie.</a></p>
     <p class="closing-note">Questions? Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a> and we will get back to you within one business day.</p>
   </div>
 </section>
@@ -1550,6 +1724,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <li><a href="#setup">The Setup</a></li>
           <li><a href="#neighborhood">The Neighborhood</a></li>
           <li><a href="#weather">Weather Policy</a></li>
+          <li><a href="#kylie">Meet Kylie</a></li>
           <li><a href="#collab">The Collaboration</a></li>
           <li><a href="#vendors">Vendor Team</a></li>
           <li><a href="/faq">FAQ</a></li>
