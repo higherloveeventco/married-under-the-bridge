@@ -40,8 +40,12 @@ a{color:inherit;text-decoration:none;}
 p{color:var(--charcoal);line-height:1.8;font-size:.92rem;}
 .eyebrow{display:block;font-family:var(--sans);font-size:.63rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;}
 .eyebrow::before{content:"";display:block;width:28px;height:1px;background:var(--gold);margin-bottom:.75rem;}
-.rise{opacity:0;transform:translateY(20px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1);}
-.rise.in{opacity:1;transform:none;}
+/* Content is visible by default. The reveal is opt-in via the js-anim class,
+   which JS adds only when the visitor has not asked for reduced motion. This
+   guarantees nothing can ever be stranded at opacity 0. */
+.rise{opacity:1;transform:none;}
+.js-anim .rise{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease;}
+.js-anim .rise.in{opacity:1;transform:none;}
 
 /* ACCESSIBILITY FLOOR */
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
@@ -140,6 +144,49 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 .flow-step p{font-size:.88rem;color:var(--muted);line-height:1.75;margin:0;}
 .flow-time{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem;}
 @media(max-width:860px){.experience-inner{grid-template-columns:1fr;gap:3rem;}}
+
+/* AT A GLANCE */
+.glance{background:var(--linen);padding:2.5rem 0;border-bottom:0.5px solid var(--border);}
+.glance-inner{max-width:900px;margin:0 auto;}
+.glance h2{font-family:var(--serif);font-weight:300;font-size:1.6rem;line-height:1.15;margin-bottom:1.4rem;}
+.glance-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border);}
+.glance-cell{background:var(--linen);padding:1.1rem 1.3rem;}
+.glance-q{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.45rem;}
+.glance-a{font-size:.92rem;color:var(--charcoal);line-height:1.6;margin:0;}
+.glance-a a{color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);}
+@media(max-width:640px){.glance-grid{grid-template-columns:1fr;}.glance h2{font-size:1.45rem;}.glance-a{font-size:1rem;}}
+
+/* WHAT HAPPENS AFTER YOU BOOK */
+.steps{background:var(--cream);padding:5rem 0;}
+.step-list{max-width:760px;margin:2.5rem 0 0;}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;padding:1.6rem 0;border-top:0.5px solid var(--border);align-items:start;}
+.step:last-child{border-bottom:0.5px solid var(--border);}
+.step-when{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);white-space:nowrap;padding-top:.35rem;min-width:104px;}
+.step h3{font-family:var(--serif);font-size:1.2rem;font-weight:400;line-height:1.2;margin-bottom:.45rem;}
+.step p{font-size:.9rem;color:var(--muted);line-height:1.8;margin:0;}
+.step-who{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.06em;color:var(--gold-deep);display:block;margin-top:.6rem;}
+@media(max-width:600px){
+  .step{grid-template-columns:1fr;gap:.5rem;padding:1.4rem 0;}
+  .step-when{padding-top:0;min-width:0;font-size:.66rem;letter-spacing:.16em;}
+  .step h3{font-size:1.15rem;}
+  .step p{font-size:.95rem;line-height:1.75;}
+  .step-who{font-size:.8rem;}
+}
+
+/* STICKY MOBILE BOOK BAR */
+.book-bar{display:none;}
+@media(max-width:860px){
+  .book-bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:98;
+    background:rgba(26,26,24,.97);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    padding:.7rem 1.25rem calc(.7rem + env(safe-area-inset-bottom));border-top:0.5px solid rgba(245,240,232,.12);
+    transform:translateY(110%);transition:transform .28s ease;}
+  .book-bar.show{transform:none;}
+  .book-bar a{display:block;text-align:center;background:var(--gold);color:var(--white);
+    font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:1rem;}
+  .book-bar span{display:block;text-align:center;font-family:var(--sans);font-size:.66rem;
+    color:rgba(245,240,232,.55);margin-top:.5rem;letter-spacing:.04em;}
+  body{padding-bottom:0;}
+}
 
 /* CEREMONY CHOICE */
 .choice{margin-top:4rem;padding-top:3rem;border-top:0.5px solid var(--border);}
@@ -646,8 +693,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
     <ul class="nav-links">
       <li><a href="#packages">Packages</a></li>
       <li><a href="#dates">Dates</a></li>
+      <li><a href="#after">After You Book</a></li>
       <li><a href="#setup">The Setup</a></li>
-      <li><a href="#neighborhood">The Neighborhood</a></li>
       <li><a href="/faq">FAQ</a></li>
       <li><a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge" class="nav-cta">Book Now</a></li>
     </ul>
@@ -656,12 +703,15 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 </nav>
 
 <div id="mob-menu">
+  <a href="#glance">The Short Version</a>
   <a href="#packages">Packages</a>
+  <a href="#ceremony-options">Ceremony Options</a>
   <a href="#dates">Dates</a>
-  <a href="#neighborhood">The Neighborhood</a>
+  <a href="#after">After You Book</a>
   <a href="#setup">The Setup</a>
+  <a href="#addons">Add-ons</a>
   <a href="#weather">Weather Policy</a>
-  <a href="#collab">The Collaboration</a>
+  <a href="#neighborhood">The Neighborhood</a>
   <a href="#vendors">Vendor Team</a>
   <a href="/faq">FAQ</a>
   <a href="https://higherloveeventco.com" target="_blank" rel="noopener">Higher Love</a>
@@ -679,7 +729,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <div class="wrap hero-content">
     <div class="hero-eyebrow"><span>A collaboration &middot; Higher Love Event Co. &amp; Weddinglandia &middot; St. Johns, Portland</span></div>
     <h1>Get Married <br><em>Under the Bridge.</em></h1>
-    <p class="hero-sub">Wedding permits beneath the St. Johns Bridge have been unavailable since 2022. Higher Love Event Co. and Weddinglandia found a way around it &mdash; and we handle the permitting that is required. An intimate elopement beneath it, portraits in the park, and a picnic feast waiting when you return.</p>
+    <p class="hero-sub">Wedding permits beneath the St. Johns Bridge have been unavailable since 2022. Higher Love Event Co. and Weddinglandia found a way around it, and we handle the permitting that is required. An intimate elopement beneath it, portraits in the park, and a picnic feast waiting when you return.</p>
     <div class="cta-row" style="justify-content:flex-start;">
       <a class="btn btn-gold" href="#packages">See the packages</a>
       <a class="btn btn-light" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book your date</a>
@@ -688,15 +738,50 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <span class="hero-credit">Cathedral Park &middot; St. Johns, Portland</span>
 </header>
 
+<!-- AT A GLANCE -->
+<section class="glance" id="glance">
+  <div class="wrap">
+    <div class="glance-inner">
+      <h2>The short version.</h2>
+      <div class="glance-grid">
+        <div class="glance-cell">
+          <span class="glance-q">What it is</span>
+          <p class="glance-a">A legal wedding ceremony at Cathedral Park, portraits under the St. Johns Bridge, then a styled picnic reception in the park. One price, one team, nothing for you to organise.</p>
+        </div>
+        <div class="glance-cell">
+          <span class="glance-q">What it costs</span>
+          <p class="glance-a">$2,500 for the two of you. $3,600 with up to 8 guests. $5,000 with up to 18. All-inclusive. <a href="#packages">See what's included</a></p>
+        </div>
+        <div class="glance-cell">
+          <span class="glance-q">How many people</span>
+          <p class="glance-a">Up to 20 in a package, or 24 with add-on guests. Everyone can attend the ceremony if you choose a reserved spot in the park. <a href="#ceremony-options">Your two options</a></p>
+        </div>
+        <div class="glance-cell">
+          <span class="glance-q">When</span>
+          <p class="glance-a">Ceremony at 3:00 PM, guests at 4:30 PM, done by 7:30. From November the reception moves indoors. <a href="#dates">See open dates</a></p>
+        </div>
+        <div class="glance-cell">
+          <span class="glance-q">What you have to do</span>
+          <p class="glance-a">Get your Oregon marriage license, and submit one short park permit application that has to be in your name. That's it. <a href="#after">The full list</a></p>
+        </div>
+        <div class="glance-cell">
+          <span class="glance-q">How to book</span>
+          <p class="glance-a">Pick a date and pay a deposit online. No inquiry form, no waiting to hear back. <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book now</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- INTRO -->
 <section class="intro">
   <div class="wrap">
     <div class="intro-inner rise">
       <span class="eyebrow">The experience</span>
       <h2>A Cathedral Park wedding experience.<br>A collaboration of St. Johns creatives.</h2>
-      <p>Higher Love Event Co. and Weddinglandia both call St. Johns home. We are neighbors who love this community — the people, the St. Johns Bridge, the parks, the small town feel that has somehow survived in the middle of one of the busiest cities in the Pacific Northwest. This package is what happens when local businesses choose collaboration and community over competition.</p>
+      <p>Higher Love Event Co. and Weddinglandia both call St. Johns home. We are neighbors who love this community: the people, the St. Johns Bridge, the parks, the small town feel that has somehow survived in the middle of one of the busiest cities in the Pacific Northwest. This package is what happens when local businesses choose collaboration and community over competition.</p>
       <p>Weddinglandia coordinates the ceremony. Higher Love coordinates the picnic reception for you and your favorite people, the vendor team, and all logistics. Wedding permits beneath the St. Johns Bridge are currently unavailable while repairs wrap up, but between the two of us we found a way to help you get Married Under the Bridge.</p>
-      <p>The rest of the day belongs to our neighbors. The photography, the florals, the charcuterie, the desserts, the wine and the beer all come from St. Johns and North Portland businesses — people we know by name and have worked with directly. One neighborhood, showing up for your wedding day.</p>
+      <p>The rest of the day belongs to our neighbors. The photography, the florals, the charcuterie, the desserts, the wine and the beer all come from St. Johns and North Portland businesses. People we know by name and have worked with directly. One neighborhood, showing up for your wedding day.</p>
     </div>
   </div>
 </section>
@@ -721,15 +806,15 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <div class="flow-step">
           <div class="flow-num">01</div>
           <div>
-            <span class="flow-time">3:00 &mdash; 3:30 PM</span>
+            <span class="flow-time">3:00 to 3:30 PM</span>
             <h3>Ceremony at Cathedral Park</h3>
-            <p>A legal ceremony beneath the St. Johns Bridge with an ordained officiant, ceremony recording, and marriage license filing, coordinated by Weddinglandia. You apply for your Oregon marriage license in advance at any county clerk's office in the state and bring it with you &mdash; we complete the paperwork afterward. You choose where the ceremony happens and who is there for it, which is explained just below.</p>
+            <p>A legal ceremony beneath the St. Johns Bridge with an ordained officiant, ceremony recording, and marriage license filing, coordinated by Weddinglandia. You apply for your Oregon marriage license in advance at any county clerk's office in the state and bring it with you, and we complete the paperwork afterward. You choose where the ceremony happens and who is there for it, which is explained just below.</p>
           </div>
         </div>
         <div class="flow-step">
           <div class="flow-num">02</div>
           <div>
-            <span class="flow-time">3:30 &mdash; 4:30 PM</span>
+            <span class="flow-time">3:30 to 4:30 PM</span>
             <h3>Portraits in the park</h3>
             <p>While the picnic is being set, you and your photographer walk Cathedral Park. Time alone together, just the two of you, before anyone else arrives.</p>
           </div>
@@ -737,7 +822,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <div class="flow-step">
           <div class="flow-num">03</div>
           <div>
-            <span class="flow-time">4:30 &mdash; 7:30 PM</span>
+            <span class="flow-time">4:30 to 7:30 PM</span>
             <h3>The picnic awaits</h3>
             <p>The picnic opens when your portraits are done. Linen-draped tables, blankets and cushions, florals, candles, a full spread from She Serves and desserts from Flower &amp; Flour. For The Garden Party and The Soir&eacute;e, your guests arrive at 4:30 to welcome you as newlyweds. You sit down and enjoy it.</p>
           </div>
@@ -778,6 +863,456 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <img class="band" src="/images/PicnicReceptionWeddingPortland.jpg" alt="A styled picnic table with dahlias, taper candles, stone fruit and a sliced loaf, set outdoors" width="2400" height="1600" loading="lazy" decoding="async" style="object-position:center 62%;">
 </div>
 
+<!-- PACKAGES -->
+<section class="tiers-section" id="packages">
+  <div class="wrap">
+    <div class="sec-head-center rise">
+      <span class="eyebrow">The packages</span>
+      <h2>Three ways to do it.</h2>
+      <p>Every package includes a legal ceremony and a fully coordinated picnic reception. Food, beverages, florals, photography, and setup are all included. You show up and enjoy it.</p>
+    </div>
+
+    <div class="tier-cards">
+
+      <!-- TIER 1 -->
+      <div class="tier-card rise">
+        <span class="tier-spacer"></span>
+        <div class="tier-name">Just the Two of Us</div>
+        <span class="tier-guests">Couple only &middot; 3 hours</span>
+        <div class="tier-price">$2,500</div>
+        <span class="tier-price-note">All-inclusive</span>
+        <div class="tier-divider"></div>
+
+        <span class="tier-section-label">Ceremony: Weddinglandia</span>
+        <ul class="tier-items">
+          <li>Legal ceremony at Cathedral Park, 3:00 PM</li>
+          <li>Ordained officiant &amp; marriage license filing</li>
+          <li>Two witnesses provided by Weddinglandia</li>
+          <li>Gift bags for the couple courtesy of Weddinglandia</li>
+          <li>Ceremony recording</li>
+        </ul>
+
+        <span class="tier-section-label">Reception: Higher Love Event Co.</span>
+        <ul class="tier-items">
+          <li>1 hour of photography: 30 min ceremony, 30 min couple portraits</li>
+          <li>48-hour sneak peek, full gallery in four to six weeks</li>
+          <li>Styled picnic for two: your choice of a traditional ground spread with blankets &amp; cushions or a picnic table setting</li>
+          <li>Linens, place settings &amp; votives</li>
+          <li>Charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
+          <li>Dessert spread from Flower &amp; Flour</li>
+          <li>Fresh floral table arrangements from Still City Flowers</li>
+          <li>$75 beverage allowance for Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
+          <li>Seasonally infused water</li>
+          <li>Bluetooth speaker set to your playlist</li>
+        </ul>
+
+        <div class="tier-cta">
+          <a class="btn" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book this package</a>
+        </div>
+      </div>
+
+      <!-- TIER 2 -->
+      <div class="tier-card featured rise">
+        <span class="tier-flag">Most popular</span>
+        <div class="tier-name">The Garden Party</div>
+        <span class="tier-guests">Couple + up to 8 guests &middot; 4.5 hours</span>
+        <div class="tier-price">$3,600</div>
+        <span class="tier-price-note">All-inclusive</span>
+        <div class="tier-divider"></div>
+
+        <span class="tier-section-label">Ceremony: Weddinglandia</span>
+        <ul class="tier-items">
+          <li>Legal ceremony at Cathedral Park, 3:00 PM</li>
+          <li>Ordained officiant &amp; marriage license filing</li>
+          <li>Your choice of ceremony location: the staircase, limited to five, or a reserved spot in the park where all your guests can attend</li>
+          <li>Two of your guests serve as witnesses, or Weddinglandia can provide them</li>
+          <li>Guest arrival time depends on the ceremony you choose</li>
+          <li>Gift bags for the couple courtesy of Weddinglandia</li>
+          <li>Ceremony recording</li>
+        </ul>
+
+        <span class="tier-section-label">Reception: Higher Love Event Co.</span>
+        <ul class="tier-items">
+          <li>2 hours of photography: 30 min ceremony, 1 hr couple portraits, 30 min guest candids</li>
+          <li>48-hour sneak peek, full gallery in four to six weeks</li>
+          <li>Styled picnic for up to 10 with blankets &amp; cushions</li>
+          <li>One reserved picnic table seating up to 10, plus a separate styled dessert table</li>
+          <li>Linens, place settings &amp; votives</li>
+          <li>Charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
+          <li>Dessert spread from Flower &amp; Flour</li>
+          <li>Fresh floral table arrangements from Still City Flowers</li>
+          <li>$225 beverage allowance for Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
+          <li>Seasonally infused water</li>
+          <li>Bluetooth speaker set to your playlist</li>
+          <li>Bocce and cornhole</li>
+          <li>Bubble send-off</li>
+        </ul>
+
+        <div class="tier-cta">
+          <a class="btn btn-outline-gold" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book this package</a>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="tier-card rise">
+        <span class="tier-spacer"></span>
+        <div class="tier-name">The Soir&eacute;e</div>
+        <span class="tier-guests">Couple + up to 18 guests &middot; 4.5 hours</span>
+        <div class="tier-price">$5,000</div>
+        <span class="tier-price-note">All-inclusive</span>
+        <div class="tier-divider"></div>
+
+        <span class="tier-section-label">Ceremony: Weddinglandia</span>
+        <ul class="tier-items">
+          <li>Legal ceremony at Cathedral Park, 3:00 PM</li>
+          <li>Ordained officiant &amp; marriage license filing</li>
+          <li>Your choice of ceremony location: the staircase, limited to five, or a reserved spot in the park where all your guests can attend</li>
+          <li>Two of your guests serve as witnesses, or Weddinglandia can provide them</li>
+          <li>Guest arrival time depends on the ceremony you choose</li>
+          <li>Gift bags for the couple courtesy of Weddinglandia</li>
+          <li>Ceremony recording</li>
+        </ul>
+
+        <span class="tier-section-label">Reception: Higher Love Event Co.</span>
+        <ul class="tier-items">
+          <li>2 hours of photography: 30 min ceremony, 1 hr couple portraits, 30 min guest candids</li>
+          <li>48-hour sneak peek, full gallery in four to six weeks</li>
+          <li>Styled picnic for up to 20 with blankets &amp; cushions</li>
+          <li>Two reserved picnic tables seating up to 10 each, plus a separate styled dessert table</li>
+          <li>Linens, place settings &amp; votives</li>
+          <li>Expanded charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
+          <li>Dessert spread from Flower &amp; Flour</li>
+          <li>Fresh floral table arrangements from Still City Flowers</li>
+          <li>$450 beverage allowance for Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
+          <li>Seasonally infused water</li>
+          <li>Bluetooth speaker set to your playlist</li>
+          <li>Bocce and cornhole</li>
+          <li>Bubble send-off</li>
+        </ul>
+
+        <div class="tier-cta">
+          <a class="btn" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book this package</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="prebook rise">
+      <div class="prebook-col">
+        <span class="prebook-label">What isn't included</span>
+        <ul>
+          <li>Your marriage license and its county fee</li>
+          <li>Hair, makeup, and attire</li>
+          <li>Rings</li>
+          <li>Personal florals. Bouquets and boutonnieres are available as add-ons</li>
+          <li>Transportation and lodging for you and your guests</li>
+          <li>A rehearsal. The ceremony is short and your officiant walks you through it on the day</li>
+        </ul>
+      </div>
+      <div class="prebook-col">
+        <span class="prebook-label">Before you book</span>
+        <p>A deposit reserves your date: $1,000 for Just the Two of Us, $1,500 for The Garden Party, $2,100 for The Soir&eacute;e. The balance is due 7 days before your event.</p>
+        <p>Deposits and payments are non-refundable and non-transferable, with one exception: if Portland Parks cancels on us, you are covered. Rescheduling is available where conditions make travel or outdoor activity genuinely unsafe.</p>
+        <p>Guest count, dietary needs, add-ons, and personal florals are all confirmed 10 days before your date. Children three and older count toward your guest count. Children under three don't, and are seated with a parent rather than given a place setting.</p>
+        <p>Full terms are provided at booking, and we're happy to send them ahead of time. Just <a href="mailto:hello@higherloveeventco.com">email us</a>.</p>
+      </div>
+    </div>
+
+    <p class="tier-note-plain">Looking for a different date? Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a> or click Join Waitlist on our booking page with your preferred date, and we'll check availability with our team.</p>
+  </div>
+</section>
+
+<!-- AVAILABLE DATES -->
+<section class="dates-section" id="dates">
+  <div class="wrap">
+    <div class="sec-head rise" style="max-width:680px;">
+      <span class="eyebrow" style="color:var(--gold);">Book your date</span>
+      <h2 style="color:var(--cream);">These dates are available right now.</h2>
+      <p style="color:rgba(245,240,232,.62);">We release a small number of dates each season for Married Under the Bridge. Each one is instantly bookable, no back and forth, no waiting. When a date books, it's gone. If you don't see a date that works for you, email us or click Join Waitlist on our booking page with the date you have in mind, and we'll be in touch.</p>
+    </div>
+    <div class="dates-grid rise">
+      <div class="date-card">
+        <span class="date-month">September 2026</span>
+        <p class="date-day">Saturday, September 26</p>
+        <span class="date-time">Ceremony 3:00 PM &middot; Guests 4:30 PM</span>
+      </div>
+      <div class="date-card">
+        <span class="date-month">October 2026</span>
+        <p class="date-day">Friday, October 16</p>
+        <span class="date-time">Ceremony 3:00 PM &middot; Guests 4:30 PM</span>
+      </div>
+    </div>
+    <div style="text-align:center;" class="rise">
+      <a class="btn btn-gold" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book your date now</a>
+      <p class="dates-note">Don't see your date? <a href="mailto:hello@higherloveeventco.com">Email us</a> or click Join Waitlist on our booking page and we'll be in touch. Winter dates are coming soon. Beginning in November the ceremony still takes place beneath the St. Johns Bridge and the reception moves indoors to Weddinglandia.</p>
+      <div class="year-note">
+        <h3>Planning a 2027 wedding?</h3>
+        <p>2027 dates aren't listed yet, and that isn't us being slow. Portland Parks publishes the list of dates the park is closed to private events in January of each year, so the 2027 list won't exist until January 2027. Nobody knows those dates yet, us included.</p>
+        <p>If you're looking that far out, you have two ways to go:</p>
+        <ul>
+          <li><strong>Reserve now, choose your date in January.</strong> You book using January 1, 2027 as a placeholder, which locks today's pricing and holds the vendor team for you. When the calendar publishes, we pick your real date together and update your booking. Nothing about your package or price changes. If nothing on the calendar works for you, you can withdraw and we refund your deposit in full.</li>
+          <li><strong>Wait and book in January.</strong> You see the calendar first and decide with full information. The tradeoff is that another couple may book the team for your date before you do.</li>
+        </ul>
+        <p>One date we already know is out: July 16 through 18, 2027 is the Cathedral Park Jazz Festival, and the park is closed to events that weekend.</p>
+        <p>The staircase also works differently from 2027 onward, which we've explained in <a href="#ceremony-options">the ceremony options above</a>. <a href="mailto:hello@higherloveeventco.com">Email us</a> and we'll walk you through all of it.</p>
+      </div>
+      <div class="invite-line">
+        <span class="date-month">For your invitations</span>
+        <p>Reception at 4:30 PM<br>Cathedral Park, St. Johns</p>
+        <span class="invite-caption">If you choose the staircase ceremony, copy this onto your invitations. The staircase is limited to five, so 4:30 is when your guests should plan to arrive. If you choose a reserved spot in the park, everyone is welcome at the ceremony and we will give you the right time to share instead.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS AFTER YOU BOOK -->
+<section class="steps" id="after">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">After you book</span>
+      <h2>Everything you have to do, in order.</h2>
+      <p>Two things need your name on them and nobody can do them for you. Everything else is ours. Here is the whole list, with when each one happens, so there are no surprises and nothing to keep track of in your head.</p>
+    </div>
+    <div class="step-list rise">
+      <div class="step">
+        <span class="step-when">At booking</span>
+        <div>
+          <h3>Pick your package and pay your deposit.</h3>
+          <p>You choose your date, your package, any add-ons, and whether you want beer, wine and champagne or non-alcoholic only. You sign and pay in the same flow. Nothing else is needed that day.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-when">Just after</span>
+        <div>
+          <h3>One short phone call.</h3>
+          <p>About ten minutes. We walk you through the park permit application, which has to be submitted by you because Portland Parks will only deal with the person named on it. We send you every detail you need beforehand.</p>
+          <span class="step-who">Yours to do. We prepare it and remind you.</span>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-when">Any time</span>
+        <div>
+          <h3>Get your Oregon marriage license.</h3>
+          <p>Any county clerk's office in Oregon, not just Multnomah. There is a three day waiting period, and same day licenses are sometimes possible depending on the courthouse. Bring it with you on the day and we file it afterward.</p>
+          <span class="step-who">Yours to do. Bring it on the day.</span>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-when">21 days out</span>
+        <div>
+          <h3>Park permit application submitted.</h3>
+          <p>This is the deadline for the application from your phone call. Once Portland Parks issues your permit number you pass it to us and we handle the rest, including the fee, which is already in your package price.</p>
+          <span class="step-who">Yours to submit. We handle everything after.</span>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-when">10 days out</span>
+        <div>
+          <h3>The last details.</h3>
+          <p>Final guest count, any dietary needs or allergies, personal florals, add-ons, beverage choices, and which ceremony option you want. One email from us, one reply from you, and then it is locked.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-when">7 days out</span>
+        <div>
+          <h3>Balance due.</h3>
+          <p>The remainder of your package. After this there is nothing left to arrange.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-when">By 10 AM on the day</span>
+        <div>
+          <h3>We confirm indoors or out.</h3>
+          <p>If the weather calls for it we move the reception to the Weddinglandia chapel and tell you straight away. Your ceremony, food, florals and everything else stays exactly the same.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-when">On the day</span>
+        <div>
+          <h3>You show up.</h3>
+          <p>Arrive at Cathedral Park for 3:00 PM with your license and each other. Everything is already set. That is genuinely the whole job.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEIGHBORHOOD -->
+<section class="neighborhood" id="neighborhood">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">The neighborhood</span>
+      <h2>Make a weekend of it in St. Johns.</h2>
+      <p>St. Johns is a small town that happens to sit inside Portland, with a main street of breweries, wine bars, bakeries, and shops, a few minutes from the park. Your wedding is one afternoon, but the neighborhood is worth more than that.</p>
+    </div>
+    <div class="hood-grid rise">
+      <div class="hood-card">
+        <span class="hood-time">The night before</span>
+        <h3>Gather everyone early.</h3>
+        <p>A rehearsal dinner, drinks, or just a table big enough for whoever made the trip. St. Johns has room for a group without the reservation gymnastics of downtown, and it puts your people in the neighborhood before the day begins.</p>
+      </div>
+      <div class="hood-card">
+        <span class="hood-time">The wedding day</span>
+        <h3>The neighborhood comes to you.</h3>
+        <p>Wine from <a href="https://45thparallelwine.com/" target="_blank" rel="noopener">45th Parallel</a>. Beer from <a href="https://stormbreakerbrewing.com/" target="_blank" rel="noopener">StormBreaker Brewing</a> and <a href="https://occidentalbrewing.com/" target="_blank" rel="noopener">Occidental Brewing Company</a>, brewed within a few minutes of the park. The flowers, the grazing spread, the desserts, the photography, all from businesses in St. Johns and North Portland. Every part of your table has a name and an address attached to it.</p>
+      </div>
+      <div class="hood-card">
+        <span class="hood-time">After</span>
+        <h3>Keep the night going.</h3>
+        <p>The park closes out in the early evening, but St. Johns doesn't. Walk up for dinner or a nightcap with whoever's still with you. Plenty of couples make it a tradition and come back on their anniversary.</p>
+      </div>
+    </div>
+    <p class="hood-note">Tell us where your guests are coming from and we'll send a short neighborhood guide with our recommendations: where to eat, where to stay, and where to gather the night before.</p>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="addons" id="addons">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">Add-ons</span>
+      <h2>A few things to add to your Cathedral Park wedding day.</h2>
+      <p>Each package is complete on its own. These are available for couples who want a little more.</p>
+    </div>
+    <div class="addon-grid rise">
+      <div class="addon-item">
+        <h3>Digital Videography</h3>
+        <p>Short-form ceremony and reception coverage from Lost Fox Creative, edited and delivered digitally.</p>
+        <span class="addon-price">Starting at $500</span>
+      </div>
+      <div class="addon-item">
+        <h3>Super 8 Videography</h3>
+        <p>Your day shot on Super 8 film by <a href="https://www.hummingbird-films.com/" target="_blank" rel="noopener">Hummingbird Films</a>. Grainy, warm, and unmistakably nostalgic, delivered as a short digital transfer you can keep and share.</p>
+        <span class="addon-price">From $1,000</span>
+      </div>
+      <div class="addon-item">
+        <h3>Film Photography</h3>
+        <p>A roll of 35mm shot by <a href="https://megansphoto.mypixieset.com/" target="_blank" rel="noopener">Megan Moore</a> alongside your digital coverage. Warmer color, softer grain, and a handful of frames worth printing.</p>
+        <span class="addon-price">$50 per roll</span>
+      </div>
+      <div class="addon-item">
+        <h3>Ceremony Livestream</h3>
+        <p>For guests who cannot be there in person. Weddinglandia streams the ceremony with a custom link to share, a virtual guest book, and a digital download within 24 hours.</p>
+        <span class="addon-price">$75</span>
+      </div>
+      <div class="addon-item">
+        <h3>Bouquet + Boutonniere</h3>
+        <p>One bouquet and one boutonniere from Still City Flowers.</p>
+        <span class="addon-price">$195</span>
+      </div>
+      <div class="addon-item">
+        <h3>Two Bouquets</h3>
+        <p>Two bouquets from Still City Flowers.</p>
+        <span class="addon-price">$295</span>
+      </div>
+      <div class="addon-item">
+        <h3>Two Boutonnieres</h3>
+        <p>Two boutonnieres from Still City Flowers.</p>
+        <span class="addon-price">$95</span>
+      </div>
+      <div class="addon-item">
+        <h3>Polaroid Camera</h3>
+        <p>A Polaroid camera loaded with film so your guests can document the afternoon as it happens. You leave with the prints.</p>
+        <span class="addon-price">$30</span>
+      </div>
+      <div class="addon-item">
+        <h3>Cutting Cake</h3>
+        <p>A cutting cake from Flower &amp; Flour, in three sizes. The dessert spread already includes individual sweets like cookies, brownies, and cupcakes.</p>
+        <span class="addon-price">Serves 2, $75 &middot; Serves 10, $105 &middot; Serves 20, $165</span>
+      </div>
+      <div class="addon-item">
+        <h3>Additional Guests</h3>
+        <p>Up to four people beyond your package count, for The Garden Party and The Soir&eacute;e. Additional guests are seated in the blanket picnic area rather than at a table, since table seating can't be extended. Your beverage allowance goes up $25 per person.</p>
+        <span class="addon-price">$75 each</span>
+      </div>
+      <div class="addon-item feature">
+        <h3>Live Event Painting</h3>
+        <p>Yoonie Mae sets up at the reception and guides your guests through making a painting together over the course of the afternoon. Everyone contributes something. You leave with an original piece made by the people who came. The only thing from the day that nobody can order a second copy of.</p>
+        <span class="addon-price">$1,800</span>
+      </div>
+    </div>
+    <p class="addon-note">Add-ons are selected when you book. If you'd like to add something afterward, email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a> and we'll do our best. Everything is confirmed 10 days before your date.</p>
+  </div>
+</section>
+
+<!-- PHOTO BAND 3 -->
+<div style="line-height:0;">
+  <img class="band" src="/images/PicnicPortlandCathedralParkWedding.jpg" alt="An overhead view of a blanket picnic with cheese, grapes, baguette, wine and wildflowers" width="2400" height="1600" loading="lazy" decoding="async" style="object-position:center 55%;">
+</div>
+
+<!-- PICNIC SETUP -->
+<section class="setup" id="setup">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">The setup</span>
+      <h2>How the picnic is set up.</h2>
+      <p>Cathedral Park is bigger than it looks, and not every corner of it feels the same. There's one spot we'd choose for ourselves, quieter and more tucked away, with picnic tables set close together, each seating up to 10. That's the one we reserve for you. The Garden Party includes one of those tables and The Soir&eacute;e includes two. Your table is the anchor of the whole setup: florals, charcuterie, candles, and place settings share the surface. For both tiers, a third table is styled separately for the dessert spread, so sweets have a home of their own and the main table stays comfortable.</p>
+    </div>
+    <div class="setup-grid rise">
+      <div class="setup-card">
+        <span class="setup-label">The sundries</span>
+        <h3>A generous spread from two St. Johns kitchens.</h3>
+        <p>Charcuterie, fruits, nuts, and breads, all sourced and arranged by She Serves, with a dessert spread from Flower &amp; Flour. Vegan options available.</p>
+        <p>Beverages come from our neighborhood partners: your choice of Oregon wine, local craft beer, or a mix of both, alongside seasonally infused water from a drink dispenser. Everything is laid out and ready before you return from portraits.</p>
+      </div>
+      <div class="setup-card">
+        <span class="setup-label">The atmosphere</span>
+        <h3>Abundant, leisurely, celebratory.</h3>
+        <p>Linen tablecloths, candlelight, and perfectly mismatched place settings. Florals from Still City Flowers woven in among the food and candles. Fruits, nuts, and breads nestled between arrangements. The kind of table that looks like it took no effort at all.</p>
+      </div>
+      <div class="setup-card">
+        <span class="setup-label">Comfort is key</span>
+        <h3>Tables for everyone, lawn for those who want it.</h3>
+        <p>We use picnic tables rather than a ground spread because we believe every guest should be comfortable and included. Blankets and cushions are on the lawn for those who want to settle in closer to the ground. If you have any accessibility needs, please let us know and we will do everything we can to accommodate.</p>
+      </div>
+      <div class="setup-card">
+        <span class="setup-label">Entertainment</span>
+        <h3>Music, games, and a send-off.</h3>
+        <p>A Bluetooth speaker set to your playlist. Bocce and cornhole set up and ready for your guests. A bubble send-off to close out the celebration. Included in The Garden Party and The Soirée.</p>
+      </div>
+    </div>
+    <div class="setup-card rise" style="margin-top:1px;">
+      <span class="setup-label">Permits &amp; park rules</span>
+      <h3>Cathedral Park is a public park, and we treat it like one.</h3>
+      <p>Your picnic reception is fully permitted, and the permit fee is included in your package. Because the permit has to be held in your name as host, there's one short application only you can submit. We send you everything you need and remind you well ahead of the deadline. If it isn't submitted in time, your reception moves indoors to the Weddinglandia chapel instead, so it's worth doing early.</p>
+      <p>Because the permit is in your name, you are the host and the alcohol is yours. Your package includes a beverage allowance, and we buy your beer and wine for you at cost with no markup, a straight pass-through with receipts available. It arrives sealed for you to serve. The park allows no glass, so cans or plastic only, and no hard alcohol or spirits.</p>
+      <p>Cathedral Park stays open to the public throughout, so expect a little life around you: walkers, dogs, someone else admiring the St. Johns Bridge. When the afternoon is over, we pack out everything we brought in and leave the park exactly as we found it.</p>
+    </div>
+  </div>
+</section>
+
+<div style="line-height:0;">
+  <img class="band" src="/images/BlanketPicnicElopementWeddingPortland.jpg" alt="A candlelit picnic tray of fruit, bread and nuts on blankets and cushions at dusk" width="2400" height="1600" loading="lazy" decoding="async" style="object-position:center 55%;">
+</div>
+
+<!-- WEATHER -->
+<section class="weather" id="weather">
+  <div class="wrap">
+    <div class="weather-inner">
+      <div class="weather-text rise">
+        <span class="eyebrow">Weather policy</span>
+        <h2>We plan for Portland weather so you don't have to.</h2>
+        <p>This package is designed for Portland's temperate seasons. A little rain or an overcast sky is not a reason to cancel. We have a clear rain plan in place and you will always know what is happening early on your wedding day.</p>
+        <blockquote class="weather-pull">A light rain or overcast sky is part of the experience, not a problem to solve.</blockquote>
+        <p>If conditions call for it, the decision to move indoors is made by Higher Love Event Co. by 10:00am. You will be notified right away.</p>
+      </div>
+      <div class="weather-cards rise">
+        <div class="weather-card">
+          <span class="weather-card-label">Rain plan</span>
+          <h3>Your picnic moves to Weddinglandia.</h3>
+          <p>If it rains, the picnic reception moves indoors to the Weddinglandia chapel on N. Burlington Avenue, a few minutes from the park. Your ceremony, florals, food, and everything included in your package stays exactly the same.</p>
+        </div>
+        <div class="weather-card">
+          <span class="weather-card-label">Rescheduling</span>
+          <h3>Available for genuine safety concerns.</h3>
+          <p>Packages are non-refundable and non-transferable. Rescheduling is available if conditions make travel or outdoor activity genuinely unsafe, such as a declared weather emergency or road closures.</p>
+          <p class="weather-note">Rain, clouds, or cooler temperatures on their own are not grounds for rescheduling.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- COLLAB -->
 <section class="collab" id="collab">
   <div class="wrap">
@@ -798,7 +1333,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       </div>
     </div>
     <div class="collab-proof rise">
-      <p class="collab-award">Weddinglandia &mdash; Portland&rsquo;s Best Wedding Planner, Willamette Week 2025</p>
+      <p class="collab-award">Weddinglandia, Portland&rsquo;s Best Wedding Planner, Willamette Week 2025</p>
       <div class="collab-review-links">
         <a href="https://share.google/dWRO6AXNkB2JuFDrG" target="_blank" rel="noopener">Read Weddinglandia&rsquo;s reviews</a>
         <a href="https://maps.app.goo.gl/dDYLxPNk3eop4xFRA" target="_blank" rel="noopener">Read Higher Love&rsquo;s reviews</a>
@@ -875,384 +1410,6 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   </div>
 </section>
 
-<!-- PACKAGES -->
-<section class="tiers-section" id="packages">
-  <div class="wrap">
-    <div class="sec-head-center rise">
-      <span class="eyebrow">The packages</span>
-      <h2>Three ways to do it.</h2>
-      <p>Every package includes a legal ceremony and a fully coordinated picnic reception. Food, beverages, florals, photography, and setup are all included. You show up and enjoy it.</p>
-    </div>
-
-    <div class="tier-cards">
-
-      <!-- TIER 1 -->
-      <div class="tier-card rise">
-        <span class="tier-spacer"></span>
-        <div class="tier-name">Just the Two of Us</div>
-        <span class="tier-guests">Couple only &middot; 3 hours</span>
-        <div class="tier-price">$2,500</div>
-        <span class="tier-price-note">All-inclusive</span>
-        <div class="tier-divider"></div>
-
-        <span class="tier-section-label">Ceremony: Weddinglandia</span>
-        <ul class="tier-items">
-          <li>Legal ceremony at Cathedral Park, 3:00 PM</li>
-          <li>Ordained officiant &amp; marriage license filing</li>
-          <li>Two witnesses provided by Weddinglandia</li>
-          <li>Gift bags for the couple courtesy of Weddinglandia</li>
-          <li>Ceremony recording</li>
-        </ul>
-
-        <span class="tier-section-label">Reception: Higher Love Event Co.</span>
-        <ul class="tier-items">
-          <li>1 hour of photography: 30 min ceremony, 30 min couple portraits</li>
-          <li>48-hour sneak peek, full gallery in four to six weeks</li>
-          <li>Styled picnic for two: your choice of a traditional ground spread with blankets &amp; cushions or a picnic table setting</li>
-          <li>Linens, place settings &amp; votives</li>
-          <li>Charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
-          <li>Dessert spread from Flower &amp; Flour</li>
-          <li>Fresh floral table arrangements from Still City Flowers</li>
-          <li>$75 beverage allowance &mdash; Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
-          <li>Seasonally infused water</li>
-          <li>Bluetooth speaker set to your playlist</li>
-        </ul>
-
-        <div class="tier-cta">
-          <a class="btn" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book this package</a>
-        </div>
-      </div>
-
-      <!-- TIER 2 -->
-      <div class="tier-card featured rise">
-        <span class="tier-flag">Most popular</span>
-        <div class="tier-name">The Garden Party</div>
-        <span class="tier-guests">Couple + up to 8 guests &middot; 4.5 hours</span>
-        <div class="tier-price">$3,600</div>
-        <span class="tier-price-note">All-inclusive</span>
-        <div class="tier-divider"></div>
-
-        <span class="tier-section-label">Ceremony: Weddinglandia</span>
-        <ul class="tier-items">
-          <li>Legal ceremony at Cathedral Park, 3:00 PM</li>
-          <li>Ordained officiant &amp; marriage license filing</li>
-          <li>Your choice of ceremony location: the staircase, limited to five, or a reserved spot in the park where all your guests can attend</li>
-          <li>Two of your guests serve as witnesses, or Weddinglandia can provide them</li>
-          <li>Guest arrival time depends on the ceremony you choose</li>
-          <li>Gift bags for the couple courtesy of Weddinglandia</li>
-          <li>Ceremony recording</li>
-        </ul>
-
-        <span class="tier-section-label">Reception: Higher Love Event Co.</span>
-        <ul class="tier-items">
-          <li>2 hours of photography: 30 min ceremony, 1 hr couple portraits, 30 min guest candids</li>
-          <li>48-hour sneak peek, full gallery in four to six weeks</li>
-          <li>Styled picnic for up to 10 with blankets &amp; cushions</li>
-          <li>One reserved picnic table seating up to 10, plus a separate styled dessert table</li>
-          <li>Linens, place settings &amp; votives</li>
-          <li>Charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
-          <li>Dessert spread from Flower &amp; Flour</li>
-          <li>Fresh floral table arrangements from Still City Flowers</li>
-          <li>$225 beverage allowance &mdash; Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
-          <li>Seasonally infused water</li>
-          <li>Bluetooth speaker set to your playlist</li>
-          <li>Bocce and cornhole</li>
-          <li>Bubble send-off</li>
-        </ul>
-
-        <div class="tier-cta">
-          <a class="btn btn-outline-gold" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book this package</a>
-        </div>
-      </div>
-
-      <!-- TIER 3 -->
-      <div class="tier-card rise">
-        <span class="tier-spacer"></span>
-        <div class="tier-name">The Soir&eacute;e</div>
-        <span class="tier-guests">Couple + up to 18 guests &middot; 4.5 hours</span>
-        <div class="tier-price">$5,000</div>
-        <span class="tier-price-note">All-inclusive</span>
-        <div class="tier-divider"></div>
-
-        <span class="tier-section-label">Ceremony: Weddinglandia</span>
-        <ul class="tier-items">
-          <li>Legal ceremony at Cathedral Park, 3:00 PM</li>
-          <li>Ordained officiant &amp; marriage license filing</li>
-          <li>Your choice of ceremony location: the staircase, limited to five, or a reserved spot in the park where all your guests can attend</li>
-          <li>Two of your guests serve as witnesses, or Weddinglandia can provide them</li>
-          <li>Guest arrival time depends on the ceremony you choose</li>
-          <li>Gift bags for the couple courtesy of Weddinglandia</li>
-          <li>Ceremony recording</li>
-        </ul>
-
-        <span class="tier-section-label">Reception: Higher Love Event Co.</span>
-        <ul class="tier-items">
-          <li>2 hours of photography: 30 min ceremony, 1 hr couple portraits, 30 min guest candids</li>
-          <li>48-hour sneak peek, full gallery in four to six weeks</li>
-          <li>Styled picnic for up to 20 with blankets &amp; cushions</li>
-          <li>Two reserved picnic tables seating up to 10 each, plus a separate styled dessert table</li>
-          <li>Linens, place settings &amp; votives</li>
-          <li>Expanded charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
-          <li>Dessert spread from Flower &amp; Flour</li>
-          <li>Fresh floral table arrangements from Still City Flowers</li>
-          <li>$450 beverage allowance &mdash; Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
-          <li>Seasonally infused water</li>
-          <li>Bluetooth speaker set to your playlist</li>
-          <li>Bocce and cornhole</li>
-          <li>Bubble send-off</li>
-        </ul>
-
-        <div class="tier-cta">
-          <a class="btn" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book this package</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="prebook rise">
-      <div class="prebook-col">
-        <span class="prebook-label">What isn't included</span>
-        <ul>
-          <li>Your marriage license and its county fee</li>
-          <li>Hair, makeup, and attire</li>
-          <li>Rings</li>
-          <li>Personal florals &mdash; bouquets and boutonnieres are available as add-ons</li>
-          <li>Transportation and lodging for you and your guests</li>
-          <li>A rehearsal &mdash; the ceremony is short and your officiant walks you through it on the day</li>
-        </ul>
-      </div>
-      <div class="prebook-col">
-        <span class="prebook-label">Before you book</span>
-        <p>A deposit reserves your date &mdash; $1,000 for Just the Two of Us, $1,500 for The Garden Party, $2,100 for The Soir&eacute;e. The balance is due 7 days before your event.</p>
-        <p>Deposits and payments are non-refundable and non-transferable, with one exception: if Portland Parks cancels on us, you are covered. Rescheduling is available where conditions make travel or outdoor activity genuinely unsafe.</p>
-        <p>Guest count, dietary needs, add-ons, and personal florals are all confirmed 10 days before your date. Children three and older count toward your guest count. Children under three don't, and are seated with a parent rather than given a place setting.</p>
-        <p>Full terms are provided at booking, and we're happy to send them ahead of time &mdash; just <a href="mailto:hello@higherloveeventco.com">email us</a>.</p>
-      </div>
-    </div>
-
-    <p class="tier-note-plain">Looking for a different date? Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a> or click Join Waitlist on our booking page with your preferred date, and we'll check availability with our team.</p>
-  </div>
-</section>
-
-<!-- AVAILABLE DATES -->
-<section class="dates-section" id="dates">
-  <div class="wrap">
-    <div class="sec-head rise" style="max-width:680px;">
-      <span class="eyebrow" style="color:var(--gold);">Book your date</span>
-      <h2 style="color:var(--cream);">These dates are available right now.</h2>
-      <p style="color:rgba(245,240,232,.62);">We release a small number of dates each season for Married Under the Bridge. Each one is instantly bookable, no back and forth, no waiting. When a date books, it's gone. If you don't see a date that works for you, email us or click Join Waitlist on our booking page with the date you have in mind, and we'll be in touch.</p>
-    </div>
-    <div class="dates-grid rise">
-      <div class="date-card">
-        <span class="date-month">September 2026</span>
-        <p class="date-day">Saturday, September 26</p>
-        <span class="date-time">Ceremony 3:00 PM &middot; Guests 4:30 PM</span>
-      </div>
-      <div class="date-card">
-        <span class="date-month">October 2026</span>
-        <p class="date-day">Friday, October 16</p>
-        <span class="date-time">Ceremony 3:00 PM &middot; Guests 4:30 PM</span>
-      </div>
-    </div>
-    <div style="text-align:center;" class="rise">
-      <a class="btn btn-gold" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book your date now</a>
-      <p class="dates-note">Don't see your date? <a href="mailto:hello@higherloveeventco.com">Email us</a> or click Join Waitlist on our booking page and we'll be in touch. Winter dates are coming soon. Beginning in November the ceremony still takes place beneath the St. Johns Bridge and the reception moves indoors to Weddinglandia.</p>
-      <div class="year-note">
-        <h3>Planning a 2027 wedding?</h3>
-        <p>2027 dates aren't listed yet, and that isn't us being slow. Portland Parks publishes the list of dates the park is closed to private events in January of each year, so the 2027 list won't exist until January 2027. Nobody knows those dates yet, us included.</p>
-        <p>If you're looking that far out, you have two ways to go:</p>
-        <ul>
-          <li><strong>Reserve now, choose your date in January.</strong> You book using January 1, 2027 as a placeholder, which locks today's pricing and holds the vendor team for you. When the calendar publishes, we pick your real date together and update your booking. Nothing about your package or price changes. If nothing on the calendar works for you, you can withdraw and we refund your deposit in full.</li>
-          <li><strong>Wait and book in January.</strong> You see the calendar first and decide with full information. The tradeoff is that another couple may book the team for your date before you do.</li>
-        </ul>
-        <p>One date we already know is out: July 16 through 18, 2027 is the Cathedral Park Jazz Festival, and the park is closed to events that weekend.</p>
-        <p>The staircase also works differently from 2027 onward, which we've explained in <a href="#ceremony-options">the ceremony options above</a>. <a href="mailto:hello@higherloveeventco.com">Email us</a> and we'll walk you through all of it.</p>
-      </div>
-      <div class="invite-line">
-        <span class="date-month">For your invitations</span>
-        <p>Reception at 4:30 PM<br>Cathedral Park, St. Johns</p>
-        <span class="invite-caption">If you choose the staircase ceremony, copy this onto your invitations. The staircase is limited to five, so 4:30 is when your guests should plan to arrive. If you choose a reserved spot in the park, everyone is welcome at the ceremony and we will give you the right time to share instead.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEIGHBORHOOD -->
-<section class="neighborhood" id="neighborhood">
-  <div class="wrap">
-    <div class="sec-head rise">
-      <span class="eyebrow">The neighborhood</span>
-      <h2>Make a weekend of it in St. Johns.</h2>
-      <p>St. Johns is a small town that happens to sit inside Portland — a main street of breweries, wine bars, bakeries, and shops, a few minutes from the park. Your wedding is one afternoon, but the neighborhood is worth more than that.</p>
-    </div>
-    <div class="hood-grid rise">
-      <div class="hood-card">
-        <span class="hood-time">The night before</span>
-        <h3>Gather everyone early.</h3>
-        <p>A rehearsal dinner, drinks, or just a table big enough for whoever made the trip. St. Johns has room for a group without the reservation gymnastics of downtown, and it puts your people in the neighborhood before the day begins.</p>
-      </div>
-      <div class="hood-card">
-        <span class="hood-time">The wedding day</span>
-        <h3>The neighborhood comes to you.</h3>
-        <p>Wine from <a href="https://45thparallelwine.com/" target="_blank" rel="noopener">45th Parallel</a>. Beer from <a href="https://stormbreakerbrewing.com/" target="_blank" rel="noopener">StormBreaker Brewing</a> and <a href="https://occidentalbrewing.com/" target="_blank" rel="noopener">Occidental Brewing Company</a>, brewed within a few minutes of the park. The flowers, the grazing spread, the desserts, the photography — all from businesses in St. Johns and North Portland. Every part of your table has a name and an address attached to it.</p>
-      </div>
-      <div class="hood-card">
-        <span class="hood-time">After</span>
-        <h3>Keep the night going.</h3>
-        <p>The park closes out in the early evening, but St. Johns doesn't. Walk up for dinner or a nightcap with whoever's still with you. Plenty of couples make it a tradition and come back on their anniversary.</p>
-      </div>
-    </div>
-    <p class="hood-note">Tell us where your guests are coming from and we'll send a short neighborhood guide with our recommendations — where to eat, where to stay, and where to gather the night before.</p>
-  </div>
-</section>
-
-<!-- ADD-ONS -->
-<section class="addons" id="addons">
-  <div class="wrap">
-    <div class="sec-head rise">
-      <span class="eyebrow">Add-ons</span>
-      <h2>A few things to add to your Cathedral Park wedding day.</h2>
-      <p>Each package is complete on its own. These are available for couples who want a little more.</p>
-    </div>
-    <div class="addon-grid rise">
-      <div class="addon-item">
-        <h3>Digital Videography</h3>
-        <p>Short-form ceremony and reception coverage from Lost Fox Creative, edited and delivered digitally.</p>
-        <span class="addon-price">Starting at $500</span>
-      </div>
-      <div class="addon-item">
-        <h3>Super 8 Videography</h3>
-        <p>Your day shot on Super 8 film by <a href="https://www.hummingbird-films.com/" target="_blank" rel="noopener">Hummingbird Films</a>. Grainy, warm, and unmistakably nostalgic, delivered as a short digital transfer you can keep and share.</p>
-        <span class="addon-price">From $1,000</span>
-      </div>
-      <div class="addon-item">
-        <h3>Film Photography</h3>
-        <p>A roll of 35mm shot by <a href="https://megansphoto.mypixieset.com/" target="_blank" rel="noopener">Megan Moore</a> alongside your digital coverage. Warmer color, softer grain, and a handful of frames worth printing.</p>
-        <span class="addon-price">$50 per roll</span>
-      </div>
-      <div class="addon-item">
-        <h3>Ceremony Livestream</h3>
-        <p>For guests who cannot be there in person. Weddinglandia streams the ceremony with a custom link to share, a virtual guest book, and a digital download within 24 hours.</p>
-        <span class="addon-price">$75</span>
-      </div>
-      <div class="addon-item">
-        <h3>Bouquet + Boutonniere</h3>
-        <p>One bouquet and one boutonniere from Still City Flowers.</p>
-        <span class="addon-price">$195</span>
-      </div>
-      <div class="addon-item">
-        <h3>Two Bouquets</h3>
-        <p>Two bouquets from Still City Flowers.</p>
-        <span class="addon-price">$295</span>
-      </div>
-      <div class="addon-item">
-        <h3>Two Boutonnieres</h3>
-        <p>Two boutonnieres from Still City Flowers.</p>
-        <span class="addon-price">$95</span>
-      </div>
-      <div class="addon-item">
-        <h3>Polaroid Camera</h3>
-        <p>A Polaroid camera loaded with film so your guests can document the afternoon as it happens. You leave with the prints.</p>
-        <span class="addon-price">$30</span>
-      </div>
-      <div class="addon-item">
-        <h3>Cutting Cake</h3>
-        <p>A cutting cake from Flower &amp; Flour, in three sizes. The dessert spread already includes individual sweets like cookies, brownies, and cupcakes.</p>
-        <span class="addon-price">Serves 2, $75 &middot; Serves 10, $105 &middot; Serves 20, $165</span>
-      </div>
-      <div class="addon-item">
-        <h3>Additional Guests</h3>
-        <p>Up to four people beyond your package count, for The Garden Party and The Soir&eacute;e. Additional guests are seated in the blanket picnic area rather than at a table, since table seating can't be extended. Your beverage allowance goes up $25 per person.</p>
-        <span class="addon-price">$75 each</span>
-      </div>
-      <div class="addon-item feature">
-        <h3>Live Event Painting</h3>
-        <p>Yoonie Mae sets up at the reception and guides your guests through making a painting together over the course of the afternoon. Everyone contributes something. You leave with an original piece made by the people who came &mdash; the only thing from the day that nobody can order a second copy of.</p>
-        <span class="addon-price">$1,800</span>
-      </div>
-    </div>
-    <p class="addon-note">Add-ons are selected when you book. If you'd like to add something afterward, email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a> and we'll do our best &mdash; everything is confirmed 10 days before your date.</p>
-  </div>
-</section>
-
-<!-- PHOTO BAND 3 -->
-<div style="line-height:0;">
-  <img class="band" src="/images/PicnicPortlandCathedralParkWedding.jpg" alt="An overhead view of a blanket picnic with cheese, grapes, baguette, wine and wildflowers" width="2400" height="1600" loading="lazy" decoding="async" style="object-position:center 55%;">
-</div>
-
-<!-- PICNIC SETUP -->
-<section class="setup" id="setup">
-  <div class="wrap">
-    <div class="sec-head rise">
-      <span class="eyebrow">The setup</span>
-      <h2>How the picnic is set up.</h2>
-      <p>Cathedral Park is bigger than it looks, and not every corner of it feels the same. There's one spot we'd choose for ourselves &mdash; quieter, more tucked away, with picnic tables set close together, each seating up to 10 &mdash; and it's the one we reserve for you. The Garden Party includes one of those tables and The Soir&eacute;e includes two. Your table is the anchor of the whole setup: florals, charcuterie, candles, and place settings share the surface. For both tiers, a third table is styled separately for the dessert spread, so sweets have a home of their own and the main table stays comfortable.</p>
-    </div>
-    <div class="setup-grid rise">
-      <div class="setup-card">
-        <span class="setup-label">The sundries</span>
-        <h3>A generous spread from two St. Johns kitchens.</h3>
-        <p>Charcuterie, fruits, nuts, and breads, all sourced and arranged by She Serves, with a dessert spread from Flower &amp; Flour. Vegan options available.</p>
-        <p>Beverages come from our neighborhood partners: your choice of Oregon wine, local craft beer, or a mix of both, alongside seasonally infused water from a drink dispenser. Everything is laid out and ready before you return from portraits.</p>
-      </div>
-      <div class="setup-card">
-        <span class="setup-label">The atmosphere</span>
-        <h3>Abundant, leisurely, celebratory.</h3>
-        <p>Linen tablecloths, candlelight, and perfectly mismatched place settings. Florals from Still City Flowers woven in among the food and candles. Fruits, nuts, and breads nestled between arrangements. The kind of table that looks like it took no effort at all.</p>
-      </div>
-      <div class="setup-card">
-        <span class="setup-label">Comfort is key</span>
-        <h3>Tables for everyone, lawn for those who want it.</h3>
-        <p>We use picnic tables rather than a ground spread because we believe every guest should be comfortable and included. Blankets and cushions are on the lawn for those who want to settle in closer to the ground. If you have any accessibility needs, please let us know and we will do everything we can to accommodate.</p>
-      </div>
-      <div class="setup-card">
-        <span class="setup-label">Entertainment</span>
-        <h3>Music, games, and a send-off.</h3>
-        <p>A Bluetooth speaker set to your playlist. Bocce and cornhole set up and ready for your guests. A bubble send-off to close out the celebration. Included in The Garden Party and The Soirée.</p>
-      </div>
-    </div>
-    <div class="setup-card rise" style="margin-top:1px;">
-      <span class="setup-label">Permits &amp; park rules</span>
-      <h3>Cathedral Park is a public park, and we treat it like one.</h3>
-      <p>Your picnic reception is fully permitted, and the permit fee is included in your package. Because the permit has to be held in your name as host, there's one short application only you can submit &mdash; we send you everything you need and remind you well ahead of the deadline. If it isn't submitted in time, your reception moves indoors to the Weddinglandia chapel instead, so it's worth doing early.</p>
-      <p>Because the permit is in your name, you are the host and the alcohol is yours. Your package includes a beverage allowance, and we buy your beer and wine for you at cost with no markup, a straight pass-through with receipts available. It arrives sealed for you to serve. The park allows no glass, so cans or plastic only, and no hard alcohol or spirits.</p>
-      <p>Cathedral Park stays open to the public throughout, so expect a little life around you &mdash; walkers, dogs, someone else admiring the St. Johns Bridge. When the afternoon is over, we pack out everything we brought in and leave the park exactly as we found it.</p>
-    </div>
-  </div>
-</section>
-
-<div style="line-height:0;">
-  <img class="band" src="/images/BlanketPicnicElopementWeddingPortland.jpg" alt="A candlelit picnic tray of fruit, bread and nuts on blankets and cushions at dusk" width="2400" height="1600" loading="lazy" decoding="async" style="object-position:center 55%;">
-</div>
-
-<!-- WEATHER -->
-<section class="weather" id="weather">
-  <div class="wrap">
-    <div class="weather-inner">
-      <div class="weather-text rise">
-        <span class="eyebrow">Weather policy</span>
-        <h2>We plan for Portland weather so you don't have to.</h2>
-        <p>This package is designed for Portland's temperate seasons. A little rain or an overcast sky is not a reason to cancel. We have a clear rain plan in place and you will always know what is happening early on your wedding day.</p>
-        <blockquote class="weather-pull">A light rain or overcast sky is part of the experience, not a problem to solve.</blockquote>
-        <p>If conditions call for it, the decision to move indoors is made by Higher Love Event Co. by 10:00am. You will be notified right away.</p>
-      </div>
-      <div class="weather-cards rise">
-        <div class="weather-card">
-          <span class="weather-card-label">Rain plan</span>
-          <h3>Your picnic moves to Weddinglandia.</h3>
-          <p>If it rains, the picnic reception moves indoors to the Weddinglandia chapel on N. Burlington Avenue, a few minutes from the park. Your ceremony, florals, food, and everything included in your package stays exactly the same.</p>
-        </div>
-        <div class="weather-card">
-          <span class="weather-card-label">Rescheduling</span>
-          <h3>Available for genuine safety concerns.</h3>
-          <p>Packages are non-refundable and non-transferable. Rescheduling is available if conditions make travel or outdoor activity genuinely unsafe, such as a declared weather emergency or road closures.</p>
-          <p class="weather-note">Rain, clouds, or cooler temperatures on their own are not grounds for rescheduling.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="wrap">
@@ -1275,7 +1432,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <details class="faq-item">
         <summary>When should we tell our guests to arrive?</summary>
         <div class="faq-answer">
-          <p>If you're doing the staircase ceremony, 4:30 PM. Not 3:00 — that's your ceremony time, and it's just for the five of you.</p>
+          <p>If you're doing the staircase ceremony, 4:30 PM. Not 3:00, which is your ceremony time and just for the five of you.</p>
           <p>We'd suggest putting <em>Reception at 4:30 PM, Cathedral Park</em> on your invitations and leaving the ceremony time off entirely. It saves a lot of explaining, and it means nobody turns up early hoping to watch.</p>
           <p>If you've chosen a reserved spot in the park, your guests are invited to the ceremony, so we'll confirm the arrival time with you and you can put that on the invitations instead.</p>
         </div>
@@ -1284,8 +1441,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <details class="faq-item">
         <summary>What do we need to do about a marriage license?</summary>
         <div class="faq-answer">
-          <p>Apply at any county clerk's office in Oregon — it doesn't have to be Multnomah. Licenses can be secured three days ahead, and same-day licenses are sometimes available depending on timing and courthouse availability. Bring it with you on the day and we complete the paperwork afterward.</p>
-          <p>If you arrive without a valid license we can still hold the ceremony, but the marriage won't be legal and the package is non-refundable — so please build this into your timeline.</p>
+          <p>Apply at any county clerk's office in Oregon. It doesn't have to be Multnomah. Licenses can be secured three days ahead, and same-day licenses are sometimes available depending on timing and courthouse availability. Bring it with you on the day and we complete the paperwork afterward.</p>
+          <p>If you arrive without a valid license we can still hold the ceremony, but the marriage won't be legal and the package is non-refundable, so please build this into your timeline.</p>
         </div>
       </details>
 
@@ -1297,6 +1454,49 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         </div>
       </details>
 
+
+      <details class="faq-item">
+        <summary>How many guests can we have in total?</summary>
+        <div class="faq-answer">
+          <p>Ten for The Garden Party, which is the two of you plus 8. Twenty for The Soir&eacute;e, the two of you plus 18. Just the Two of Us is exactly that.</p>
+          <p>You can add up to four more people at $75 each on the two larger packages, which takes The Garden Party to 14 and The Soir&eacute;e to 24. Added guests sit on the blanket picnic area rather than at a table, because table seating can't be extended past what your package includes. Twenty-four is our hard ceiling.</p>
+          <p>Children three and older count toward your total. Children under three don't, and are seated with a parent rather than given their own place setting.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What do we actually have to do ourselves?</summary>
+        <div class="faq-answer">
+          <p>Two things. Get your Oregon marriage license, and submit one short park permit application that has to be in your name, because Portland Parks will only deal with the person named on it.</p>
+          <p>We prepare the application for you, walk you through it on a ten minute call after you book, and remind you before the deadline. <a href="#after">The full timeline is here</a>, with when each thing happens.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do beer and wine work?</summary>
+        <div class="faq-answer">
+          <p>Your package includes a beverage allowance: $75 for Just the Two of Us, $225 for The Garden Party, $450 for The Soir&eacute;e. It goes up $25 for each additional guest you add.</p>
+          <p>Because the park permit is in your name, you're the host and the alcohol is yours. We buy it for you at cost with no markup and hand it over sealed, and we'll show you the receipts. It covers beer, wine and champagne. No spirits, and no glass anywhere in the park, so cans or plastic only.</p>
+          <p>If you'd rather not have alcohol, say so at booking and the allowance is credited back to your final invoice. Seasonally infused water is included either way.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What happens if it rains?</summary>
+        <div class="faq-answer">
+          <p>The picnic moves indoors to the Weddinglandia chapel, two blocks from the park, at no extra cost. Your ceremony, food, florals and everything else in your package stays exactly the same.</p>
+          <p>We make that call by 10:00 AM on the day and tell you straight away, so you're never standing in the park wondering. Light rain isn't a reason to move. <a href="#weather">The full weather policy is here</a>.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can we book a date for 2027?</summary>
+        <div class="faq-answer">
+          <p>Yes, with one wrinkle. Portland Parks publishes the list of dates the park is closed to events in January of each year, so nobody knows the 2027 dates yet.</p>
+          <p>You can reserve now using January 1, 2027 as a placeholder, which locks today's pricing and holds the vendor team. In January we pick your real date together. If nothing on the calendar works for you, you can withdraw and we refund your deposit in full. Or you can wait and book in January once you can see it.</p>
+          <p>One date is already out: July 16 to 18, 2027 is the Cathedral Park Jazz Festival.</p>
+        </div>
+      </details>
     </div>
     <p class="faq-more"><a href="/faq">Read all questions and answers</a></p>
   </div>
@@ -1324,6 +1524,11 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
 </main>
 
+<div class="book-bar" id="book-bar">
+  <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book your date</a>
+  <span>From $2,500, all-inclusive</span>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
@@ -1336,11 +1541,14 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="foot-col">
         <p class="foot-col-label">This page</p>
         <ul>
+          <li><a href="#glance">The Short Version</a></li>
           <li><a href="#packages">Packages</a></li>
+          <li><a href="#ceremony-options">Ceremony Options</a></li>
           <li><a href="#dates">Available Dates</a></li>
-          <li><a href="#neighborhood">The Neighborhood</a></li>
+          <li><a href="#after">After You Book</a></li>
           <li><a href="#addons">Add-ons</a></li>
           <li><a href="#setup">The Setup</a></li>
+          <li><a href="#neighborhood">The Neighborhood</a></li>
           <li><a href="#weather">Weather Policy</a></li>
           <li><a href="#collab">The Collaboration</a></li>
           <li><a href="#vendors">Vendor Team</a></li>
@@ -1408,8 +1616,9 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if(reduce || !("IntersectionObserver" in window)){
-    Array.prototype.forEach.call(els, function(el){ el.classList.add("in"); });
+    // Leave everything visible. No class is added, so .rise stays at opacity 1.
   } else {
+    document.documentElement.classList.add("js-anim");
     var io = new IntersectionObserver(function(entries){
       // Stagger only within the batch currently entering the viewport, so an
       // element deep in the page never inherits a delay from its document index.
@@ -1430,6 +1639,24 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   if(location.hash === "#faq"){
     var first = document.querySelector(".faq-item");
     if(first) first.setAttribute("open","");
+  }
+
+  // Sticky book bar: appears once the visitor is past the hero, hides at the footer
+  // so it never covers the closing call to action.
+  var bar = document.getElementById("book-bar");
+  var closing = document.getElementById("book");
+  if(bar){
+    var tick = false;
+    function place(){
+      var past = window.scrollY > window.innerHeight * 0.9;
+      var atEnd = closing && closing.getBoundingClientRect().top < window.innerHeight;
+      bar.classList.toggle("show", past && !atEnd);
+      tick = false;
+    }
+    window.addEventListener("scroll", function(){
+      if(!tick){ window.requestAnimationFrame(place); tick = true; }
+    }, {passive:true});
+    place();
   }
 })();
 </script>
