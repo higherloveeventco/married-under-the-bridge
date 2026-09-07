@@ -239,13 +239,13 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 
 /* MEET KYLIE */
 .meet{background:var(--cream);padding:5rem 0;}
-.meet-inner{display:grid;grid-template-columns:1fr;gap:3rem;align-items:start;max-width:none;}
-.meet-inner.has-photo{grid-template-columns:300px 1fr;}
-/* The photo column only appears once the image actually loads, so a missing
-   file can never leave the text stranded in an empty gutter. */
-.meet-photo-wrap{display:none;}
-.meet-inner.has-photo .meet-photo-wrap{display:block;}
-.meet-photo{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--linen);}
+.meet-inner{display:grid;gap:3rem;align-items:start;max-width:none;}
+/* Two columns by default. If the image ever fails to load, onerror drops the
+   class and the text reflows to full width rather than sitting in an empty gutter. */
+.meet-inner{grid-template-columns:300px 1fr;}
+.meet-inner.no-photo{grid-template-columns:1fr;}
+.meet-inner.no-photo .meet-photo-wrap{display:none;}
+.meet-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;display:block;background:var(--linen);}
 .meet-photo-wrap{position:relative;}
 .meet-body h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.1;margin-top:.4rem;margin-bottom:1.3rem;}
 .meet-body p{font-size:1.02rem;line-height:1.75;color:var(--charcoal);margin-bottom:1.2rem;max-width:60ch;}
@@ -254,8 +254,8 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 .meet-contact{margin-top:1.8rem;padding-top:1.4rem;border-top:0.5px solid var(--border);font-size:.88rem;color:var(--muted);line-height:1.9;}
 .meet-contact a{color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);}
 @media(max-width:720px){
-  .meet-inner.has-photo{grid-template-columns:1fr;gap:2rem;}
-  .meet-photo{aspect-ratio:3/2;}
+  .meet-inner{grid-template-columns:1fr!important;gap:2rem;}
+  .meet-photo{aspect-ratio:4/3;max-height:420px;}
 }
 @media(max-width:480px){
   .meet{padding:3.5rem 0;}
@@ -318,13 +318,23 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
   body{padding-bottom:0;}
 }
 
+/* PARK MAP */
+.map-block{margin-top:2.5rem;border:0.5px solid var(--border);background:var(--cream);}
+.map-block img{width:100%;height:auto;display:block;}
+.map-cap{font-family:var(--sans);font-size:.9rem;color:var(--muted);line-height:1.7;padding:1.1rem 1.4rem;max-width:70ch;}
+@media(max-width:480px){.map-cap{font-size:.95rem;padding:1rem 1.2rem;}}
+
 /* CEREMONY CHOICE */
 .choice{margin-top:4rem;padding-top:3rem;border-top:0.5px solid var(--border);}
 .choice-head{max-width:680px;margin-bottom:2.5rem;}
 .choice-head h3{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.15;margin-top:.4rem;margin-bottom:1rem;}
 .choice-head p{font-size:1.02rem;line-height:1.75;color:var(--charcoal);margin:0;max-width:60ch;}
 .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:0.5px solid var(--border);}
-.choice-card{background:var(--cream);padding:2.4rem 2.2rem;display:flex;flex-direction:column;}
+.choice-card{background:var(--cream);display:flex;flex-direction:column;}
+.choice-card > .choice-body{padding:2.4rem 2.2rem;display:flex;flex-direction:column;flex:1;}
+.choice-img{width:100%;height:300px;flex:0 0 300px;object-fit:cover;display:block;}
+@media(max-width:760px){.choice-img{height:240px;flex-basis:240px;}}
+@media(max-width:480px){.choice-card > .choice-body{padding:1.8rem 1.5rem;}.choice-img{height:200px;flex-basis:200px;}}
 .choice-label{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1.1rem;}
 .choice-card h4{font-family:var(--serif);font-size:1.3rem;font-weight:400;line-height:1.2;margin-bottom:.9rem;}
 .choice-card p{font-size:.98rem;color:var(--muted);line-height:1.7;margin:0;}
@@ -425,6 +435,7 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 .addon-note{text-align:center;margin:2rem auto 0;max-width:62ch;font-size:.96rem;color:var(--muted);font-family:var(--sans);}
 .addon-note a{color:var(--gold-deep);font-weight:600;}
 @media(max-width:860px){.addon-grid{grid-template-columns:1fr 1fr;}.addon-item.feature{grid-column:span 2;}}
+@media(max-width:700px){.addon-item.feature{grid-template-columns:1fr!important;}.addon-item.feature img{aspect-ratio:3/2;height:auto!important;}}
 
 /* SETUP — dark */
 .setup{background:var(--black);padding:5rem 0;}
@@ -721,12 +732,12 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 <meta property="og:url" content="https://marriedunderthebridge.com">
 <meta property="og:title" content="Married Under the Bridge | Cathedral Park Elopement | St. Johns, Portland">
 <meta property="og:description" content="Exchange vows beneath the St. Johns Bridge at Cathedral Park, then gather for a styled picnic reception. A collaboration between Higher Love Event Co. and Weddinglandia.">
-<meta property="og:image" content="https://marriedunderthebridge.com/images/StJohnsBridgeCathedralParkPortlandOregon_300KB.jpg">
+<meta property="og:image" content="https://marriedunderthebridge.com/images/32-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1112.jpg">
 <meta property="og:site_name" content="Married Under the Bridge">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Married Under the Bridge | Cathedral Park Elopement | St. Johns, Portland">
 <meta name="twitter:description" content="Exchange vows beneath the St. Johns Bridge at Cathedral Park, then gather for a styled picnic reception. A collaboration between Higher Love Event Co. and Weddinglandia.">
-<meta name="twitter:image" content="https://marriedunderthebridge.com/images/StJohnsBridgeCathedralParkPortlandOregon_300KB.jpg">
+<meta name="twitter:image" content="https://marriedunderthebridge.com/images/32-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1112.jpg">
 
 <script type="application/ld+json">
 {
@@ -794,7 +805,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       "name": "How many people can come to the ceremony?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Couples choose between two ceremony locations ten days before their date. On the Cathedral Park staircase, five people may attend: the couple, the officiant and two witnesses, with children counting toward that limit. At a location reserved elsewhere in the park, every guest in the package may attend standing. The staircase cannot be reserved in advance, which is why it is capped."
+        "text": "Couples choose between two ceremony locations ten days before their date. On the Cathedral Park staircase, five people may attend: the couple, the officiant and two witnesses, with children counting toward that limit. On the park lawn, which Married Under the Bridge reserves in advance, every guest in the package may attend standing. The staircase cannot be reserved without a Portland Parks wedding permit held in the couple's own name, which is why it is otherwise capped at five."
       }
     },
     {
@@ -900,7 +911,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         </div>
         <div class="glance-cell">
           <span class="glance-q">How many people</span>
-          <p class="glance-a">Up to 20 in a package, or 24 with add-on guests. All of them can watch you get married, if you pick the right ceremony spot. <a href="#ceremony-options">Your two options</a></p>
+          <p class="glance-a">Up to 20 in a package, or 24 with add-on guests. All of them can watch you get married, if you choose the lawn ceremony. <a href="#ceremony-options">Your two options</a></p>
         </div>
         <div class="glance-cell">
           <span class="glance-q">When</span>
@@ -966,9 +977,9 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
 <!-- PHOTO BAND 1 -->
 <div style="line-height:0;">
-  <img class="band" src="/images/Kitta-Bodmer-Photography-7276-Abramson-129__1___1_.jpg" alt="A newly married couple cheering with raised arms beneath the arches of the St. Johns Bridge" width="1024" height="683" loading="lazy" decoding="async" style="object-position:center 42%;">
+  <img class="band" src="/images/31-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1117.jpg" alt="A couple walking down the Cathedral Park staircase under the gothic arch of the St. Johns Bridge after their ceremony" width="1024" height="1467" loading="lazy" decoding="async" style="object-position:center 38%;">
 </div>
-<span class="photo-credit">Photo: <a href="https://kittabodmer.com/" target="_blank" rel="noopener">Kitta Bodmer</a></span>
+
 
 <!-- EXPERIENCE FLOW -->
 <section class="experience" id="experience">
@@ -1012,10 +1023,12 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="choice-head">
         <span class="eyebrow">Where you say your vows</span>
         <h3>One question to answer.</h3>
-        <p>Do you want the staircase, or do you want everyone there? You can have either. We can't give you both. Tell us which one 10 days before your date and we'll take it from there.</p>
+        <p>The staircase or the lawn. The staircase is the picture everyone has in their head. The lawn is the one where everybody you love gets to watch. Tell us which 10 days before your date and we'll take it from there.</p>
       </div>
       <div class="choice-grid">
         <div class="choice-card">
+          <img class="choice-img" src="/images/StaircaseCeremonyCathedralPark_300KB.jpg" alt="The Cathedral Park staircase leading up to the gothic arch beneath the St. Johns Bridge" width="1050" height="1400" loading="lazy" decoding="async" style="object-position:center 46%;">
+          <div class="choice-body">
           <span class="choice-label">Option one</span>
           <span class="choice-blank"></span>
           <h4>On the staircase.</h4>
@@ -1023,27 +1036,37 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <p class="choice-if"><strong>Choose this if</strong> the staircase under the arches is the picture you've had in your head all along.</p>
           <p>The two of you, your officiant and two witnesses. Everyone counts toward that five, kids included, and witnesses have to be 18 or older.</p>
           <p>Your guests wait at the picnic and watch you walk up already married. That's a good moment too.</p>
-          <span class="choice-who">The staircase can't be reserved, so it's first come, first served. If someone's there at 3:00, we move to our reserved spot and carry on. Guests arrive at 4:30.</span>
+          <p>Want everyone up there instead? That takes a Portland Parks wedding permit in your own name, applied for in person on one morning in January. It's about $817 and we'll talk you through it, but Parks will only deal with you directly.</p>
+          <span class="choice-who">The staircase can't be reserved, so it's first come, first served. If someone's there at 3:00, we move to the lawn and carry on. Guests arrive at 4:30.</span>
+          </div>
         </div>
         <div class="choice-card">
+          <img class="choice-img" src="/images/LawnCeremonyCathedralPark_300KB.jpg" alt="The open lawn at Cathedral Park with the St. Johns Bridge tower rising above the trees" width="1050" height="1400" loading="lazy" decoding="async" style="object-position:center 58%;">
+          <div class="choice-body">
           <span class="choice-label">Option two</span>
           <span class="choice-pick">What we would pick</span>
-          <h4>A spot we reserve for you.</h4>
+          <h4>On the park lawn.</h4>
           <span class="choice-count">Everyone<small>people at the ceremony</small></span>
           <p class="choice-if"><strong>Choose this if</strong> you'd be sad about anyone missing the vows.</p>
-          <p>We hold a spot in Cathedral Park with the bridge overhead, confirmed in advance, so it's yours for the afternoon.</p>
+          <p>We hold a spot on the lawn with the bridge above you, confirmed in advance, so it's yours for the afternoon. No permit for you to chase.</p>
           <p>Your whole guest list can be there, kids included. Nobody sits, so everyone stands for the vows, and then you all walk over to the picnic together.</p>
-          <span class="choice-who">It's on level ground, so it works for anyone who'd find the staircase steps hard. Guests come for the ceremony.</span>
+          <span class="choice-who">Level ground and no steps, so it works for anyone who'd struggle with the staircase. Guests come for the ceremony.</span>
+          </div>
         </div>
       </div>
-      <p class="choice-note">From 2027, another couple might have the staircase reserved on your date, which is why option two is the one we'd steer you toward. If you want the permit details behind all this, they're <a href="/faq#ceremony">on our FAQ</a>.</p>
+      <p class="choice-note">From 2027, another couple might have the staircase reserved on your date, which is why the lawn is the one we'd steer you toward. If you want the permit details behind all this, they're <a href="/faq#ceremony">on our FAQ</a>.</p>
+
+      <figure class="map-block">
+        <img src="/images/CathedralParkCeremonyMap_300KB.jpg" alt="Map of Cathedral Park showing the staircase ceremony location beneath the St. Johns Bridge, the park lawn ceremony location, both picnic reception areas, restrooms and parking" width="1400" height="1867" loading="lazy" decoding="async">
+        <figcaption class="map-cap">Both ceremony spots, both picnic areas, and where the restrooms and parking sit. Worth a look before you choose, and worth sending to anyone in your group who'd want to know how far they'll be walking.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
 <!-- PHOTO BAND 2 -->
 <div style="line-height:0;">
-  <img class="band" src="/images/PicnicReceptionWeddingPortland.jpg" alt="A styled picnic table with dahlias, taper candles, stone fruit and a sliced loaf, set outdoors" width="2400" height="1600" loading="lazy" decoding="async" style="object-position:center 62%;">
+  <img class="band" src="/images/25-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1276.jpg" alt="A styled picnic table at Cathedral Park laid with vintage china, taper candles and a full grazing spread" width="1024" height="1536" loading="lazy" decoding="async" style="object-position:center 42%;">
 </div>
 
 <!-- PACKAGES -->
@@ -1181,7 +1204,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <ul class="tier-items">
           <li>Legal ceremony at 3:00 PM with an ordained officiant</li>
           <li>Marriage license filing and a ceremony recording</li>
-          <li>Choose your ceremony: the staircase for five, or a reserved spot where everyone can be there</li>
+          <li>Choose your ceremony: the staircase for five, or the park lawn where everyone can be there</li>
           <li>Two of your guests witness, or we provide them</li>
           <li>Gift bags for the couple</li>
         </ul>
@@ -1214,7 +1237,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <ul class="tier-items">
           <li>Legal ceremony at 3:00 PM with an ordained officiant</li>
           <li>Marriage license filing and a ceremony recording</li>
-          <li>Choose your ceremony: the staircase for five, or a reserved spot where everyone can be there</li>
+          <li>Choose your ceremony: the staircase for five, or the park lawn where everyone can be there</li>
           <li>Two of your guests witness, or we provide them</li>
           <li>Gift bags for the couple</li>
         </ul>
@@ -1385,7 +1408,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="invite-line">
         <span class="date-month">For your invitations</span>
         <p>Reception at 4:30 PM<br>Cathedral Park, St. Johns</p>
-        <span class="invite-caption">Use this if you choose the staircase, where 4:30 is when your guests should arrive. If you choose the reserved spot, everyone is invited to the ceremony and we'll give you that time to put on your invitations instead.</span>
+        <span class="invite-caption">Use this if you choose the staircase, where 4:30 is when your guests should arrive. If you choose the lawn, everyone is invited to the ceremony and we'll give you that time to put on your invitations instead.</span>
       </div>
       </div>
     </div>
@@ -1514,10 +1537,13 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <h3>Additional Guests</h3>
         <span class="addon-price">$75 each, up to 4</span>
       </div>
-      <div class="addon-item feature">
+      <div class="addon-item feature" style="padding:0;display:grid;grid-template-columns:260px 1fr;gap:0;align-items:stretch;">
+        <img src="/images/10-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1474.jpg" alt="A couple watching an artist paint their wedding at an easel during a Cathedral Park picnic reception" width="1024" height="1536" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+        <div style="padding:1.8rem;display:flex;flex-direction:column;">
         <h3>Live Event Painting</h3>
         <p>Yoonie Mae sets up at the reception and guides your guests through making a painting together across the afternoon. You leave with an original piece made by the people who came.</p>
         <span class="addon-price">$1,800</span>
+        </div>
       </div>
     </div>
     <p class="addon-note">Pick your add-ons when you book. Want to add something later? Email us and we'll do our best. Everything locks 10 days before your date.</p>
@@ -1525,7 +1551,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 </section>
 
 <div style="line-height:0;">
-  <img class="band" src="/images/BlanketPicnicElopementWeddingPortland.jpg" alt="A candlelit picnic tray of fruit, bread and nuts on blankets and cushions at dusk" width="2400" height="1600" loading="lazy" decoding="async" style="object-position:center 55%;">
+  <img class="band" src="/images/24-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1279.jpg" alt="Black and white photograph of a groom feeding his bride at the picnic table at Cathedral Park" width="1024" height="1424" loading="lazy" decoding="async" style="object-position:center 32%;">
 </div>
 
 <!-- MEET KYLIE -->
@@ -1533,13 +1559,10 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <div class="wrap">
     <div class="meet-inner">
       <div class="meet-photo-wrap rise">
-        <!-- ADD A PHOTO: save one at /images/KylieForslundHigherLoveEventCo.jpg.
-             Until that file exists this block hides itself and the text runs full width,
-             so nothing looks broken. A photo here does real work, so it is worth adding. -->
-        <img class="meet-photo" src="/images/KylieForslundHigherLoveEventCo.jpg"
-             alt="Kylie Forslund, founder of Higher Love Event Co., in St. Johns, Portland"
-             width="560" height="700" loading="lazy" decoding="async"
-             onload="this.closest('.meet-inner').classList.add('has-photo')" onerror="this.remove()">
+        <img class="meet-photo" src="/images/KyliMUTBHeadshot.jpg"
+             alt="Kylie Forslund, founder of Higher Love Event Co., seated and smiling"
+             width="761" height="931" loading="lazy" decoding="async"
+             onerror="this.closest('.meet-inner').classList.add('no-photo')">
       </div>
       <div class="meet-body rise">
         <span class="eyebrow">Who you're booking with</span>
@@ -1640,8 +1663,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <details class="faq-item">
         <summary>How many people can come to the ceremony?</summary>
         <div class="faq-answer">
-          <p>Five on the staircase, or everyone in your package at a spot we reserve. It's your call, and you tell us 10 days before the date.</p>
-          <p>The staircase can't be reserved, which is why it's capped at the two of you, your officiant and two witnesses. A spot we reserve holds your whole guest list, standing. <a href="#ceremony-options">Both options, side by side.</a></p>
+          <p>Five on the staircase, or everyone in your package on the park lawn. It's your call, and you tell us 10 days before the date.</p>
+          <p>The staircase can't be reserved, which is why it's capped at the two of you, your officiant and two witnesses. The lawn is a spot we hold for you, and it takes your whole guest list, standing. You can have everyone on the staircase too, but only with a Portland Parks wedding permit in your own name. <a href="#ceremony-options">Both options, side by side.</a></p>
         </div>
       </details>
 
@@ -1676,7 +1699,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
 <!-- WEDDINGLANDIA BAND -->
 <div style="line-height:0;">
-  <img class="band" src="/images/NewlywedsStJohnsBridgeWeddingStJohnsInnPortlandOregon.jpg" alt="Newlyweds walking together across the St. Johns Bridge at dusk" width="1242" height="828" loading="lazy" decoding="async" style="object-position:center 12%;">
+  <img class="band" src="/images/36-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1037.jpg" alt="Black and white photograph of newlyweds kissing among the dahlias at Cathedral Park" width="1024" height="1546" loading="lazy" decoding="async" style="object-position:center 28%;">
 </div>
 
 
