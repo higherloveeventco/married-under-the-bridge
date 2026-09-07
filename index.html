@@ -145,6 +145,63 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 .flow-time{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem;}
 @media(max-width:860px){.experience-inner{grid-template-columns:1fr;gap:3rem;}}
 
+/* CREDIBILITY STRIP */
+.cred{background:var(--black);padding:2.2rem 0;}
+.cred-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(245,240,232,.10);}
+.cred-cell{background:var(--black);padding:1.2rem 1.3rem;}
+.cred-num{font-family:var(--serif);font-size:1.5rem;color:var(--gold);line-height:1.1;display:block;margin-bottom:.4rem;}
+.cred-cell p{font-size:.8rem;color:rgba(245,240,232,.65);line-height:1.6;margin:0;}
+@media(max-width:760px){.cred-inner{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){
+  .cred{padding:1.8rem 0;}
+  .cred-cell{padding:1.1rem 1.2rem;}
+  .cred-num{font-size:1.35rem;}
+  .cred-cell p{font-size:.9rem;}
+}
+
+/* COMPARISON TABLE */
+.compare{margin:0 0 3rem;}
+.compare-hint{font-family:var(--sans);font-size:.72rem;color:var(--muted);margin-bottom:.7rem;display:none;}
+.compare-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:0.5px solid var(--border);}
+table.cmp{border-collapse:collapse;width:100%;min-width:600px;background:var(--cream);}
+table.cmp th,table.cmp td{text-align:left;padding:.85rem 1rem;border-bottom:0.5px solid var(--border);font-size:.84rem;color:var(--charcoal);line-height:1.5;vertical-align:top;}
+table.cmp thead th{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--black);border-bottom:1px solid var(--gold);padding-bottom:.7rem;}
+table.cmp thead th.feat{color:var(--gold-deep);}
+table.cmp tbody th{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  position:sticky;left:0;background:var(--linen);white-space:nowrap;}
+table.cmp tr:last-child td,table.cmp tr:last-child th{border-bottom:none;}
+table.cmp tr.price td{font-family:var(--serif);font-size:1.4rem;color:var(--black);padding-top:1rem;padding-bottom:1rem;}
+table.cmp tr.price td.feat{color:var(--gold-deep);}
+@media(max-width:760px){.compare-hint{display:block;}}
+@media(max-width:480px){
+  table.cmp th,table.cmp td{font-size:.88rem;padding:.8rem .9rem;}
+  table.cmp tbody th{font-size:.7rem;}
+  .compare-hint{font-size:.85rem;}
+}
+
+/* WHAT'S USUALLY EXTRA */
+.usually{background:var(--linen);padding:5rem 0;}
+.usually-inner{max-width:860px;margin:0 auto;}
+.usually-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:0.5px solid var(--border);margin-top:2.5rem;}
+.usually-col{background:var(--cream);padding:2.2rem 2rem;}
+.usually-col.ours{background:var(--black);}
+.usually-label{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1.2rem;}
+.usually-col h3{font-family:var(--serif);font-size:1.2rem;font-weight:400;line-height:1.25;margin-bottom:1.1rem;}
+.usually-col.ours h3{color:var(--cream);}
+.usually-col ul{list-style:none;margin:0;}
+.usually-col li{font-size:.86rem;color:var(--muted);line-height:1.7;padding-left:1.4rem;position:relative;margin-bottom:.6rem;}
+.usually-col.ours li{color:rgba(245,240,232,.75);}
+.usually-col li::before{content:"+";position:absolute;left:0;top:0;font-family:var(--serif);font-size:1rem;color:var(--muted);opacity:.6;}
+.usually-col.ours li::before{content:"\2713";font-family:var(--sans);font-size:.75rem;color:var(--gold);opacity:1;top:.15em;}
+.usually-note{margin-top:2rem;font-size:.92rem;color:var(--charcoal);line-height:1.85;}
+@media(max-width:700px){.usually-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){
+  .usually{padding:3.5rem 0;}
+  .usually-col{padding:1.8rem 1.5rem;}
+  .usually-col li{font-size:.95rem;line-height:1.7;}
+  .usually-note{font-size:1rem;}
+}
+
 /* REAL TOTAL / PAYMENT PLAN */
 .total{max-width:900px;margin:2.5rem auto 0;border:0.5px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
 .total-col{background:var(--cream);padding:2.2rem 2rem;}
@@ -770,6 +827,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 <div id="mob-menu">
   <a href="#glance">The Short Version</a>
   <a href="#packages">Packages</a>
+  <a href="#included">What's Included</a>
   <a href="#ceremony-options">Ceremony Options</a>
   <a href="#dates">Dates</a>
   <a href="#after">After You Book</a>
@@ -800,7 +858,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <a class="btn btn-gold" href="#packages">See the packages</a>
       <a class="btn btn-light" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book your date</a>
     </div>
-    <p class="talk-link">Rather talk it through first? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call with Kylie.</a></p>
+    <p class="talk-link">Rather talk it through first? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a> or text Kylie on <a href="sms:+15032178500">503-217-8500</a>.</p>
   </div>
   <span class="hero-credit">Cathedral Park &middot; St. Johns, Portland</span>
 </header>
@@ -833,8 +891,32 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         </div>
         <div class="glance-cell">
           <span class="glance-q">How to book</span>
-          <p class="glance-a">Pick a date and pay a deposit online. No inquiry form, no waiting to hear back. Or <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">book a free call</a> first if you'd rather talk. <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book now</a></p>
+          <p class="glance-a">Pick a date and pay a deposit online. No inquiry form, no waiting to hear back. Or text Kylie on <a href="sms:+15032178500">503-217-8500</a> if you would rather ask a person. <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book now</a></p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="cred" id="cred">
+  <div class="wrap">
+    <div class="cred-inner">
+      <div class="cred-cell">
+        <span class="cred-num">Two studios</span>
+        <p>Higher Love and Weddinglandia, four blocks apart in St. Johns, running this together.</p>
+      </div>
+      <div class="cred-cell">
+        <span class="cred-num">Best in Portland</span>
+        <p>Weddinglandia was named Portland's Best Wedding Planner by Willamette Week in 2025.</p>
+      </div>
+      <div class="cred-cell">
+        <span class="cred-num">Nine vendors</span>
+        <p>Photography, florals, food, desserts, wine and beer, nearly all from St. Johns and North Portland.</p>
+      </div>
+      <div class="cred-cell">
+        <span class="cred-num">One neighbourhood</span>
+        <p>Kylie lives two miles from Cathedral Park and has run weddings in it. Higher Love is woman-owned.</p>
       </div>
     </div>
   </div>
@@ -866,7 +948,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="experience-text rise">
         <span class="eyebrow">How the day flows</span>
         <h2>Vows, Portraits, and a Picnic.</h2>
-        <p>The structure of this package was designed so both of you can be completely present for every part of it. Vows in the afternoon, portraits in the golden light, then a picnic waiting when you return. The day is built to give you time alone together before the celebration begins.</p>
+        <p>The day is built so you can be completely present for all of it. Vows in the afternoon, portraits in the golden light, then a picnic waiting when you return.</p>
         <blockquote class="experience-pull">The first hour and a half belongs to the two of you. Everyone else arrives at 4:30, to a table already set.</blockquote>
       </div>
       <div class="flow-steps rise">
@@ -940,6 +1022,86 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <p>Every package includes a legal ceremony and a fully coordinated picnic reception. Food, beverages, florals, photography, and setup are all included. You show up and enjoy it.</p>
     </div>
 
+
+    <div class="compare rise">
+      <p class="compare-hint">Scroll sideways to compare all three.</p>
+      <div class="compare-scroll">
+        <table class="cmp">
+          <caption class="visually-hidden" style="position:absolute;left:-9999px;">The three Married Under the Bridge packages compared</caption>
+          <thead>
+            <tr>
+              <th scope="col"><span style="position:absolute;left:-9999px;">Feature</span></th>
+              <th scope="col">Just the Two of Us</th>
+              <th scope="col" class="feat">The Garden Party</th>
+              <th scope="col">The Soir&eacute;e</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Guests</th>
+              <td>Just you two</td>
+              <td class="feat">Up to 8</td>
+              <td>Up to 18</td>
+            </tr>
+            <tr>
+              <th scope="row">Total people</th>
+              <td>2</td>
+              <td class="feat">10, or 14 with add-on guests</td>
+              <td>20, or 24 with add-on guests</td>
+            </tr>
+            <tr>
+              <th scope="row">How long</th>
+              <td>3 hours</td>
+              <td class="feat">4.5 hours</td>
+              <td>4.5 hours</td>
+            </tr>
+            <tr>
+              <th scope="row">Picnic tables</th>
+              <td>Table for two, or a blanket spread</td>
+              <td class="feat">One table seating 10, plus a dessert table</td>
+              <td>Two tables seating 10 each, plus a dessert table</td>
+            </tr>
+            <tr>
+              <th scope="row">Photography</th>
+              <td>1 hour</td>
+              <td class="feat">2 hours</td>
+              <td>2 hours</td>
+            </tr>
+            <tr>
+              <th scope="row">Food</th>
+              <td>Grazing spread and desserts</td>
+              <td class="feat">Grazing spread and desserts</td>
+              <td>Expanded grazing spread and desserts</td>
+            </tr>
+            <tr>
+              <th scope="row">Beverage allowance</th>
+              <td>$75</td>
+              <td class="feat">$225</td>
+              <td>$450</td>
+            </tr>
+            <tr>
+              <th scope="row">Games and send-off</th>
+              <td>Not included</td>
+              <td class="feat">Bocce, cornhole, bubbles</td>
+              <td>Bocce, cornhole, bubbles</td>
+            </tr>
+            <tr>
+              <th scope="row">Deposit</th>
+              <td>$1,000</td>
+              <td class="feat">$1,500</td>
+              <td>$2,100</td>
+            </tr>
+            <tr class="price">
+              <th scope="row">Price</th>
+              <td>$2,500</td>
+              <td class="feat">$3,600</td>
+              <td>$5,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <div class="tier-cards">
 
       <!-- TIER 1 -->
@@ -951,27 +1113,21 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="tier-price-note">All-inclusive</span>
         <div class="tier-divider"></div>
 
-        <span class="tier-section-label">Ceremony: Weddinglandia</span>
+        <span class="tier-section-label">The ceremony</span>
         <ul class="tier-items">
-          <li>Legal ceremony at Cathedral Park, 3:00 PM</li>
-          <li>Ordained officiant &amp; marriage license filing</li>
+          <li>Legal ceremony at 3:00 PM with an ordained officiant</li>
+          <li>Marriage license filing and a ceremony recording</li>
           <li>Two witnesses provided by Weddinglandia</li>
-          <li>Gift bags for the couple courtesy of Weddinglandia</li>
-          <li>Ceremony recording</li>
+          <li>Gift bags for the couple</li>
         </ul>
 
-        <span class="tier-section-label">Reception: Higher Love Event Co.</span>
+        <span class="tier-section-label">The picnic</span>
         <ul class="tier-items">
-          <li>1 hour of photography: 30 min ceremony, 30 min couple portraits</li>
-          <li>48-hour sneak peek, full gallery in four to six weeks</li>
-          <li>Styled picnic for two: your choice of a traditional ground spread with blankets &amp; cushions or a picnic table setting</li>
-          <li>Linens, place settings &amp; votives</li>
-          <li>Charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
-          <li>Dessert spread from Flower &amp; Flour</li>
-          <li>Fresh floral table arrangements from Still City Flowers</li>
-          <li>$75 beverage allowance for Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
-          <li>Seasonally infused water</li>
-          <li>Bluetooth speaker set to your playlist</li>
+          <li>Your choice of a table setting or a blanket spread on the lawn</li>
+          <li>1 hour of photography, with a sneak peek in 48 hours</li>
+          <li>Grazing spread, desserts, florals, linens and candlelight</li>
+          <li>$75 toward Oregon wine or local beer, plus infused water</li>
+          <li>Your playlist on a Bluetooth speaker</li>
         </ul>
 
         <div class="tier-cta">
@@ -988,32 +1144,23 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="tier-price-note">All-inclusive</span>
         <div class="tier-divider"></div>
 
-        <span class="tier-section-label">Ceremony: Weddinglandia</span>
+        <span class="tier-section-label">The ceremony</span>
         <ul class="tier-items">
-          <li>Legal ceremony at Cathedral Park, 3:00 PM</li>
-          <li>Ordained officiant &amp; marriage license filing</li>
-          <li>Your choice of ceremony location: the staircase, limited to five, or a reserved spot in the park where all your guests can attend</li>
-          <li>Two of your guests serve as witnesses, or Weddinglandia can provide them</li>
-          <li>Guest arrival time depends on the ceremony you choose</li>
-          <li>Gift bags for the couple courtesy of Weddinglandia</li>
-          <li>Ceremony recording</li>
+          <li>Legal ceremony at 3:00 PM with an ordained officiant</li>
+          <li>Marriage license filing and a ceremony recording</li>
+          <li>Choose the staircase, limited to five, or a reserved spot where everyone can attend</li>
+          <li>Two of your guests witness, or we provide them</li>
+          <li>Gift bags for the couple</li>
         </ul>
 
-        <span class="tier-section-label">Reception: Higher Love Event Co.</span>
+        <span class="tier-section-label">The picnic</span>
         <ul class="tier-items">
-          <li>2 hours of photography: 30 min ceremony, 1 hr couple portraits, 30 min guest candids</li>
-          <li>48-hour sneak peek, full gallery in four to six weeks</li>
-          <li>Styled picnic for up to 10 with blankets &amp; cushions</li>
-          <li>One reserved picnic table seating up to 10, plus a separate styled dessert table</li>
-          <li>Linens, place settings &amp; votives</li>
-          <li>Charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
-          <li>Dessert spread from Flower &amp; Flour</li>
-          <li>Fresh floral table arrangements from Still City Flowers</li>
-          <li>$225 beverage allowance for Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
-          <li>Seasonally infused water</li>
-          <li>Bluetooth speaker set to your playlist</li>
-          <li>Bocce and cornhole</li>
-          <li>Bubble send-off</li>
+          <li>One reserved picnic table seating 10, plus a styled dessert table</li>
+          <li>Blankets and cushions on the lawn</li>
+          <li>2 hours of photography, with a sneak peek in 48 hours</li>
+          <li>Grazing spread, desserts, florals, linens and candlelight</li>
+          <li>$225 toward Oregon wine or local beer, plus infused water</li>
+          <li>Bocce, cornhole, your playlist, and a bubble send-off</li>
         </ul>
 
         <div class="tier-cta">
@@ -1030,32 +1177,23 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="tier-price-note">All-inclusive</span>
         <div class="tier-divider"></div>
 
-        <span class="tier-section-label">Ceremony: Weddinglandia</span>
+        <span class="tier-section-label">The ceremony</span>
         <ul class="tier-items">
-          <li>Legal ceremony at Cathedral Park, 3:00 PM</li>
-          <li>Ordained officiant &amp; marriage license filing</li>
-          <li>Your choice of ceremony location: the staircase, limited to five, or a reserved spot in the park where all your guests can attend</li>
-          <li>Two of your guests serve as witnesses, or Weddinglandia can provide them</li>
-          <li>Guest arrival time depends on the ceremony you choose</li>
-          <li>Gift bags for the couple courtesy of Weddinglandia</li>
-          <li>Ceremony recording</li>
+          <li>Legal ceremony at 3:00 PM with an ordained officiant</li>
+          <li>Marriage license filing and a ceremony recording</li>
+          <li>Choose the staircase, limited to five, or a reserved spot where everyone can attend</li>
+          <li>Two of your guests witness, or we provide them</li>
+          <li>Gift bags for the couple</li>
         </ul>
 
-        <span class="tier-section-label">Reception: Higher Love Event Co.</span>
+        <span class="tier-section-label">The picnic</span>
         <ul class="tier-items">
-          <li>2 hours of photography: 30 min ceremony, 1 hr couple portraits, 30 min guest candids</li>
-          <li>48-hour sneak peek, full gallery in four to six weeks</li>
-          <li>Styled picnic for up to 20 with blankets &amp; cushions</li>
-          <li>Two reserved picnic tables seating up to 10 each, plus a separate styled dessert table</li>
-          <li>Linens, place settings &amp; votives</li>
-          <li>Expanded charcuterie &amp; grazing spread from She Serves (vegan options available)</li>
-          <li>Dessert spread from Flower &amp; Flour</li>
-          <li>Fresh floral table arrangements from Still City Flowers</li>
-          <li>$450 beverage allowance for Oregon wine, local craft beer, or a mix of both from our neighborhood partners</li>
-          <li>Seasonally infused water</li>
-          <li>Bluetooth speaker set to your playlist</li>
-          <li>Bocce and cornhole</li>
-          <li>Bubble send-off</li>
+          <li>Two reserved picnic tables seating 10 each, plus a styled dessert table</li>
+          <li>Blankets and cushions on the lawn</li>
+          <li>2 hours of photography, with a sneak peek in 48 hours</li>
+          <li>Expanded grazing spread, desserts, florals, linens and candlelight</li>
+          <li>$450 toward Oregon wine or local beer, plus infused water</li>
+          <li>Bocce, cornhole, your playlist, and a bubble send-off</li>
         </ul>
 
         <div class="tier-cta">
@@ -1125,8 +1263,54 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       </div>
     </div>
 
-    <p class="talk-link">Not sure which package fits? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call with Kylie</a> and she'll talk it through with you. No pressure, no sales pitch.</p>
+    <p class="talk-link">Not sure which package fits? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a>, or just text Kylie on <a href="sms:+15032178500">503-217-8500</a> and ask. No pressure, no sales pitch.</p>
     <p class="tier-note-plain">Looking for a different date? Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a> or click Join Waitlist on our booking page with your preferred date, and we'll check availability with our team.</p>
+  </div>
+</section>
+
+<!-- WHAT'S USUALLY EXTRA -->
+<section class="usually" id="included">
+  <div class="wrap">
+    <div class="usually-inner">
+      <div class="sec-head rise" style="margin-bottom:0;">
+        <span class="eyebrow">What all-inclusive actually means</span>
+        <h2>The things that are normally extra.</h2>
+        <p>Most elopement and micro-wedding packages cover the ceremony and hand you a list of vendors to book and pay yourself. That is a perfectly reasonable way to do it, and it is not how this works. Here is the difference laid out plainly, so you know what you are comparing when you look at other options.</p>
+      </div>
+      <div class="usually-grid rise">
+        <div class="usually-col">
+          <span class="usually-label">Usually a separate cost</span>
+          <h3>Booked and paid by you.</h3>
+          <ul>
+            <li>Food and catering</li>
+            <li>Beer, wine and drinks</li>
+            <li>Photography</li>
+            <li>Table florals and centrepieces</li>
+            <li>Linens, plates, glassware and candles</li>
+            <li>Park permit fees</li>
+            <li>Setup and teardown</li>
+            <li>Tables, seating and blankets</li>
+            <li>Music, games and a send-off</li>
+          </ul>
+        </div>
+        <div class="usually-col ours">
+          <span class="usually-label">Included here</span>
+          <h3>All of it, in the price.</h3>
+          <ul>
+            <li>Grazing spread from She Serves and desserts from Flower &amp; Flour</li>
+            <li>A beverage allowance, bought at cost with no markup</li>
+            <li>Photography, with a sneak peek in 48 hours</li>
+            <li>Fresh florals from Still City Flowers</li>
+            <li>Linens, place settings, votives and candlelight</li>
+            <li>Your Portland Parks permit fee</li>
+            <li>Every bit of setup and teardown</li>
+            <li>Reserved picnic tables, blankets and cushions</li>
+            <li>Your playlist, bocce, cornhole and a bubble send-off</li>
+          </ul>
+        </div>
+      </div>
+      <p class="usually-note rise">The only things you pay for separately are your marriage license, which goes to the county, and personal florals if you want a bouquet or a boutonniere. Rings, what you wear, and travel are yours as well. Everything else on the day is already handled.</p>
+    </div>
   </div>
 </section>
 
@@ -1257,17 +1441,17 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="hood-card">
         <span class="hood-time">The night before</span>
         <h3>Gather everyone early.</h3>
-        <p>A rehearsal dinner, drinks, or just a table big enough for whoever made the trip. St. Johns has room for a group without the reservation gymnastics of downtown, and it puts your people in the neighborhood before the day begins.</p>
+        <p>A rehearsal dinner, drinks, or just a table big enough for whoever made the trip. St. Johns has room for a group without the reservation gymnastics of downtown.</p>
       </div>
       <div class="hood-card">
         <span class="hood-time">The wedding day</span>
         <h3>The neighborhood comes to you.</h3>
-        <p>Wine from <a href="https://45thparallelwine.com/" target="_blank" rel="noopener">45th Parallel</a>. Beer from <a href="https://stormbreakerbrewing.com/" target="_blank" rel="noopener">StormBreaker Brewing</a> and <a href="https://occidentalbrewing.com/" target="_blank" rel="noopener">Occidental Brewing Company</a>, brewed within a few minutes of the park. The flowers, the grazing spread, the desserts, the photography, all from businesses in St. Johns and North Portland. Every part of your table has a name and an address attached to it.</p>
+        <p>Wine from <a href="https://45thparallelwine.com/" target="_blank" rel="noopener">45th Parallel</a>, beer from <a href="https://stormbreakerbrewing.com/" target="_blank" rel="noopener">StormBreaker</a> and <a href="https://occidentalbrewing.com/" target="_blank" rel="noopener">Occidental</a>, brewed minutes from the park. Every part of your table has a name and an address attached to it.</p>
       </div>
       <div class="hood-card">
         <span class="hood-time">After</span>
         <h3>Keep the night going.</h3>
-        <p>The park closes out in the early evening, but St. Johns doesn't. Walk up for dinner or a nightcap with whoever's still with you. Plenty of couples make it a tradition and come back on their anniversary.</p>
+        <p>The park closes out in the early evening, but St. Johns does not. Walk up for dinner or a nightcap with whoever is still with you.</p>
       </div>
     </div>
     <p class="hood-note">Tell us where your guests are coming from and we'll send a short neighborhood guide with our recommendations: where to eat, where to stay, and where to gather the night before.</p>
@@ -1290,17 +1474,17 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       </div>
       <div class="addon-item">
         <h3>Super 8 Videography</h3>
-        <p>Your day shot on Super 8 film by <a href="https://www.hummingbird-films.com/" target="_blank" rel="noopener">Hummingbird Films</a>. Grainy, warm, and unmistakably nostalgic, delivered as a short digital transfer you can keep and share.</p>
+        <p>Your day on Super 8 film by <a href="https://www.hummingbird-films.com/" target="_blank" rel="noopener">Hummingbird Films</a>. Grainy, warm and unmistakably nostalgic, delivered as a short digital transfer.</p>
         <span class="addon-price">From $1,000</span>
       </div>
       <div class="addon-item">
         <h3>Film Photography</h3>
-        <p>A roll of 35mm shot by <a href="https://megansphoto.mypixieset.com/" target="_blank" rel="noopener">Megan Moore</a> alongside your digital coverage. Warmer color, softer grain, and a handful of frames worth printing.</p>
+        <p>A roll of 35mm by <a href="https://megansphoto.mypixieset.com/" target="_blank" rel="noopener">Megan Moore</a> alongside your digital coverage. Warmer color and a few frames worth printing.</p>
         <span class="addon-price">$50 per roll</span>
       </div>
       <div class="addon-item">
         <h3>Ceremony Livestream</h3>
-        <p>For guests who cannot be there in person. Weddinglandia streams the ceremony with a custom link to share, a virtual guest book, and a digital download within 24 hours.</p>
+        <p>For guests who cannot be there. A custom link to share, a virtual guest book, and a digital download within 24 hours.</p>
         <span class="addon-price">$75</span>
       </div>
       <div class="addon-item">
@@ -1325,12 +1509,12 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       </div>
       <div class="addon-item">
         <h3>Cutting Cake</h3>
-        <p>A cutting cake from Flower &amp; Flour, in three sizes. The dessert spread already includes individual sweets like cookies, brownies, and cupcakes.</p>
+        <p>A cutting cake from Flower &amp; Flour in three sizes. The dessert spread already includes cookies, brownies and cupcakes.</p>
         <span class="addon-price">Serves 2, $75 &middot; Serves 10, $105 &middot; Serves 20, $165</span>
       </div>
       <div class="addon-item">
         <h3>Additional Guests</h3>
-        <p>Up to four people beyond your package count, for The Garden Party and The Soir&eacute;e. Additional guests are seated in the blanket picnic area rather than at a table, since table seating can't be extended. Your beverage allowance goes up $25 per person.</p>
+        <p>Up to four more, for The Garden Party and The Soir&eacute;e. They sit in the blanket picnic area rather than at a table, and your beverage allowance goes up $25 each.</p>
         <span class="addon-price">$75 each</span>
       </div>
       <div class="addon-item feature">
@@ -1354,19 +1538,18 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
     <div class="sec-head rise">
       <span class="eyebrow">The setup</span>
       <h2>How the picnic is set up.</h2>
-      <p>Cathedral Park is bigger than it looks, and not every corner of it feels the same. There's one spot we'd choose for ourselves, quieter and more tucked away, with picnic tables set close together, each seating up to 10. That's the one we reserve for you. The Garden Party includes one of those tables and The Soir&eacute;e includes two. Your table is the anchor of the whole setup: florals, charcuterie, candles, and place settings share the surface. For both tiers, a third table is styled separately for the dessert spread, so sweets have a home of their own and the main table stays comfortable.</p>
+      <p>Cathedral Park is bigger than it looks, and not every corner of it feels the same. There is one spot we would choose for ourselves, quieter and more tucked away, and it is the one we reserve for you. Your table anchors the whole setup, with florals, charcuterie, candles and place settings sharing the surface, plus a separate table styled for desserts.</p>
     </div>
     <div class="setup-grid rise">
       <div class="setup-card">
         <span class="setup-label">The sundries</span>
         <h3>A generous spread from two St. Johns kitchens.</h3>
-        <p>Charcuterie, fruits, nuts, and breads, all sourced and arranged by She Serves, with a dessert spread from Flower &amp; Flour. Vegan options available.</p>
-        <p>Beverages come from our neighborhood partners: your choice of Oregon wine, local craft beer, or a mix of both, alongside seasonally infused water from a drink dispenser. Everything is laid out and ready before you return from portraits.</p>
+        <p>Charcuterie, fruits, nuts and breads from She Serves, with desserts from Flower &amp; Flour and vegan options on request. Oregon wine, local craft beer, or both, alongside seasonally infused water. Everything is laid out and ready before you return from portraits.</p>
       </div>
       <div class="setup-card">
         <span class="setup-label">The atmosphere</span>
         <h3>Abundant, leisurely, celebratory.</h3>
-        <p>Linen tablecloths, candlelight, and perfectly mismatched place settings. Florals from Still City Flowers woven in among the food and candles. Fruits, nuts, and breads nestled between arrangements. The kind of table that looks like it took no effort at all.</p>
+        <p>Linen tablecloths, candlelight and perfectly mismatched place settings, with florals from Still City Flowers woven in among the food. The kind of table that looks like it took no effort at all.</p>
       </div>
       <div class="setup-card">
         <span class="setup-label">Comfort is key</span>
@@ -1383,7 +1566,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="setup-card">
         <span class="setup-label">Entertainment</span>
         <h3>Music, games, and a send-off.</h3>
-        <p>A Bluetooth speaker set to your playlist. Bocce and cornhole set up and ready for your guests. A bubble send-off to close out the celebration. Included in The Garden Party and The Soirée.</p>
+        <p>Your playlist on a Bluetooth speaker, bocce and cornhole ready to go, and a bubble send-off to close the afternoon. Included in The Garden Party and The Soirée.</p>
       </div>
     </div>
     <div class="setup-card rise" style="margin-top:1px;">
@@ -1391,7 +1574,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <h3>Cathedral Park is a public park, and we treat it like one.</h3>
       <p>Your picnic reception is fully permitted, and the permit fee is included in your package. Because the permit has to be held in your name as host, there's one short application only you can submit. We send you everything you need and remind you well ahead of the deadline. If it isn't submitted in time, your reception moves indoors to the Weddinglandia chapel instead, so it's worth doing early.</p>
       <p>Because the permit is in your name, you are the host and the alcohol is yours. Your package includes a beverage allowance, and we buy your beer and wine for you at cost with no markup, a straight pass-through with receipts available. It arrives sealed for you to serve. The park allows no glass, so cans or plastic only, and no hard alcohol or spirits.</p>
-      <p>Cathedral Park stays open to the public throughout, so expect a little life around you: walkers, dogs, someone else admiring the St. Johns Bridge. When the afternoon is over, we pack out everything we brought in and leave the park exactly as we found it.</p>
+      <p>The park stays open to the public throughout, so expect a little life around you. When the afternoon is over we pack out everything we brought in.</p>
     </div>
   </div>
 </section>
@@ -1452,7 +1635,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="meet-role">Founder &amp; Event Specialist &middot; Higher Love Event Co.</span>
         <p class="meet-contact">
           Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a><br>
-          Call or text <a href="tel:5032178500">503-217-8500</a><br>
+          Call or text <a href="sms:+15032178500">503-217-8500</a>. Texting is often fastest.<br>
           Or <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">book a free 20 minute call</a> and we'll go through it together.
         </p>
       </div>
@@ -1570,62 +1753,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <summary>How many people can come to the ceremony?</summary>
         <div class="faq-answer">
           <p>That depends on where you'd like to say your vows, and it's your choice to make.</p>
-          <p>On the staircase, five: the two of you, your officiant, and two witnesses. The staircase is one of Portland Parks' official wedding venues, and reserving it takes a wedding permit that only you can apply for. Without one you can still marry there as a simple ceremony, but five is the limit and everyone counts, children included. That part isn't something we can flex. Everyone else waits at the picnic and sees you walk up married.</p>
-          <p>At a reserved spot elsewhere in the park, everyone in your package. That part of the park is covered by the special use permit we hold for your reception, which allows up to 30 people at the ceremony. That's more than any of our packages hold, so your whole guest list can watch, children included. There's no seating, so they stand, and then you all walk over to the picnic together.</p>
-          <p>You tell us which one 10 days before your date. <a href="#ceremony-options">Both options are laid out here</a>.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>When should we tell our guests to arrive?</summary>
-        <div class="faq-answer">
-          <p>If you're doing the staircase ceremony, 4:30 PM. Not 3:00, which is your ceremony time and just for the five of you.</p>
-          <p>We'd suggest putting <em>Reception at 4:30 PM, Cathedral Park</em> on your invitations and leaving the ceremony time off entirely. It saves a lot of explaining, and it means nobody turns up early hoping to watch.</p>
-          <p>If you've chosen a reserved spot in the park, your guests are invited to the ceremony, so we'll confirm the arrival time with you and you can put that on the invitations instead.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What do we need to do about a marriage license?</summary>
-        <div class="faq-answer">
-          <p>Apply at any county clerk's office in Oregon. It doesn't have to be Multnomah. Licenses can be secured three days ahead, and same-day licenses are sometimes available depending on timing and courthouse availability. Bring it with you on the day and we complete the paperwork afterward.</p>
-          <p>If you arrive without a valid license we can still hold the ceremony, but the marriage won't be legal and the package is non-refundable, so please build this into your timeline.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Is there anything we have to do after we book?</summary>
-        <div class="faq-answer">
-          <p>One short phone call, shortly after you book. It takes about ten minutes, and it's the only piece of the permitting that needs your voice rather than ours.</p>
-          <p>We send you everything you need beforehand and remind you when it's time. Everything after that is handled on our end.</p>
-        </div>
-      </details>
-
-
-      <details class="faq-item">
-        <summary>Is Cathedral Park accessible?</summary>
-        <div class="faq-answer">
-          <p>Mostly yes, with one exception. The park has paved, accessible paths and accessible restrooms, and the picnic area we reserve is reachable on paved path. Everyone sits at picnic tables rather than on the ground, so no guest has to get down to a blanket to be included.</p>
-          <p>The exception is the staircase and deck beneath the bridge, which is not ADA accessible. If anyone in your group uses a wheelchair or a walker, or finds stairs difficult, choose the reserved ceremony spot in the park instead. It is on level ground, and it is also the option where all your guests can attend the ceremony.</p>
-          <p>The permanent restrooms are lower in the park, a few minutes' walk away. Tell us what your group needs when you book. We would much rather plan around it than have you find out on the day.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>When should we get our marriage license?</summary>
-        <div class="faq-answer">
-          <p>Close to your date, but not too close. An Oregon license takes three days to become valid, and it expires 60 days after it is issued. So the window is roughly two months before your wedding, and no later than about a week out to be safe.</p>
-          <p>It costs $60 in Multnomah County and most Oregon counties, or $65 if you ask to waive the three day wait. Any county clerk's office in Oregon works, it does not have to be Multnomah, and you both need to go in person with photo ID.</p>
-          <p>If you are booking a 2027 date, do not get it early. It would expire long before your wedding.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>How many guests can we have in total?</summary>
-        <div class="faq-answer">
-          <p>Ten for The Garden Party, which is the two of you plus 8. Twenty for The Soir&eacute;e, the two of you plus 18. Just the Two of Us is exactly that.</p>
-          <p>You can add up to four more people at $75 each on the two larger packages, which takes The Garden Party to 14 and The Soir&eacute;e to 24. Added guests sit on the blanket picnic area rather than at a table, because table seating can't be extended past what your package includes. Twenty-four is our hard ceiling.</p>
-          <p>Children three and older count toward your total. Children under three don't, and are seated with a parent rather than given their own place setting.</p>
+          <p>On the staircase, five: the two of you, your officiant, and two witnesses. Everyone counts, children included, and witnesses have to be 18 or older. Everyone else waits at the picnic and sees you walk up married.</p>
+          <p>At a reserved spot elsewhere in the park, everyone in your package. There's no seating, so they stand, and then you all walk over to the picnic together. <a href="#ceremony-options">Both options are laid out here.</a></p>
         </div>
       </details>
 
@@ -1633,45 +1762,28 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <summary>What do we actually have to do ourselves?</summary>
         <div class="faq-answer">
           <p>Two things. Get your Oregon marriage license, and submit one short park permit application that has to be in your name, because Portland Parks will only deal with the person named on it.</p>
-          <p>We prepare the application for you, walk you through it on a ten minute call after you book, and remind you before the deadline. <a href="#after">The full timeline is here</a>, with when each thing happens.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>How do beer and wine work?</summary>
-        <div class="faq-answer">
-          <p>Your package includes a beverage allowance: $75 for Just the Two of Us, $225 for The Garden Party, $450 for The Soir&eacute;e. It goes up $25 for each additional guest you add.</p>
-          <p>Because the park permit is in your name, you're the host and the alcohol is yours. We buy it for you at cost with no markup and hand it over sealed, and we'll show you the receipts. It covers beer, wine and champagne. No spirits, and no glass anywhere in the park, so cans or plastic only.</p>
-          <p>If you'd rather not have alcohol, say so at booking and the allowance is credited back to your final invoice. Seasonally infused water is included either way.</p>
+          <p>We prepare the application, walk you through it on a ten minute call after you book, and remind you before the deadline. <a href="#after">The full timeline is here.</a></p>
         </div>
       </details>
 
       <details class="faq-item">
         <summary>What happens if it rains?</summary>
         <div class="faq-answer">
-          <p>The picnic moves indoors to the Weddinglandia chapel, two blocks from the park, at no extra cost. Your ceremony, food, florals and everything else in your package stays exactly the same.</p>
-          <p>We make that call by 10:00 AM on the day and tell you straight away, so you're never standing in the park wondering. Light rain isn't a reason to move. <a href="#weather">The full weather policy is here</a>.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>When do we have to pay, and how much?</summary>
-        <div class="faq-answer">
-          <p>A deposit at booking, and the balance 7 days before your wedding. Deposits are $1,000 for Just the Two of Us, $1,500 for The Garden Party, and $2,100 for The Soir&eacute;e.</p>
-          <p>There is nothing scheduled in between. If you would rather pay the balance down in pieces over the months before your date instead of all at once at the end, you can, and we will tell you where you stand any time you ask. The only fixed date is that 7 day deadline.</p>
+          <p>The picnic moves indoors to the Weddinglandia chapel, two blocks from the park, at no extra cost. Your ceremony, food, florals and everything else stays exactly the same.</p>
+          <p>We make that call by 10:00 AM on the day and tell you straight away, so you're never standing in the park wondering. Light rain isn't a reason to move.</p>
         </div>
       </details>
 
       <details class="faq-item">
         <summary>Can we book a date for 2027?</summary>
         <div class="faq-answer">
-          <p>Yes, with one wrinkle. Portland Parks publishes the list of dates the park is closed to events in January of each year, so nobody knows the 2027 dates yet.</p>
-          <p>You can reserve now using January 1, 2027 as a placeholder, which locks today's pricing and holds the vendor team. In January we pick your real date together. If nothing on the calendar works for you, you can withdraw and we refund your deposit in full. Or you can wait and book in January once you can see it.</p>
-          <p>One date is already out: July 16 to 18, 2027 is the Cathedral Park Jazz Festival.</p>
+          <p>Yes, though you'll choose the exact date in January 2027 rather than now. Portland Parks doesn't publish which dates the park is closed until January of that year.</p>
+          <p>You can reserve now using a January 1, 2027 placeholder, which locks today's pricing and holds the vendor team. If nothing on the calendar works for you, you can withdraw and we refund your deposit in full. <a href="#dates">More on how that works here.</a></p>
         </div>
       </details>
+
     </div>
-    <p class="faq-more"><a href="/faq">Read all questions and answers</a></p>
+    <p class="faq-more"><a href="/faq">Read all 60 questions and answers</a></p>
   </div>
 </section>
 
@@ -1691,8 +1803,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <a class="btn btn-gold" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge" aria-label="Book your elopement package">Book your date</a>
       <a class="btn btn-light" href="mailto:hello@higherloveeventco.com" aria-label="Send us a message">Send us a message</a>
     </div>
-    <p class="talk-link" style="margin-top:2rem;">Prefer to speak to a person before you book? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call with Kylie.</a></p>
-    <p class="closing-note">Questions? Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a> and we will get back to you within one business day.</p>
+    <p class="talk-link" style="margin-top:2rem;">Prefer to speak to a person first? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a>, or text Kylie on <a href="sms:+15032178500">503-217-8500</a>. Real answers, usually the same day.</p>
+    <p class="closing-note">Questions? Text <a href="sms:+15032178500">503-217-8500</a> or email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a>. Kylie answers these herself, usually the same day.</p>
   </div>
 </section>
 
@@ -1717,6 +1829,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <ul>
           <li><a href="#glance">The Short Version</a></li>
           <li><a href="#packages">Packages</a></li>
+          <li><a href="#included">What's Included</a></li>
           <li><a href="#ceremony-options">Ceremony Options</a></li>
           <li><a href="#dates">Available Dates</a></li>
           <li><a href="#after">After You Book</a></li>
