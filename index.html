@@ -50,6 +50,7 @@ p{color:var(--charcoal);line-height:1.75;font-size:1rem;}
 .js-anim .rise.in{opacity:1;transform:none;}
 
 /* ACCESSIBILITY FLOOR */
+.nowrap{white-space:nowrap;}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--gold);color:var(--white);padding:.8rem 1.2rem;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;z-index:200;}
 .skip-link:focus{left:0;}
@@ -283,7 +284,7 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 .talk-link a{color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);}
 .closing .talk-link,.dates-section .talk-link{color:rgba(245,240,232,.6);}
 .closing .talk-link a,.dates-section .talk-link a{color:var(--gold);border-bottom-color:rgba(184,137,42,.5);}
-.hero .talk-link{text-align:left;margin-left:0;margin-right:0;color:rgba(255,255,255,.9);text-shadow:0 1px 8px rgba(0,0,0,.9);}
+.hero .talk-link{text-align:left;margin-left:0;margin-right:0;max-width:none;color:rgba(255,255,255,.9);text-shadow:0 1px 8px rgba(0,0,0,.9);}
 .hero .talk-link a{color:#E7D8B5;border-bottom-color:rgba(231,216,181,.6);}
 @media(max-width:480px){.talk-link{font-size:.9rem;}.hero .talk-link{text-align:center;}}
 
@@ -350,12 +351,17 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
    ============================================================ */
 
 /* Lift the summary card up over the hero so the two overlap. */
-.glance{position:relative;z-index:3;margin-top:-90px;padding-top:0;background:transparent;}
+.glance{position:relative;z-index:3;margin-top:-110px;padding-top:0;background:transparent;}
 .glance .wrap{position:relative;}
-.glance-head{background:var(--black);padding:2rem 2.4rem 1.6rem;}
-.glance-head h2{color:var(--cream);margin:0;font-size:clamp(1.6rem,2.6vw,2.1rem);}
-.glance-inner{background:var(--cream);box-shadow:0 30px 60px -30px rgba(26,26,24,.35);}
-@media(max-width:860px){.glance{margin-top:-56px;}.glance-head{padding:1.6rem 1.5rem 1.3rem;}}
+.glance-card{background:var(--cream);box-shadow:0 40px 80px -40px rgba(26,26,24,.55);}
+.glance-head{padding:2.2rem 2.4rem 1.4rem;border-bottom:0.5px solid var(--border);}
+.glance-head h2{margin:0;font-size:clamp(1.6rem,2.6vw,2.1rem);}
+.glance-head .eyebrow{margin-bottom:.7rem;}
+.glance-inner{background:var(--cream);}
+@media(max-width:860px){
+  .glance{margin-top:-70px;}
+  .glance-head{padding:1.7rem 1.5rem 1.2rem;}
+}
 
 /* A full-bleed line of type, big enough to stop the scroll. */
 .statement{background:var(--black);padding:7rem 0;position:relative;overflow:hidden;}
@@ -1050,7 +1056,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <a class="btn btn-gold" href="#packages">See the packages</a>
       <a class="btn btn-light" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book your date</a>
     </div>
-    <p class="talk-link">Rather talk it through first? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a> or text Kylie at <a href="sms:+15032178500">503-217-8500</a>.</p>
+    <p class="talk-link">Rather talk it through first? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a> or text Kylie at <a href="sms:+15032178500" class="nowrap">503-217-8500</a>.</p>
   </div>
   <span class="hero-credit">Cathedral Park &middot; St. Johns, Portland</span>
 </header>
@@ -1058,7 +1064,9 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 <!-- AT A GLANCE -->
 <section class="glance" id="glance">
   <div class="wrap">
-    <div class="glance-head rise">
+    <div class="glance-card rise">
+      <div class="glance-head">
+        <span class="eyebrow">Start here</span>
         <h2>The short version.</h2>
       </div>
       <div class="glance-inner">
@@ -1093,8 +1101,9 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         </div>
         <div class="glance-cell">
           <span class="glance-q">How to book</span>
-          <p class="glance-a">Pick a date and pay a deposit online. No inquiry form, no waiting to hear back. Or text Kylie at <a href="sms:+15032178500">503-217-8500</a> if you'd rather ask a person. <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book now</a></p>
+          <p class="glance-a">Pick a date and pay a deposit online. No inquiry form, no waiting to hear back. Or text Kylie at <a href="sms:+15032178500" class="nowrap">503-217-8500</a> if you'd rather ask a person. <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book now</a></p>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -1231,7 +1240,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         </div>
       </div>
       <figure class="map-block">
-        <img src="/images/CathedralParkCeremonyMap_300KB.jpg" alt="Map of Cathedral Park showing the staircase ceremony location beneath the St. Johns Bridge, the park lawn ceremony location, both picnic reception areas, restrooms and parking" width="1201" height="1400" loading="lazy" decoding="async">
+        <img src="/images/CathedralParkCeremonyMap_300KB.jpg" alt="Map of Cathedral Park showing the staircase ceremony location beneath the St. Johns Bridge, the park lawn ceremony location, both picnic reception areas, restrooms and parking" width="1400" height="1867" loading="lazy" decoding="async">
         <div class="map-legend">
           <div class="map-key pick">
             <h4>Park lawn ceremony</h4>
@@ -1457,8 +1466,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       </div>
     </div>
 
-    <p class="talk-link">Not sure which package fits? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a>, or just text Kylie at <a href="sms:+15032178500">503-217-8500</a> and ask. No pressure, no sales pitch.</p>
-    <p class="tier-note-plain">Looking for a different date? Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a> or click Join Waitlist on our booking page with your preferred date, and we'll check availability with our team.</p>
+    <p class="talk-link">Not sure which package fits? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a>, or just text Kylie at <a href="sms:+15032178500" class="nowrap">503-217-8500</a> and ask. No pressure, no sales pitch.</p>
+    <p class="tier-note-plain">Looking for a different date? Email <a href="mailto:hello@higherloveeventco.com" class="nowrap">hello@higherloveeventco.com</a> or click Join Waitlist on our booking page with your preferred date, and we'll check availability with our team.</p>
   </div>
 </section>
 
@@ -1721,8 +1730,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="meet-sig">Kylie</span>
         <span class="meet-role">Founder &amp; Event Specialist &middot; Higher Love Event Co.</span>
         <p class="meet-contact">
-          Email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a><br>
-          Text Kylie at <a href="sms:+15032178500">503-217-8500</a>. Texting is often fastest.<br>
+          Email <a href="mailto:hello@higherloveeventco.com" class="nowrap">hello@higherloveeventco.com</a><br>
+          Text Kylie at <a href="sms:+15032178500" class="nowrap">503-217-8500</a>. Texting is often fastest.<br>
           Or <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">book a free 20 minute call</a> and we'll go through it together.
         </p>
       </div>
@@ -1869,7 +1878,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <a class="btn btn-light" href="mailto:hello@higherloveeventco.com" aria-label="Send us a message">Send us a message</a>
     </div>
     
-    <p class="closing-note">Prefer to speak to a person first? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a>, text Kylie at <a href="sms:+15032178500">503-217-8500</a>, or email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a>. She answers these herself, usually the same day.</p>
+    <p class="closing-note">Prefer to speak to a person first? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a>, text Kylie at <a href="sms:+15032178500" class="nowrap">503-217-8500</a>, or email <a href="mailto:hello@higherloveeventco.com" class="nowrap">hello@higherloveeventco.com</a>. She answers these herself, usually the same day.</p>
   </div>
 </section>
 
@@ -1909,8 +1918,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="foot-col">
         <p class="foot-col-label">Contact</p>
         <address>
-          <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a><br>
-          <a href="tel:5032178500">503-217-8500</a>
+          <a href="mailto:hello@higherloveeventco.com" class="nowrap">hello@higherloveeventco.com</a><br>
+          <a href="tel:5032178500" class="nowrap">503-217-8500</a>
           <span class="foot-rule"></span>
           <a href="https://higherloveeventco.com" target="_blank" rel="noopener">higherloveeventco.com</a><br>
           <a href="https://instagram.com/higherloveeventco" target="_blank" rel="noopener">@higherloveeventco</a>
