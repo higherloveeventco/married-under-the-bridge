@@ -113,10 +113,11 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 .hero-credit a{color:rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.35);}
 
 /* PHOTO BANDS */
-.band{width:100%;height:520px;object-fit:cover;display:block;}
+.band-wrap{max-width:var(--maxw);margin:0 auto;padding:0 2.5rem;}
+.band{width:100%;height:620px;object-fit:cover;display:block;}
 .photo-credit{font-family:var(--sans);font-size:.62rem;letter-spacing:.1em;color:var(--charcoal);opacity:.75;text-align:right;padding:.5rem 2.5rem;display:block;}
 .photo-credit a{color:var(--charcoal);border-bottom:1px solid var(--charcoal);}
-@media(max-width:640px){.band{height:300px;}}
+@media(max-width:860px){.band{height:470px;}}
 
 /* SECTION HEADS */
 .sec-head{max-width:720px;margin-bottom:3rem;}
@@ -136,14 +137,15 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 
 /* EXPERIENCE FLOW */
 .experience{background:var(--linen);padding:5rem 0;}
-.experience-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.experience-inner{display:block;}
+.experience-text{max-width:52ch;margin-bottom:1rem;}
 .experience-text h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.1;margin-top:.4rem;margin-bottom:1.4rem;}
 .experience-text p{font-size:1.02rem;line-height:1.75;color:var(--charcoal);margin-bottom:1.4rem;max-width:60ch;}
 .experience-pull{display:block;font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,1.8vw,1.35rem);color:var(--gold);line-height:1.7;border-left:2px solid var(--gold);padding-left:1.4rem;margin:2rem 0;}
-.flow-steps{display:flex;flex-direction:column;}
+.flow-steps{display:block;}
 .flow-step{display:grid;grid-template-columns:auto 1fr;gap:1.6rem;padding:1.8rem 0;border-top:1px solid var(--border);align-items:start;}
 .flow-step:last-child{border-bottom:1px solid var(--border);}
-.flow-num{font-family:var(--serif);font-style:italic;font-size:1.8rem;color:var(--gold);line-height:1;padding-top:.1rem;}
+
 .flow-step h3{font-family:var(--serif);font-size:1.25rem;margin-bottom:.5rem;line-height:1.2;}
 .flow-step p{font-size:.98rem;color:var(--muted);line-height:1.7;margin:0;}
 .flow-time{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem;}
@@ -188,9 +190,16 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 .usually{background:var(--linen);padding:5rem 0;}
 .usually-inner{max-width:none;}
 .usually-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:0.5px solid var(--border);margin-top:2.5rem;}
+.usually-col.elsewhere{grid-column:1;grid-row:1;}
+.usually-col.ours{grid-column:2;grid-row:1;}
 .usually-col{background:var(--cream);padding:2.2rem 2rem;}
+.usually-col.elsewhere{background:rgba(26,26,24,.03);}
+.usually-col.elsewhere li{color:rgba(80,78,72,.75);}
+.usually-col.elsewhere h3{color:var(--muted);font-weight:300;}
 .usually-col.ours{background:var(--black);}
-.usually-label{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1.2rem;}
+.usually-label{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;display:inline-block;margin-bottom:1.2rem;padding:.35rem .7rem;}
+.usually-col.elsewhere .usually-label{color:var(--muted);border:0.5px solid var(--border);}
+.usually-col.ours .usually-label{color:var(--black);background:var(--gold);}
 .usually-col h3{font-family:var(--serif);font-size:1.2rem;font-weight:400;line-height:1.25;margin-bottom:1.1rem;}
 .usually-col.ours h3{color:var(--cream);}
 .usually-col ul{list-style:none;margin:0;}
@@ -199,7 +208,12 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 .usually-col li::before{content:"+";position:absolute;left:0;top:0;font-family:var(--serif);font-size:1rem;color:var(--muted);opacity:.6;}
 .usually-col.ours li::before{content:"\2713";font-family:var(--sans);font-size:.75rem;color:var(--gold);opacity:1;top:.15em;}
 .usually-note{margin-top:2rem;font-size:1rem;color:var(--charcoal);line-height:1.75;max-width:66ch;}
-@media(max-width:700px){.usually-grid{grid-template-columns:1fr;}}
+/* Source order is ours-first so screen readers and a stacked phone layout both
+   lead with what's included; the desktop grid puts "elsewhere" back on the left. */
+@media(max-width:700px){
+  .usually-grid{grid-template-columns:1fr;}
+  .usually-col.elsewhere,.usually-col.ours{grid-column:1;grid-row:auto;}
+}
 @media(max-width:480px){
   .usually{padding:3.5rem 0;}
   .usually-col{padding:1.8rem 1.5rem;}
@@ -318,6 +332,77 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
   body{padding-bottom:0;}
 }
 
+
+/* ============================================================
+   EDITORIAL LAYER
+   The page was eighteen blocks of the same rhythm on two nearly
+   identical beige tones. These rules break that up.
+   ============================================================ */
+
+/* Lift the summary card up over the hero so the two overlap. */
+.glance{position:relative;z-index:3;margin-top:-90px;padding-top:0;background:transparent;}
+.glance .wrap{position:relative;}
+.glance-head{background:var(--black);padding:2rem 2.4rem 1.6rem;}
+.glance-head h2{color:var(--cream);margin:0;font-size:clamp(1.6rem,2.6vw,2.1rem);}
+.glance-inner{background:var(--cream);box-shadow:0 30px 60px -30px rgba(26,26,24,.35);}
+@media(max-width:860px){.glance{margin-top:-56px;}.glance-head{padding:1.6rem 1.5rem 1.3rem;}}
+
+/* A full-bleed line of type, big enough to stop the scroll. */
+.statement{background:var(--black);padding:7rem 0;position:relative;overflow:hidden;}
+.statement .wrap{position:relative;z-index:2;}
+.statement p{font-family:var(--serif);font-weight:300;font-style:italic;
+  font-size:clamp(2rem,5.2vw,4.2rem);line-height:1.08;color:var(--cream);max-width:20ch;margin:0;}
+.statement p em{font-style:normal;color:var(--gold);}
+.statement-attrib{display:block;margin-top:2.2rem;font-family:var(--sans);font-size:.6rem;
+  font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,240,232,.45);}
+.statement-mark{position:absolute;right:-4%;top:-12%;font-family:var(--serif);font-size:40rem;
+  line-height:1;color:rgba(184,137,42,.07);pointer-events:none;user-select:none;z-index:1;}
+@media(max-width:860px){.statement{padding:4.5rem 0;}.statement-mark{font-size:22rem;right:-8%;top:-4%;}}
+
+/* Day flow: oversized numerals, photo and text swapping sides down the page. */
+.flow-step{display:grid;grid-template-columns:1fr 1fr;gap:0 3.5rem;align-items:center;
+  padding:4.5rem 0;border-top:0.5px solid var(--border);position:relative;}
+.flow-step:first-child{border-top:none;padding-top:1rem;}
+.flow-step .flow-body{grid-column:1;grid-row:1;}
+.flow-step .flow-img{grid-column:2;grid-row:1;margin:0;height:460px;}
+.flow-step:nth-child(even) .flow-body{grid-column:2;}
+.flow-step:nth-child(even) .flow-img{grid-column:1;}
+.flow-num{font-family:var(--serif);font-size:6rem;line-height:.8;color:transparent;
+  -webkit-text-stroke:1px var(--gold);margin-bottom:.6rem;display:block;opacity:.85;}
+@media(max-width:860px){
+  .flow-step{grid-template-columns:1fr;gap:1.4rem;padding:3rem 0;}
+  .flow-step .flow-body,.flow-step .flow-img,
+  .flow-step:nth-child(even) .flow-body,.flow-step:nth-child(even) .flow-img{grid-column:1;}
+  .flow-step .flow-img{grid-row:2;height:280px;}
+  .flow-num{font-size:4rem;}
+}
+
+/* Vendor names on a slow loop. Motion, no reading required. */
+.marquee{overflow:hidden;border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);
+  padding:1.6rem 0;background:var(--cream);}
+.marquee-track{display:flex;gap:3.5rem;width:max-content;animation:slide 46s linear infinite;}
+.marquee span{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,2rem);color:var(--black);
+  white-space:nowrap;font-weight:300;}
+.marquee span::after{content:"\00B7";color:var(--gold);margin-left:3.5rem;}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none;flex-wrap:wrap;width:auto;}}
+
+/* PHOTOS IN THE DAY FLOW */
+.flow-img{width:100%;height:230px;object-fit:cover;display:block;margin:1rem 0 0;}
+@media(max-width:640px){.flow-img{height:200px;}}
+
+/* PHOTO ON EACH TIER CARD */
+.tier-img{width:calc(100% + 4.8rem);max-width:none;margin:-3rem -2.4rem 1.8rem;height:210px;object-fit:cover;display:block;}
+
+
+/* REAL WEDDINGS TEASER */
+.teaser{background:var(--linen);padding:5rem 0;}
+.teaser-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border);margin-top:2.2rem;}
+.teaser-grid img{width:100%;height:340px;object-fit:cover;display:block;background:var(--cream);}
+.teaser-cta{margin-top:2rem;}
+@media(max-width:760px){.teaser-grid{grid-template-columns:1fr 1fr;}.teaser-grid img{height:260px;}}
+@media(max-width:480px){.teaser-grid img{height:220px;}}
+
 /* PARK MAP */
 .map-block{margin-top:2.5rem;border:0.5px solid var(--border);background:var(--cream);}
 .map-block img{width:100%;height:auto;display:block;}
@@ -332,23 +417,25 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:0.5px solid var(--border);}
 .choice-card{background:var(--cream);display:flex;flex-direction:column;}
 .choice-card > .choice-body{padding:2.4rem 2.2rem;display:flex;flex-direction:column;flex:1;}
-.choice-img{width:100%;height:300px;flex:0 0 300px;object-fit:cover;display:block;}
-@media(max-width:760px){.choice-img{height:240px;flex-basis:240px;}}
-@media(max-width:480px){.choice-card > .choice-body{padding:1.8rem 1.5rem;}.choice-img{height:200px;flex-basis:200px;}}
+.choice-img{width:100%;height:auto;display:block;}
+@media(max-width:480px){.choice-card > .choice-body{padding:1.8rem 1.5rem;}}
 .choice-label{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1.1rem;}
 .choice-card h4{font-family:var(--serif);font-size:1.3rem;font-weight:400;line-height:1.2;margin-bottom:.9rem;}
 .choice-card p{font-size:.98rem;color:var(--muted);line-height:1.7;margin:0;}
 .choice-card p + p{margin-top:.9rem;}
 .choice-card p:last-of-type{margin-bottom:1.4rem;}
 .choice-who{font-family:var(--sans);font-size:.88rem;color:var(--muted);margin-top:auto;padding-top:1.1rem;border-top:0.5px solid var(--border);display:block;line-height:1.7;}
-.choice-count{font-family:var(--serif);font-size:2.6rem;line-height:1;color:var(--gold);display:block;margin:.2rem 0 .3rem;}
-.choice-count small{display:block;font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.5rem;}
+.choice-label-sm{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.4rem;}
+.choice-count{font-family:var(--serif);font-size:2.4rem;line-height:1.05;color:var(--gold);display:block;margin:.35rem 0 .3rem;}
+.choice-count small{display:block;font-family:var(--sans);font-size:.88rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);line-height:1.5;margin-top:.5rem;}
 .choice-if{font-size:.92rem;color:var(--black);line-height:1.7;margin:0 0 1rem;}
 .choice-if strong{color:var(--gold-deep);font-weight:600;}
 .choice-pick{display:inline-block;align-self:flex-start;background:var(--gold);color:var(--white);font-family:var(--sans);font-size:.56rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .6rem;margin-bottom:.9rem;}
 .choice-blank{display:block;height:22px;margin-bottom:.9rem;}
 @media(max-width:480px){
-  .choice-count{font-size:2.2rem;}
+  .choice-count{font-size:2.1rem;}
+  .choice-count small{font-size:.95rem;}
+  .choice-label-sm{font-size:.66rem;}
   .choice-if{font-size:1rem;}
   .choice-pick{font-size:.64rem;}
   .choice-blank{display:none;}
@@ -435,7 +522,6 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 .addon-note{text-align:center;margin:2rem auto 0;max-width:62ch;font-size:.96rem;color:var(--muted);font-family:var(--sans);}
 .addon-note a{color:var(--gold-deep);font-weight:600;}
 @media(max-width:860px){.addon-grid{grid-template-columns:1fr 1fr;}.addon-item.feature{grid-column:span 2;}}
-@media(max-width:700px){.addon-item.feature{grid-template-columns:1fr!important;}.addon-item.feature img{aspect-ratio:3/2;height:auto!important;}}
 
 /* SETUP — dark */
 .setup{background:var(--black);padding:5rem 0;}
@@ -623,7 +709,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   .hero-img{object-position:46% 58%;}
 
   /* --- photo bands --- */
-  .band{height:230px;}
+  .band-wrap{padding:0 1.25rem;}
+  .band{height:390px;}
   .photo-credit{padding:.5rem 1.25rem;font-size:.68rem;}
 
   /* --- experience flow: keep the number beside the heading --- */
@@ -644,6 +731,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   .tier-price-note{font-size:.66rem;}
   .tier-flag{font-size:.68rem;}
   .tier-spacer{display:none;} /* alignment spacer only matters side-by-side */
+  .tier-img{width:calc(100% + 3rem);margin:-2.25rem -1.5rem 1.5rem;height:190px;}
   .tier-items li{font-size:1rem;line-height:1.6;margin-bottom:.55rem;}
   .tier-note,.tier-note-plain{font-size:.92rem;}
   .prebook{margin-top:2.25rem;}
@@ -898,8 +986,10 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 <!-- AT A GLANCE -->
 <section class="glance" id="glance">
   <div class="wrap">
-    <div class="glance-inner">
-      <h2>The short version.</h2>
+    <div class="glance-head rise">
+        <h2>The short version.</h2>
+      </div>
+      <div class="glance-inner">
       <div class="glance-grid">
         <div class="glance-cell">
           <span class="glance-q">What it is</span>
@@ -927,7 +1017,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         </div>
         <div class="glance-cell">
           <span class="glance-q">What you have to do</span>
-          <p class="glance-a">Get your Oregon marriage license, and submit one short park permit application that has to be in your name. That's it. <a href="#after">The full list</a></p>
+          <p class="glance-a">Get your Oregon marriage license, and join one short call with me and Portland Parks to submit the permit. Nothing else. <a href="#after">Every step</a></p>
         </div>
         <div class="glance-cell">
           <span class="glance-q">How to book</span>
@@ -976,10 +1066,19 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 </section>
 
 <!-- PHOTO BAND 1 -->
-<div style="line-height:0;">
-  <img class="band" src="/images/31-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1117.jpg" alt="A couple walking down the Cathedral Park staircase under the gothic arch of the St. Johns Bridge after their ceremony" width="1024" height="1467" loading="lazy" decoding="async" style="object-position:center 38%;">
+<div class="band-wrap">
+  <img class="band" src="/images/31-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1117.jpg" alt="A couple walking down the Cathedral Park staircase under the gothic arch of the St. Johns Bridge after their ceremony" width="1024" height="1467" loading="lazy" decoding="async" style="object-position:center 58%;">
 </div>
 
+
+<!-- STATEMENT -->
+<section class="statement">
+  <span class="statement-mark" aria-hidden="true">&ldquo;</span>
+  <div class="wrap">
+    <p>The first hour and a half belongs to <em>the two of you.</em> Everyone else arrives at 4:30, to a table already set.</p>
+    <span class="statement-attrib">How the afternoon is built</span>
+  </div>
+</section>
 
 <!-- EXPERIENCE FLOW -->
 <section class="experience" id="experience">
@@ -989,32 +1088,35 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="eyebrow">How the day flows</span>
         <h2>Vows, Portraits, and a Picnic.</h2>
         <p>The day is built so you can actually be present for all of it. Vows in the afternoon, portraits in the golden light, then a picnic waiting when you get back.</p>
-        <blockquote class="experience-pull">The first hour and a half belongs to the two of you. Everyone else arrives at 4:30, to a table already set.</blockquote>
+        
       </div>
       <div class="flow-steps rise">
         <div class="flow-step">
-          <div class="flow-num">01</div>
-          <div>
+            <div class="flow-body">
+              <span class="flow-num">01</span>
             <span class="flow-time">3:00 to 3:30 PM</span>
             <h3>Ceremony at Cathedral Park</h3>
             <p>A legal ceremony beneath the St. Johns Bridge with an ordained officiant, a recording, and your marriage license filed by Weddinglandia. You get the license ahead of time from any county clerk's office in Oregon and bring it with you. We handle the paperwork afterward. Where it happens is your call, and that decides who's there. Both options are just below.</p>
-          </div>
+            </div>
+            <img class="flow-img" src="/images/32-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1112.jpg" alt="Newlyweds on the Cathedral Park staircase beneath the gothic arch of the St. Johns Bridge" width="1024" height="1298" loading="lazy" decoding="async" style="object-position:center 68%;">
         </div>
         <div class="flow-step">
-          <div class="flow-num">02</div>
-          <div>
+            <div class="flow-body">
+              <span class="flow-num">02</span>
             <span class="flow-time">3:30 to 4:30 PM</span>
             <h3>Portraits in the park</h3>
             <p>While we set the picnic, you and your photographer walk the park. An hour to yourselves before anyone else turns up.</p>
-          </div>
+            </div>
+            <img class="flow-img" src="/images/28-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1218.jpg" alt="Bride holding a dahlia bouquet with her veil lifting in the wind at Cathedral Park" width="1024" height="1386" loading="lazy" decoding="async" style="object-position:center 28%;">
         </div>
         <div class="flow-step">
-          <div class="flow-num">03</div>
-          <div>
+            <div class="flow-body">
+              <span class="flow-num">03</span>
             <span class="flow-time">4:30 to 7:30 PM</span>
             <h3>The picnic awaits</h3>
             <p>The picnic opens when your portraits are done. Linen-draped tables, blankets and cushions, florals, candles, a full spread from She Serves and desserts from Flower &amp; Flour. For The Garden Party and The Soir&eacute;e, your guests arrive at 4:30 to welcome you as newlyweds. You sit down and enjoy it.</p>
-          </div>
+            </div>
+            <img class="flow-img" src="/images/26-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1275.jpg" alt="Newlyweds toasting across the picnic table over the grazing spread at Cathedral Park" width="1024" height="1388" loading="lazy" decoding="async" style="object-position:center 42%;">
         </div>
       </div>
     </div>
@@ -1027,29 +1129,31 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       </div>
       <div class="choice-grid">
         <div class="choice-card">
-          <img class="choice-img" src="/images/StaircaseCeremonyCathedralPark_300KB.jpg" alt="The Cathedral Park staircase leading up to the gothic arch beneath the St. Johns Bridge" width="1050" height="1400" loading="lazy" decoding="async" style="object-position:center 46%;">
+          <img class="choice-img" src="/images/StaircaseCeremonyCathedralPark_300KB.jpg" alt="The Cathedral Park staircase leading up to the gothic arch beneath the St. Johns Bridge" width="1050" height="1400" loading="lazy" decoding="async">
           <div class="choice-body">
           <span class="choice-label">Option one</span>
           <span class="choice-blank"></span>
           <h4>On the staircase.</h4>
-          <span class="choice-count">5<small>people at the ceremony</small></span>
+          <span class="choice-label-sm">Who can be there for the vows</span>
+          <span class="choice-count">5 people<small>The two of you, your officiant and two witnesses</small></span>
           <p class="choice-if"><strong>Choose this if</strong> the staircase under the arches is the picture you've had in your head all along.</p>
-          <p>The two of you, your officiant and two witnesses. Everyone counts toward that five, kids included, and witnesses have to be 18 or older.</p>
+          <p>Everyone counts toward that five, children included, and witnesses have to be 18 or older.</p>
           <p>Your guests wait at the picnic and watch you walk up already married. That's a good moment too.</p>
           <p>Want everyone up there instead? That takes a Portland Parks wedding permit in your own name, applied for in person on one morning in January. It's about $817 and we'll talk you through it, but Parks will only deal with you directly.</p>
           <span class="choice-who">The staircase can't be reserved, so it's first come, first served. If someone's there at 3:00, we move to the lawn and carry on. Guests arrive at 4:30.</span>
           </div>
         </div>
         <div class="choice-card">
-          <img class="choice-img" src="/images/LawnCeremonyCathedralPark_300KB.jpg" alt="The open lawn at Cathedral Park with the St. Johns Bridge tower rising above the trees" width="1050" height="1400" loading="lazy" decoding="async" style="object-position:center 58%;">
+          <img class="choice-img" src="/images/LawnCeremonyCathedralPark_300KB.jpg" alt="The open lawn at Cathedral Park with the St. Johns Bridge tower rising above the trees" width="1050" height="1400" loading="lazy" decoding="async">
           <div class="choice-body">
           <span class="choice-label">Option two</span>
           <span class="choice-pick">What we would pick</span>
           <h4>On the park lawn.</h4>
-          <span class="choice-count">Everyone<small>people at the ceremony</small></span>
+          <span class="choice-label-sm">Who can be there for the vows</span>
+          <span class="choice-count">Everyone<small>Your whole guest list, standing</small></span>
           <p class="choice-if"><strong>Choose this if</strong> you'd be sad about anyone missing the vows.</p>
           <p>We hold a spot on the lawn with the bridge above you, confirmed in advance, so it's yours for the afternoon. No permit for you to chase.</p>
-          <p>Your whole guest list can be there, kids included. Nobody sits, so everyone stands for the vows, and then you all walk over to the picnic together.</p>
+          <p>Children are welcome and count toward your guest number. Nobody sits, so everyone stands for the vows, and then you all walk over to the picnic together.</p>
           <span class="choice-who">Level ground and no steps, so it works for anyone who'd struggle with the staircase. Guests come for the ceremony.</span>
           </div>
         </div>
@@ -1065,8 +1169,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 </section>
 
 <!-- PHOTO BAND 2 -->
-<div style="line-height:0;">
-  <img class="band" src="/images/25-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1276.jpg" alt="A styled picnic table at Cathedral Park laid with vintage china, taper candles and a full grazing spread" width="1024" height="1536" loading="lazy" decoding="async" style="object-position:center 42%;">
+<div class="band-wrap">
+  <img class="band" src="/images/25-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1276.jpg" alt="A styled picnic table at Cathedral Park laid with vintage china, taper candles and a full grazing spread" width="1024" height="1536" loading="lazy" decoding="async" style="object-position:center 45%;">
 </div>
 
 <!-- PACKAGES -->
@@ -1130,10 +1234,10 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
               <td>Expanded grazing spread and desserts</td>
             </tr>
             <tr>
-              <th scope="row">Beverage allowance</th>
-              <td>$75</td>
-              <td class="feat">$225</td>
-              <td>$450</td>
+              <th scope="row">Drinks</th>
+              <td>Water and lemonade, plus $75 toward beer and wine</td>
+              <td class="feat">Water and lemonade, plus $225 toward beer and wine</td>
+              <td>Water and lemonade, plus $450 toward beer and wine</td>
             </tr>
             <tr>
               <th scope="row">Games and send-off</th>
@@ -1162,7 +1266,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
       <!-- TIER 1 -->
       <div class="tier-card rise">
-        <span class="tier-spacer"></span>
+        <img class="tier-img" src="/images/13-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1427.jpg" alt="A couple toasting on picnic blankets beneath the St. Johns Bridge at Cathedral Park" width="1024" height="1476" loading="lazy" decoding="async" style="object-position:center 62%;">
         <div class="tier-name">Just the Two of Us</div>
         <span class="tier-guests">Couple only &middot; 3 hours</span>
         <div class="tier-price">$2,500</div>
@@ -1182,7 +1286,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <li>Your choice of a table setting or a blanket spread on the lawn</li>
           <li>1 hour of photography, with a sneak peek in 48 hours</li>
           <li>Grazing spread, desserts, florals, linens and candlelight</li>
-          <li>$75 toward Oregon wine or local beer, plus infused water</li>
+          <li>$75 toward Oregon wine or local beer, refunded if you don't use it</li>
           <li>Your playlist on a Bluetooth speaker</li>
         </ul>
 
@@ -1193,6 +1297,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
       <!-- TIER 2 -->
       <div class="tier-card featured rise">
+        <img class="tier-img" src="/images/18-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1325.jpg" alt="A grazing spread of berries, peppers, cheese and charcuterie on a picnic table at Cathedral Park" width="1024" height="1536" loading="lazy" decoding="async" style="object-position:center 55%;">
         <span class="tier-flag">Most popular</span>
         <div class="tier-name">The Garden Party</div>
         <span class="tier-guests">Couple + up to 8 guests &middot; 4.5 hours</span>
@@ -1215,7 +1320,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <li>Blankets and cushions on the lawn</li>
           <li>2 hours of photography, with a sneak peek in 48 hours</li>
           <li>Grazing spread, desserts, florals, linens and candlelight</li>
-          <li>$225 toward Oregon wine or local beer, plus infused water</li>
+          <li>$225 toward Oregon wine or local beer, refunded if you don't use it</li>
           <li>Bocce, cornhole, your playlist, and a bubble send-off</li>
         </ul>
 
@@ -1226,7 +1331,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
       <!-- TIER 3 -->
       <div class="tier-card rise">
-        <span class="tier-spacer"></span>
+        <img class="tier-img" src="/images/16-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1347.jpg" alt="Newlyweds at a laid picnic table at Cathedral Park with a live event painter working behind them" width="1024" height="1359" loading="lazy" decoding="async" style="object-position:center 45%;">
         <div class="tier-name">The Soir&eacute;e</div>
         <span class="tier-guests">Couple + up to 18 guests &middot; 4.5 hours</span>
         <div class="tier-price">$5,000</div>
@@ -1248,7 +1353,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <li>Blankets and cushions on the lawn</li>
           <li>2 hours of photography, with a sneak peek in 48 hours</li>
           <li>Expanded grazing spread, desserts, florals, linens and candlelight</li>
-          <li>$450 toward Oregon wine or local beer, plus infused water</li>
+          <li>$450 toward Oregon wine or local beer, refunded if you don't use it</li>
           <li>Bocce, cornhole, your playlist, and a bubble send-off</li>
         </ul>
 
@@ -1331,12 +1436,27 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="sec-head rise" style="margin-bottom:0;">
         <span class="eyebrow">What all-inclusive actually means</span>
         <h2>The things that are normally extra.</h2>
-        <p>Most elopement and micro-wedding packages cover the ceremony, then hand you a list of vendors to book and pay yourself. There's nothing wrong with that, but it isn't how we do it. Here's the difference, so you know what you're comparing when you look at other options.</p>
+        <p>Most elopement and micro-wedding packages cover the ceremony, then hand you a list of vendors to book and pay yourself. There's nothing wrong with that, but it isn't how we do it. Below are the same nine things twice: once as they'd land on you if you booked them yourself, and once as they come to you here.</p>
       </div>
       <div class="usually-grid rise">
-        <div class="usually-col">
-          <span class="usually-label">Usually a separate cost</span>
-          <h3>Booked and paid by you.</h3>
+        <div class="usually-col ours">
+          <span class="usually-label">Married Under the Bridge</span>
+          <h3>All nine, already in your price.</h3>
+          <ul>
+            <li>Grazing spread from She Serves and desserts from Flower &amp; Flour</li>
+            <li>Water and lemonade, plus a beverage allowance for beer and wine at cost</li>
+            <li>Photography, with a sneak peek in 48 hours</li>
+            <li>Fresh florals from Still City Flowers</li>
+            <li>Linens, place settings, votives and candlelight</li>
+            <li>Your Portland Parks permit fee</li>
+            <li>Every bit of setup and teardown</li>
+            <li>Reserved picnic tables, blankets and cushions</li>
+            <li>Your playlist, bocce, cornhole and a bubble send-off</li>
+          </ul>
+        </div>
+        <div class="usually-col elsewhere">
+          <span class="usually-label">If you booked it yourself</span>
+          <h3>Nine things to find, book and pay for.</h3>
           <ul>
             <li>Food and catering</li>
             <li>Beer, wine and drinks</li>
@@ -1347,21 +1467,6 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
             <li>Setup and teardown</li>
             <li>Tables, seating and blankets</li>
             <li>Music, games and a send-off</li>
-          </ul>
-        </div>
-        <div class="usually-col ours">
-          <span class="usually-label">Included here</span>
-          <h3>All of it, in the price.</h3>
-          <ul>
-            <li>Grazing spread from She Serves and desserts from Flower &amp; Flour</li>
-            <li>A beverage allowance, bought at cost with no markup</li>
-            <li>Photography, with a sneak peek in 48 hours</li>
-            <li>Fresh florals from Still City Flowers</li>
-            <li>Linens, place settings, votives and candlelight</li>
-            <li>Your Portland Parks permit fee</li>
-            <li>Every bit of setup and teardown</li>
-            <li>Reserved picnic tables, blankets and cushions</li>
-            <li>Your playlist, bocce, cornhole and a bubble send-off</li>
           </ul>
         </div>
       </div>
@@ -1399,11 +1504,11 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <p>2027 dates aren't up yet, and that isn't us dragging our feet. Portland Parks publishes the list of days the park is closed to private events every January, so the 2027 list won't exist until January 2027. Nobody knows those dates yet, us included.</p>
         <p>If you're looking that far out, you have two ways to go:</p>
         <ul>
-          <li><strong>Reserve now, choose your date in January.</strong> You book with January 1, 2027 as a placeholder, which locks today's pricing and holds the team. When the calendar comes out, we pick your real date together and update the booking. Your package and price don't change. And if nothing on that calendar works for you, withdraw and we refund your deposit in full.</li>
-          <li><strong>Wait and book in January.</strong> You see the calendar first and decide knowing everything. The tradeoff is that another couple might book the team for your date before you get to it.</li>
+          <li><strong>Reserve now and take your place in the queue.</strong> You book with January 1, 2027 as a placeholder. That holds today's pricing and the vendor team, and it puts you in line: when the calendar publishes we work through our booked couples in the order their deposits came in, so you pick your date before anyone who waited. We choose it together and update your booking. Your package and price don't change. And if nothing on that calendar works for you, withdraw and we refund your deposit in full.</li>
+          <li><strong>Wait and book in January.</strong> You see the calendar first and decide knowing everything. The tradeoff is that you're choosing from what's left once the couples already holding a deposit have picked, and Saturdays go first.</li>
         </ul>
         <p>One date's already out: July 16 through 18, 2027 is the Cathedral Park Jazz Festival, and the park is closed to events that weekend.</p>
-        <p>The staircase works differently from 2027 too, which we've covered in <a href="#ceremony-options">the ceremony options above</a>. <a href="mailto:hello@higherloveeventco.com">Email us</a> and we'll walk you through the whole thing.</p>
+        <p>The staircase works differently from 2027 too, which we've covered in <a href="#ceremony-options">the ceremony options above</a>. <a href="mailto:hello@higherloveeventco.com">Email us</a> and we'll walk you through it.</p>
       </div>
       <div class="invite-line">
         <span class="date-month">For your invitations</span>
@@ -1421,22 +1526,14 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
     <div class="sec-head rise">
       <span class="eyebrow">After you book</span>
       <h2>Everything you have to do, in order.</h2>
-      <p>Two things need your name on them, and nobody can do those for you. Everything else is ours. Here's the whole list with timings, so nothing sneaks up on you and you don't have to hold it all in your head.</p>
+      <p>Two things need your name on them, and nobody can do those for you. Everything else is ours. Below is every step with its timing, so nothing sneaks up on you and you don't have to hold it in your head.</p>
     </div>
     <div class="step-list rise">
       <div class="step">
         <span class="step-when">At booking</span>
         <div>
           <h3>Pick your package and pay your deposit.</h3>
-          <p>You pick your date, your package, any add-ons, and whether you want beer, wine and champagne or non-alcoholic only. You sign and pay in the same flow. That's all we need from you that day.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-when">Just after</span>
-        <div>
-          <h3>One short phone call.</h3>
-          <p>About ten minutes. We walk you through the park permit application, which has to come from you because Portland Parks will only deal with the person named on it. You'll have every detail you need before we call.</p>
-          <span class="step-who">Yours to do. We prepare it and remind you.</span>
+          <p>You pick your date, your package, any add-ons, and whether you want beer, wine and champagne or just the water and lemonade. You sign and pay in the same flow. That's all we need from you that day.</p>
         </div>
       </div>
       <div class="step">
@@ -1448,11 +1545,12 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         </div>
       </div>
       <div class="step">
-        <span class="step-when">21 days out</span>
+        <span class="step-when">About a month out</span>
         <div>
-          <h3>Park permit application submitted.</h3>
-          <p>This is the deadline for the application we talked through on the call. Once Portland Parks issues your permit number, you send it to us and we handle everything after that, fee included. It's already in your package price.</p>
-          <span class="step-who">Yours to submit. We handle everything after.</span>
+          <h3>We call Portland Parks together.</h3>
+          <p>Portland Parks will only deal with the person named on the permit, which has to be you. So rather than leaving you to work it out alone, we book a time and call them as a three-way call. You do the requesting and submitting, and I'm on the line to answer anything they ask.</p>
+          <p>Once the application is in, you can hang up. I stay on and pay the fee, which is already in your package price. It takes about fifteen minutes, and it's the only piece of admin on this list.</p>
+          <span class="step-who">We do it together. The deadline is 21 days before your date.</span>
         </div>
       </div>
       <div class="step">
@@ -1460,7 +1558,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <div>
           <h3>The last details.</h3>
           <p>Final guest count, dietary needs and allergies, personal florals, add-ons, drinks, and which ceremony you've chosen. One email from us, one reply from you, and then it's locked.</p>
-          <p>On the drinks: because the park permit is in your name, you're the host and the alcohol is yours. We buy your beer and wine at cost with no markup and hand it over sealed. No glass anywhere in the park, so cans or plastic only, and no spirits.</p>
+          <p>On the drinks: water and lemonade come with every package. Beer and wine are optional, and because the park permit is in your name you're the host and the alcohol is yours. We buy it at cost with no markup and hand it over sealed. Anything you don't spend from the allowance is refunded. No glass anywhere in the park, so cans or plastic only, and no spirits.</p>
         </div>
       </div>
       <div class="step">
@@ -1481,7 +1579,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="step-when">On the day</span>
         <div>
           <h3>You show up.</h3>
-          <p>Get to Cathedral Park by 3:00 PM with your license and each other. Everything's set. That's the whole job.</p>
+          <p>Get to Cathedral Park by 3:00 PM with your license and each other. Everything is already set up and waiting.</p>
         </div>
       </div>
     </div>
@@ -1537,22 +1635,37 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <h3>Additional Guests</h3>
         <span class="addon-price">$75 each, up to 4</span>
       </div>
-      <div class="addon-item feature" style="padding:0;display:grid;grid-template-columns:260px 1fr;gap:0;align-items:stretch;">
-        <img src="/images/10-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1474.jpg" alt="A couple watching an artist paint their wedding at an easel during a Cathedral Park picnic reception" width="1024" height="1536" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
-        <div style="padding:1.8rem;display:flex;flex-direction:column;">
+      <div class="addon-item feature">
         <h3>Live Event Painting</h3>
-        <p>Yoonie Mae sets up at the reception and guides your guests through making a painting together across the afternoon. You leave with an original piece made by the people who came.</p>
+        <p>Yoonie Mae sets up at the reception and guides your guests through making a painting together across the afternoon. You leave with an original piece made by the people who came. <a href="/real-weddings#painting">See one being made</a>.</p>
         <span class="addon-price">$1,800</span>
-        </div>
       </div>
     </div>
     <p class="addon-note">Pick your add-ons when you book. Want to add something later? Email us and we'll do our best. Everything locks 10 days before your date.</p>
   </div>
 </section>
 
-<div style="line-height:0;">
-  <img class="band" src="/images/24-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1279.jpg" alt="Black and white photograph of a groom feeding his bride at the picnic table at Cathedral Park" width="1024" height="1424" loading="lazy" decoding="async" style="object-position:center 32%;">
+<div class="band-wrap">
+  <img class="band" src="/images/24-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1279.jpg" alt="Black and white photograph of a groom feeding his bride at the picnic table at Cathedral Park" width="1024" height="1424" loading="lazy" decoding="async" style="object-position:center 44%;">
 </div>
+
+<!-- REAL WEDDINGS TEASER -->
+<section class="teaser" id="teaser">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">Real weddings</span>
+      <h2>See a whole afternoon.</h2>
+      <p>One wedding at Cathedral Park, start to finish: the staircase, the portraits, the picnic once it's set, and the live painting happening in the background.</p>
+    </div>
+    <a class="teaser-grid rise" href="/real-weddings" aria-label="See real weddings at Cathedral Park">
+      <img src="/images/33-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1094.jpg" style="object-position:center 62%;" alt="Black and white photograph of a bride and groom walking up the park steps" width="1024" height="1536" loading="lazy" decoding="async">
+      <img src="/images/27-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1241.jpg" style="object-position:center 55%;" alt="Bridal bouquet from Still City Flowers and white shoes on the stone wall at Cathedral Park" width="1024" height="1536" loading="lazy" decoding="async">
+      <img src="/images/19-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1315.jpg" style="object-position:center 45%;" alt="Two crystal glasses of Oregon sparkling wine touching in a toast" width="1024" height="1484" loading="lazy" decoding="async">
+      <img src="/images/22-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1291.jpg" style="object-position:center 42%;" alt="Two frosted cupcakes topped with edible flowers held over the picnic table" width="1024" height="1536" loading="lazy" decoding="async">
+    </a>
+    <p class="teaser-cta rise"><a class="btn btn-outline-gold" href="/real-weddings">See all the photos</a></p>
+  </div>
+</section>
 
 <!-- MEET KYLIE -->
 <section class="meet" id="kylie">
@@ -1584,6 +1697,14 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 </section>
 
 <!-- VENDORS -->
+<!-- VENDOR MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Weddinglandia</span><span>Megan Moore</span><span>Still City Flowers</span><span>She Serves</span><span>Flower &amp; Flour</span><span>45th Parallel</span><span>StormBreaker</span><span>Occidental</span><span>Lost Fox Creative</span><span>Hummingbird Films</span><span>Yoonie Mae</span><span>Higher Love</span>
+    <span>Weddinglandia</span><span>Megan Moore</span><span>Still City Flowers</span><span>She Serves</span><span>Flower &amp; Flour</span><span>45th Parallel</span><span>StormBreaker</span><span>Occidental</span><span>Lost Fox Creative</span><span>Hummingbird Films</span><span>Yoonie Mae</span><span>Higher Love</span>
+  </div>
+</div>
+
 <section class="vendors" id="vendors">
   <div class="wrap">
     <div class="sec-head rise">
@@ -1671,8 +1792,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <details class="faq-item">
         <summary>What do we actually have to do ourselves?</summary>
         <div class="faq-answer">
-          <p>Two things. Get your Oregon marriage license, and submit one short park permit application that has to be in your name, because Portland Parks will only deal with the person named on it.</p>
-          <p>We prepare the application, walk you through it on a ten minute call after you book, and nudge you before the deadline. <a href="#after">The full timeline is here.</a></p>
+          <p>Two things. Get your Oregon marriage license, and be on one phone call about a month before your date.</p>
+          <p>The permit has to be in your name, because Portland Parks will only deal with the person named on it. So we call them together as a three-way call. You do the talking and submitting, I'm there to answer anything, and once it's in you hang up and I pay the fee. About fifteen minutes. <a href="#after">Every step is here.</a></p>
         </div>
       </details>
 
@@ -1688,7 +1809,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <summary>Can we book a date for 2027?</summary>
         <div class="faq-answer">
           <p>Yes, though you'll pick the exact date in January 2027 rather than now. Portland Parks doesn't publish which days the park is closed until January of that year.</p>
-          <p>You can reserve now with a January 1, 2027 placeholder, which locks today's pricing and holds the team. If nothing on the calendar works, withdraw and we refund your deposit in full. <a href="#dates">More on how that works here.</a></p>
+          <p>You can reserve now with a January 1, 2027 placeholder. That locks today's pricing, holds the team, and puts you in the queue, so when the calendar publishes you get first pick ahead of anyone who waited. If nothing on it works for you, withdraw and we refund your deposit in full. <a href="#dates">More on how that works here.</a></p>
         </div>
       </details>
 
@@ -1698,8 +1819,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 </section>
 
 <!-- WEDDINGLANDIA BAND -->
-<div style="line-height:0;">
-  <img class="band" src="/images/36-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1037.jpg" alt="Black and white photograph of newlyweds kissing among the dahlias at Cathedral Park" width="1024" height="1546" loading="lazy" decoding="async" style="object-position:center 28%;">
+<div class="band-wrap">
+  <img class="band" src="/images/36-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1037.jpg" alt="Black and white photograph of newlyweds kissing among the dahlias at Cathedral Park" width="1024" height="1546" loading="lazy" decoding="async" style="object-position:center 25%;">
 </div>
 
 
@@ -1713,8 +1834,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <a class="btn btn-gold" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge" aria-label="Book your elopement package">Book your date</a>
       <a class="btn btn-light" href="mailto:hello@higherloveeventco.com" aria-label="Send us a message">Send us a message</a>
     </div>
-    <p class="talk-link" style="margin-top:2rem;">Prefer to speak to a person first? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a>, or text Kylie at <a href="sms:+15032178500">503-217-8500</a>. Real answers, usually the same day.</p>
-    <p class="closing-note">Questions? Text Kylie at <a href="sms:+15032178500">503-217-8500</a> or email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a>. Kylie answers these herself, usually the same day.</p>
+    
+    <p class="closing-note">Prefer to speak to a person first? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a>, text Kylie at <a href="sms:+15032178500">503-217-8500</a>, or email <a href="mailto:hello@higherloveeventco.com">hello@higherloveeventco.com</a>. She answers these herself, usually the same day.</p>
   </div>
 </section>
 
