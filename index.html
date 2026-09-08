@@ -563,10 +563,13 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 /* the reassuring column earns the dark treatment; it also balances three
    columns of very different content lengths */
 .prebook-col.covered{background:var(--black);}
-.paystrip{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin:2.5rem 0 0;}
+.paystrip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin:1px 0 0;
+  background:var(--border);border:0.5px solid var(--border);border-top:none;}
+.paystrip-item{background:var(--linen);padding:1.8rem 2rem;}
 .paystrip-label{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:.6rem;}
 .paystrip-item p{font-size:.94rem;color:var(--muted);line-height:1.7;margin:0;}
-@media(max-width:820px){.paystrip{grid-template-columns:1fr;gap:1.6rem;}}
+@media(max-width:820px){.paystrip{grid-template-columns:1fr;gap:1px;}}
+@media(max-width:480px){.paystrip-item{padding:1.6rem 1.5rem;}}
 .prebook-col.covered .prebook-label{color:var(--gold);}
 .prebook-col.covered li{color:rgba(245,240,232,.75);}
 .prebook-col.covered li strong{color:var(--cream);}
@@ -1015,7 +1018,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       "name": "How many people can come to the ceremony?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Couples choose between two ceremony locations ten days before their date. Every booking requires a Portland Parks park permit, which Higher Love prepares and whose fee is included in the package price. On the park lawn, covered by that permit, every guest in the package may attend standing. On the Cathedral Park staircase, five people may attend: the couple, the officiant and two witnesses, with children counting toward that limit. Reserving the staircase for a full guest list requires a separate Portland Parks wedding permit at additional cost, which the couple must apply for themselves."
+        "text": "Couples choose between two ceremony locations ten days before their date. Every booking requires a Portland Parks park permit, which Higher Love prepares and whose fee is included in the package price. On the park lawn, covered by that permit, every guest in the package may attend. On the Cathedral Park staircase, five people may attend: the couple, the officiant and two witnesses, with children counting toward that limit. Reserving the staircase for a full guest list requires a separate Portland Parks wedding permit at additional cost, which the couple must apply for themselves."
       }
     },
     {
@@ -1142,7 +1145,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         </div>
         <div class="glance-cell">
           <span class="glance-q">What you have to do</span>
-          <p class="glance-a">Two things. Get your Oregon marriage license, and join one short call with me and Portland Parks to apply for your park permit. Every booking needs that permit, and the fee is included in your package price. <a href="#after">Every step</a></p>
+          <p class="glance-a">Two things. Get your Oregon marriage license, and join one short call with me and Portland Parks to apply for your park permit. Every booking needs a permit, and the fee is included in your package price. <a href="#after">Every step</a></p>
         </div>
         <div class="glance-cell">
           <span class="glance-q">How to book</span>
@@ -1267,11 +1270,11 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <h4>On the staircase.</h4>
           <span class="choice-label-sm">Who can be there for the vows</span>
           <span class="choice-count">5 people<small>The two of you, your officiant, and the two witnesses Oregon requires</small></span>
-          <p class="choice-if"><strong>Choose this if</strong> those gothic arches are what made you want to get married here.</p>
+          <p class="choice-if"><strong>Choose the staircase location if</strong> those gothic arches are what made you want to get married here, or if you want your ceremony to feel more intimate.</p>
           <p>Children count toward the five, and witnesses have to be 18 or older.</p>
-          <p>Everyone else waits at the picnic and welcomes you back already married.</p>
-          <p>Want your whole guest list up there instead? That takes a second permit, a Portland Parks wedding permit, on top of the park permit every booking needs. It costs around $817, it isn't in your package, and you have to apply for it yourselves. <a href="/faq#ceremony">How that works</a>.</p>
-          <span class="choice-who">The staircase can't be booked in advance, so it's first come, first served. If another couple is there at 3:00, we move to the lawn and carry on. Your guests arrive at 4:30.</span>
+          <p>If you choose this option, your guests will begin arriving at the same time you finish up with your park photo shoot. You enter the picnic celebrated by the people who love you the most.</p>
+          <p>Want your whole guest list at the staircase instead? That takes a second permit, a Portland Parks wedding permit, on top of the usual park permit we require for every booking. It costs around $817, it isn't in your package, and you have to apply for it yourselves. <a href="/faq#ceremony">How that works</a>.</p>
+          <span class="choice-who">The staircase can't be booked in advance unless you get that spendy wedding permit, so it's first come, first served and five people only. If another couple is there at 3:00, we will move the ceremony to another location and carry on. The staircase is not ADA accessible and the restrooms are a fair walk away, though there's ample parking close by.</span>
           </div>
         </div>
         <div class="choice-card">
@@ -1281,11 +1284,11 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <span class="choice-pick">What we would pick</span>
           <h4>On the park lawn.</h4>
           <span class="choice-label-sm">Who can be there for the vows</span>
-          <span class="choice-count">Everyone<small>Your whole guest list, standing</small></span>
-          <p class="choice-if"><strong>Choose this if</strong> you'd be sad about anyone missing the vows.</p>
+          <span class="choice-count">Everyone<small>Your whole guest list</small></span>
+          <p class="choice-if"><strong>Choose the park lawn location if</strong> you'd be sad to have your guests miss the vows.</p>
           <p>We hold a spot on the lawn with the bridge above you, confirmed in advance, so it's yours for the afternoon. It's covered by the park permit we help you apply for, and that fee is included in your package price.</p>
-          <p>Children are welcome and count toward your guest number. Nobody sits, so everyone stands for the vows, and then you all walk over to the picnic together.</p>
-          <span class="choice-who">Level ground and no steps, so it works for anyone who'd struggle with the staircase. Guests come for the ceremony.</span>
+          <p>Children are welcome and count toward your guest number. Please note that everyone will need to stand for the vows.</p>
+          <span class="choice-who">Mostly level ground and no steps to navigate, so it works for anyone who'd struggle with the staircase location. All of your guests can watch you say “I do”. Restrooms and parking are conveniently located nearby.</span>
           </div>
         </div>
       </div>
@@ -1462,8 +1465,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <p>$1,000, $1,500 or $2,100 depending on your package. It holds the date and the whole vendor team.</p>
       </div>
       <div class="paystrip-item">
-        <span class="paystrip-label">Balance, 7 days before</span>
-        <p>No schedule in between. Pay it in one go, or send whatever you like whenever you like and chip away at it.</p>
+        <span class="paystrip-label">The balance, how you like</span>
+        <p>Pay in full, spread it monthly, split it in two, or leave it until a month before. You choose at booking and can change your mind. <a href="/faq#booking">The four options</a>.</p>
       </div>
       <div class="paystrip-item">
         <span class="paystrip-label">If something goes wrong</span>
@@ -1472,7 +1475,6 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
     </div>
 
     <p class="talk-link">Not sure which package fits? <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a>, or just text Kylie at <a href="sms:+15032178500" class="nowrap">503-217-8500</a> and ask. No pressure, no sales pitch.</p>
-    <p class="tier-note-plain">Looking for a different date? Email <a href="mailto:hello@higherloveeventco.com" class="nowrap">hello@higherloveeventco.com</a> or click Join Waitlist on our booking page with your preferred date, and we'll check availability with our team.</p>
   </div>
 </section>
 
@@ -1591,7 +1593,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="step-when">At booking</span>
         <div>
           <h3>Pick your package and pay your deposit.</h3>
-          <p>Your date, your package, any add-ons, and whether you want beer and wine or just the water and lemonade. You sign and pay in the same flow.</p>
+          <p>Your date, your package, any add-ons, and whether you want beer and wine or just the water and lemonade. You sign and pay the deposit in the same flow.</p>
+          <p>You also choose how to pay the balance: in full, monthly, in two halves, or all at once a month before. Whichever you pick, it's settled 30 days before your date, and you can change your mind at any time. <a href="/faq#booking">The four options</a>.</p>
         </div>
       </div>
       <div class="step">
@@ -1622,8 +1625,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="step">
         <span class="step-when">7 days out</span>
         <div>
-          <h3>Balance due.</h3>
-          <p>The rest of your package. After this there's nothing left to arrange.</p>
+          <h3>One last invoice.</h3>
+          <p>Your balance is already settled by this point, whichever schedule you chose. This is just the drinks reconciling against your allowance, so it's often a refund rather than a charge.</p>
         </div>
       </div>
       <div class="step">
@@ -1877,7 +1880,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <summary>How many people can come to the ceremony?</summary>
         <div class="faq-answer">
           <p>Five on the staircase, or everyone in your package on the park lawn. It's your call, and you tell us 10 days before the date.</p>
-          <p>The staircase can't be reserved, which is why it's capped at the two of you, your officiant and two witnesses. The lawn is a spot we hold for you, and it takes your whole guest list, standing. You can have everyone on the staircase too, but that takes a separate wedding permit at extra cost, which you apply for yourselves. <a href="#ceremony-options">Both options, side by side.</a></p>
+          <p>The staircase can't be reserved, which is why it's capped at the two of you, your officiant and two witnesses. The lawn is a spot we hold for you, and it takes your whole guest list. You can have everyone on the staircase too, but that takes a separate wedding permit at extra cost, which you apply for yourselves. <a href="#ceremony-options">Both options, side by side.</a></p>
         </div>
       </details>
 
