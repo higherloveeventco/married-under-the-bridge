@@ -481,49 +481,6 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 .quotes-more a{color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);}
 @media(max-width:820px){.quotes-grid{grid-template-columns:1fr;}}
 
-/* PHOTOS IN THE DAY FLOW */
-.flow-img{width:100%;height:230px;object-fit:cover;display:block;margin:1rem 0 0;}
-@media(max-width:640px){.flow-img{height:200px;}}
-
-/* PHOTO ON EACH TIER CARD */
-.tier-img{width:calc(100% + 4.8rem);max-width:none;margin:-3rem -2.4rem 1.8rem;height:210px;object-fit:cover;display:block;}
-
-/* REAL WEDDINGS TEASER */
-.teaser{background:var(--linen);padding:5rem 0;}
-.teaser-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border);margin-top:2.2rem;}
-.teaser-grid img{width:100%;height:340px;object-fit:cover;display:block;background:var(--cream);}
-.teaser-cta{margin-top:2rem;}
-@media(max-width:760px){.teaser-grid{grid-template-columns:1fr 1fr;}.teaser-grid img{height:260px;}}
-@media(max-width:480px){.teaser-grid img{height:220px;}}
-
-/* Drop cap on the opening paragraph. One old-magazine move, used once. */
-.intro-inner p:first-of-type::first-letter{
-  float:left;font-family:var(--serif);font-size:4.6rem;line-height:.78;
-  padding:.35rem .7rem 0 0;color:var(--gold);font-weight:400;}
-@media(max-width:480px){.intro-inner p:first-of-type::first-letter{font-size:3.6rem;}}
-
-/* FAQ on dark: the page runs cream for a long stretch before the closing band,
-   so this restores contrast where attention usually drops. */
-
-/* QUOTES BAND
-   Three lines of proof on the homepage. Chosen to answer the three things
-   couples actually hesitate over: weather, children, and whether this is
-   really more than a courthouse. */
-.quotes{background:var(--linen);padding:5rem 0;}
-.quotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
-  border:0.5px solid var(--border);margin-top:2.2rem;}
-.quote{background:var(--cream);padding:2.2rem 2rem;display:flex;flex-direction:column;}
-.quote-stars{color:var(--gold);font-size:.72rem;letter-spacing:.18em;margin-bottom:1rem;}
-.quote p{font-family:var(--serif);font-size:1.1rem;line-height:1.6;color:var(--black);
-  font-style:italic;margin:0 0 1.2rem;flex:1;}
-.quote p::before{content:"\201C";}
-.quote p::after{content:"\201D";}
-.quote-who{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--gold-deep);display:block;}
-.quotes-more{margin-top:1.6rem;font-size:.94rem;color:var(--muted);}
-.quotes-more a{color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);}
-@media(max-width:820px){.quotes-grid{grid-template-columns:1fr;}}
-
 /* PARK MAP */
 
 /* CEREMONY CHOICE */
@@ -1120,7 +1077,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <a href="#after">After You Book</a>
   <a href="#addons">Add-ons</a>
   <a href="#quotes">Reviews</a>
-        <a href="#kylie">Meet Kylie</a>
+  <a href="#kylie">Meet Kylie</a>
   <a href="#vendors">Vendor Team</a>
   <a href="/real-weddings">Real Weddings</a>
   <a href="/faq">FAQ</a>
@@ -1181,7 +1138,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         </div>
         <div class="glance-cell">
           <span class="glance-q">Accessibility</span>
-          <p class="glance-a">Paved paths, accessible restrooms, and everyone seated at tables rather than on the ground. Tell us what your group needs.</p>
+          <p class="glance-a">Paved paths, accessible restrooms, and everyone at tables rather than on the ground. The lawn ceremony is on level ground; the staircase is the one part that isn't accessible. Tell us what your group needs and we'll work it out with you. <a href="/faq#accessibility">Getting around the park</a></p>
         </div>
         <div class="glance-cell">
           <span class="glance-q">What you have to do</span>
@@ -1999,8 +1956,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <li><a href="#dates">Available Dates</a></li>
           <li><a href="#after">After You Book</a></li>
           <li><a href="#addons">Add-ons</a></li>
-              <li><a href="#quotes">Reviews</a>
-        <a href="#kylie">Meet Kylie</a></li>
+              <li><a href="#quotes">Reviews</a></li>
+          <li><a href="#kylie">Meet Kylie</a></li>
           <li><a href="#vendors">Vendor Team</a></li>
           <li><a href="/real-weddings">Real Weddings</a></li>
           <li><a href="/faq">FAQ</a></li>
