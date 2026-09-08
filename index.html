@@ -434,6 +434,25 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 /* FAQ on dark: the page runs cream for a long stretch before the closing band,
    so this restores contrast where attention usually drops. */
 
+/* QUOTES BAND
+   Three lines of proof on the homepage. Chosen to answer the three things
+   couples actually hesitate over: weather, children, and whether this is
+   really more than a courthouse. */
+.quotes{background:var(--linen);padding:5rem 0;}
+.quotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+  border:0.5px solid var(--border);margin-top:2.2rem;}
+.quote{background:var(--cream);padding:2.2rem 2rem;display:flex;flex-direction:column;}
+.quote-stars{color:var(--gold);font-size:.72rem;letter-spacing:.18em;margin-bottom:1rem;}
+.quote p{font-family:var(--serif);font-size:1.1rem;line-height:1.6;color:var(--black);
+  font-style:italic;margin:0 0 1.2rem;flex:1;}
+.quote p::before{content:"\201C";}
+.quote p::after{content:"\201D";}
+.quote-who{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold-deep);display:block;}
+.quotes-more{margin-top:1.6rem;font-size:.94rem;color:var(--muted);}
+.quotes-more a{color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);}
+@media(max-width:820px){.quotes-grid{grid-template-columns:1fr;}}
+
 /* PARK MAP */
 .map-block{margin-top:2.5rem;}
 .map-block img{width:100%;height:auto;display:block;border:0.5px solid var(--border);}
@@ -527,7 +546,7 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 .tier-items li::before{content:"";position:absolute;left:0;top:.65em;width:5px;height:1px;background:var(--gold);}
 .tier-cta{margin-top:2rem;}
 .tier-cta .btn{width:100%;text-align:center;display:block;}
-.prebook{margin:3rem 0 0;border:0.5px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.prebook{margin:3rem 0 0;border:0.5px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
 /* the reassuring column earns the dark treatment; it also balances three
    columns of very different content lengths */
 .prebook-col.covered{background:var(--black);}
@@ -1044,7 +1063,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <a href="#dates">Dates</a>
   <a href="#after">After You Book</a>
   <a href="#addons">Add-ons</a>
-  <a href="#kylie">Meet Kylie</a>
+  <a href="#quotes">Reviews</a>
+        <a href="#kylie">Meet Kylie</a>
   <a href="#vendors">Vendor Team</a>
   <a href="/real-weddings">Real Weddings</a>
   <a href="/faq">FAQ</a>
@@ -1172,8 +1192,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 <section class="statement">
   <span class="statement-mark" aria-hidden="true">&ldquo;</span>
   <div class="wrap">
-    <p>Between the vows and the picnic, <em>an hour with nothing to do but be married.</em></p>
-    <span class="statement-attrib">3:30 to 4:30 PM</span>
+    <p>They named the park after the arches. <em>You'll see why at three o'clock.</em></p>
+    <span class="statement-attrib">Cathedral Park, St. Johns</span>
   </div>
 </section>
 
@@ -1235,9 +1255,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <span class="choice-count">5 people<small>The two of you, your officiant and two witnesses</small></span>
           <p class="choice-if"><strong>Choose this if</strong> those gothic arches are what made you want to get married here in the first place.</p>
           <p>Everyone counts toward that five, children included, and witnesses have to be 18 or older.</p>
-          <p>Your guests wait at the picnic and watch you walk up already married. That's a good moment too.</p>
-          <p>Want everyone up there instead? That takes a Portland Parks wedding permit in your own name, which costs around $817 and has to be applied for in person. <a href="/faq#ceremony">How that works</a>.</p>
-          <span class="choice-who">The staircase can't be reserved, so it's first come, first served. If someone's there at 3:00, we move to the lawn and carry on. From 2027 another couple may have it booked for your date, which is why the lawn is the one we'd steer you toward. Guests arrive at 4:30.</span>
+          <p>Your guests wait at the picnic and watch you walk up already married. You can have everyone up there instead, but only with your own Portland Parks wedding permit. <a href="/faq#ceremony">How that works</a>.</p>
+          <span class="choice-who">It can't be reserved, so it's first come, first served. If someone's there at 3:00 we move to the lawn and carry on. Guests arrive at 4:30.</span>
           </div>
         </div>
         <div class="choice-card">
@@ -1427,18 +1446,6 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
     <div class="prebook rise">
       <div class="prebook-col">
-        <span class="prebook-label">What isn't included</span>
-        <ul>
-          <li>Your marriage license and its county fee</li>
-          <li>Hair, makeup, and attire</li>
-          <li>Rings</li>
-          <li>Personal florals. Bouquets and boutonnieres are available as add-ons</li>
-          <li>Transportation and lodging for you and your guests</li>
-          <li>A rehearsal. The ceremony is short and your officiant walks you through it on the day</li>
-        </ul>
-      </div>
-
-      <div class="prebook-col">
         <span class="prebook-label">What it really costs</span>
         <p>A Garden Party wedding, all in, so you can see the whole number without doing the math.</p>
         <div style="margin-top:1.2rem;">
@@ -1450,19 +1457,10 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <p class="total-note">Skip the personal florals and you're at $3,660. The license fee goes to the county, not to us.</p>
       </div>
 
-      <div class="prebook-col covered">
-        <span class="prebook-label">Where you're covered</span>
-        <div class="protect">
-          <span class="protect-label">You get your money back if</span>
-          <ul>
-            <li><strong>Portland Parks cancels on you.</strong> If they declare your date unavailable, or withdraw or refuse a permit for reasons that aren't your fault, you choose: reschedule, or a full refund of everything you've paid.</li>
-            <li><strong>You reserved a 2027 date and nothing works.</strong> If you're holding a booking ahead of the Parks calendar and no date on it suits you, withdraw and we refund your deposit in full.</li>
-          </ul>
-          <span class="protect-label" style="margin-top:1.4rem;">And we'll reschedule if</span>
-          <ul>
-            <li>Conditions make travel or being outdoors genuinely unsafe, like a declared weather emergency or road closures. One reschedule within 12 months, subject to the team being free.</li>
-          </ul>
-        </div>
+      <div class="prebook-col">
+        <span class="prebook-label">What isn't included</span>
+        <p>Your marriage license, personal florals, rings, hair and makeup, what you wear, and travel or lodging. The usual things you'd buy for any wedding.</p>
+        <p>Everything else on the day is ours, from the officiant to the last plate cleared. <a href="/faq#basics">The full list, both ways</a>.</p>
       </div>
     </div>
 
@@ -1476,8 +1474,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <p>No schedule in between. Pay it in one go, or send whatever you like whenever you like and chip away at it.</p>
       </div>
       <div class="paystrip-item">
-        <span class="paystrip-label">If you change your mind</span>
-        <p>Deposits and payments aren't refundable or transferable, except in the cases above. Full terms come with your booking, or <a href="mailto:hello@higherloveeventco.com">ask us for them</a> first.</p>
+        <span class="paystrip-label">If something goes wrong</span>
+        <p>Deposits aren't refundable if you change your mind. But if Portland Parks cancels on you, or no 2027 date works out, you get your money back. <a href="/faq#booking">Every case we refund or reschedule</a>.</p>
       </div>
     </div>
 
@@ -1591,14 +1589,14 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="step-when">At booking</span>
         <div>
           <h3>Pick your package and pay your deposit.</h3>
-          <p>You pick your date, your package, any add-ons, and whether you want beer, wine and champagne or just the water and lemonade. You sign and pay in the same flow. That's all we need from you that day.</p>
+          <p>Your date, your package, any add-ons, and whether you want beer and wine or just the water and lemonade. You sign and pay in the same flow.</p>
         </div>
       </div>
       <div class="step">
         <span class="step-when">Any time</span>
         <div>
           <h3>Get your Oregon marriage license.</h3>
-          <p>Any county clerk's office in Oregon, not just Multnomah. There's a three day waiting period, and same day licenses are sometimes possible depending on the courthouse. Bring it with you and we'll file it afterward.</p>
+          <p>Any county clerk's office in Oregon, not just Multnomah. There's a three day waiting period. Bring it with you and we'll file it afterward. <a href="/faq#booking">When to get it</a>.</p>
           <span class="step-who">Yours to do. Bring it on the day.</span>
         </div>
       </div>
@@ -1606,8 +1604,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="step-when">About a month out</span>
         <div>
           <h3>We call Portland Parks together.</h3>
-          <p>Portland Parks will only deal with the person named on the permit, which has to be you. So rather than leaving you to work it out alone, we book a time and call them as a three-way call. You do the requesting and submitting, and I'm on the line to answer anything they ask.</p>
-          <p>Once the application is in, you can hang up. I stay on and pay the fee, which is already in your package price. It takes about fifteen minutes, and it's the only piece of admin on this list.</p>
+          <p>The permit has to be in your name, so we book a time and call Parks together. You apply, I'm on the line to answer anything, and once it's in you hang up and I pay the fee. About fifteen minutes, and it's the only admin on this list. <a href="/faq#permits">The permit in detail</a>.</p>
           <span class="step-who">We do it together. The deadline is 21 days before your date.</span>
         </div>
       </div>
@@ -1615,8 +1612,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="step-when">10 days out</span>
         <div>
           <h3>The last details.</h3>
-          <p>Final guest count, dietary needs and allergies, personal florals, add-ons, drinks, and which ceremony you've chosen. One email from us, one reply from you, and then it's locked.</p>
-          <p>Water and lemonade come with every package. Beer and wine are optional, bought at cost with no markup, and anything unspent is refunded. <a href="/faq#foodanddrink">How the drinks work</a>.</p>
+          <p>Final guest count, dietary needs, personal florals, add-ons, drinks and which ceremony you've chosen. One email from us, one reply from you, and it's locked. <a href="/faq#foodanddrink">How the drinks work</a>.</p>
         </div>
       </div>
       <div class="step">
@@ -1630,7 +1626,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="step-when">10 AM on the day</span>
         <div>
           <h3>We confirm indoors or out.</h3>
-          <p>If the weather calls for it, we move the reception to the Weddinglandia chapel and tell you right away. Your ceremony, food, florals and everything else stays exactly the same.</p>
+          <p>If the weather calls for it we move the reception to the Weddinglandia chapel and tell you right away. Everything else stays the same. <a href="/faq#weather">What counts as rain</a>.</p>
         </div>
       </div>
       <div class="step">
@@ -1722,6 +1718,35 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <img src="/images/22-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1291.jpg" style="object-position:center 42%;" alt="Two frosted cupcakes topped with edible flowers held over the picnic table" width="1024" height="1536" loading="lazy" decoding="async">
     </a>
     <p class="teaser-cta rise"><a class="btn btn-outline-gold" href="/real-weddings">See all the photos</a></p>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section class="quotes" id="quotes">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">In their words</span>
+      <h2>What couples say.</h2>
+      <p>Married Under the Bridge is new, so these are Google reviews from the two studios behind it. Weddinglandia runs your ceremony. Higher Love runs everything else.</p>
+    </div>
+    <div class="quotes-grid rise">
+      <div class="quote">
+        <div class="quote-stars" aria-label="Five out of five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>We walked away thinking the gale force winds were a special treat.</p>
+        <span class="quote-who">Sage T. &middot; Higher Love</span>
+      </div>
+      <div class="quote">
+        <div class="quote-stars" aria-label="Five out of five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Zach was very sweet to my kids. Asked them questions to get them included.</p>
+        <span class="quote-who">Wedding client &middot; Weddinglandia</span>
+      </div>
+      <div class="quote">
+        <div class="quote-stars" aria-label="Five out of five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>So much more than signing some papers at the courthouse.</p>
+        <span class="quote-who">Wedding client &middot; Weddinglandia</span>
+      </div>
+    </div>
+    <p class="quotes-more rise">Weddinglandia has married more than 250 people since opening in St. Johns in 2024, and was named Portland's Best Wedding Planner by Willamette Week in 2025. <a href="/real-weddings#reviews">Read all six reviews</a>.</p>
   </div>
 </section>
 
@@ -1923,7 +1948,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <li><a href="#dates">Available Dates</a></li>
           <li><a href="#after">After You Book</a></li>
           <li><a href="#addons">Add-ons</a></li>
-              <li><a href="#kylie">Meet Kylie</a></li>
+              <li><a href="#quotes">Reviews</a>
+        <a href="#kylie">Meet Kylie</a></li>
           <li><a href="#vendors">Vendor Team</a></li>
           <li><a href="/real-weddings">Real Weddings</a></li>
           <li><a href="/faq">FAQ</a></li>
