@@ -13,7 +13,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap">
 
-
 <style>
 :root{
   --cream:#F5F0E8;--linen:#EDE9E1;
@@ -349,7 +348,6 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
   body{padding-bottom:0;}
 }
 
-
 /* ============================================================
    EDITORIAL LAYER
    The page was eighteen blocks of the same rhythm on two nearly
@@ -416,6 +414,48 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 /* PHOTO ON EACH TIER CARD */
 .tier-img{width:calc(100% + 4.8rem);max-width:none;margin:-3rem -2.4rem 1.8rem;height:210px;object-fit:cover;display:block;}
 
+/* REAL WEDDINGS TEASER */
+.teaser{background:var(--linen);padding:5rem 0;}
+.teaser-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border);margin-top:2.2rem;}
+.teaser-grid img{width:100%;height:340px;object-fit:cover;display:block;background:var(--cream);}
+.teaser-cta{margin-top:2rem;}
+@media(max-width:760px){.teaser-grid{grid-template-columns:1fr 1fr;}.teaser-grid img{height:260px;}}
+@media(max-width:480px){.teaser-grid img{height:220px;}}
+
+/* Drop cap on the opening paragraph. One old-magazine move, used once. */
+.intro-inner p:first-of-type::first-letter{
+  float:left;font-family:var(--serif);font-size:4.6rem;line-height:.78;
+  padding:.35rem .7rem 0 0;color:var(--gold);font-weight:400;}
+@media(max-width:480px){.intro-inner p:first-of-type::first-letter{font-size:3.6rem;}}
+
+/* FAQ on dark: the page runs cream for a long stretch before the closing band,
+   so this restores contrast where attention usually drops. */
+
+/* QUOTES BAND
+   Three lines of proof on the homepage. Chosen to answer the three things
+   couples actually hesitate over: weather, children, and whether this is
+   really more than a courthouse. */
+.quotes{background:var(--linen);padding:5rem 0;}
+.quotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+  border:0.5px solid var(--border);margin-top:2.2rem;}
+.quote{background:var(--cream);padding:2.2rem 2rem;display:flex;flex-direction:column;}
+.quote-stars{color:var(--gold);font-size:.72rem;letter-spacing:.18em;margin-bottom:1rem;}
+.quote p{font-family:var(--serif);font-size:1.1rem;line-height:1.6;color:var(--black);
+  font-style:italic;margin:0 0 1.2rem;flex:1;}
+.quote p::before{content:"\201C";}
+.quote p::after{content:"\201D";}
+.quote-who{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold-deep);display:block;}
+.quotes-more{margin-top:1.6rem;font-size:.94rem;color:var(--muted);}
+.quotes-more a{color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);}
+@media(max-width:820px){.quotes-grid{grid-template-columns:1fr;}}
+
+/* PHOTOS IN THE DAY FLOW */
+.flow-img{width:100%;height:230px;object-fit:cover;display:block;margin:1rem 0 0;}
+@media(max-width:640px){.flow-img{height:200px;}}
+
+/* PHOTO ON EACH TIER CARD */
+.tier-img{width:calc(100% + 4.8rem);max-width:none;margin:-3rem -2.4rem 1.8rem;height:210px;object-fit:cover;display:block;}
 
 /* REAL WEDDINGS TEASER */
 .teaser{background:var(--linen);padding:5rem 0;}
@@ -454,29 +494,14 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 @media(max-width:820px){.quotes-grid{grid-template-columns:1fr;}}
 
 /* PARK MAP */
-.map-block{margin-top:2.5rem;}
-.map-block img{width:100%;height:auto;display:block;border:0.5px solid var(--border);}
-/* legend rebuilt in the site's own type rather than baked into the image */
-.map-legend{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
-  border:0.5px solid var(--border);border-top:none;}
-.map-key{background:var(--cream);padding:1.6rem 1.5rem;}
-.map-key.pick{background:var(--black);}
-.map-key h4{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--black);margin-bottom:.9rem;}
-.map-key.pick h4{color:var(--cream);}
-.map-key ul{list-style:none;margin:0;}
-.map-key li{font-family:var(--sans);font-size:.9rem;color:var(--muted);line-height:1.6;
-  padding-left:1.2rem;position:relative;margin-bottom:.45rem;}
-.map-key.pick li{color:rgba(245,240,232,.75);}
-.map-key li::before{content:"\2713";position:absolute;left:0;top:.05em;font-size:.72rem;color:var(--gold);}
-.map-key li.no::before{content:"\00D7";color:var(--muted);}
-.map-key.pick li.no::before{color:rgba(245,240,232,.45);}
-@media(max-width:700px){.map-legend{grid-template-columns:1fr;}}
 
 /* CEREMONY CHOICE */
 .choice{margin-top:4rem;padding-top:3rem;border-top:0.5px solid var(--border);}
 .choice-head{max-width:680px;margin-bottom:2.5rem;}
 .choice-head h3{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.15;margin-top:.4rem;margin-bottom:1rem;}
 .choice-head p{font-size:1.02rem;line-height:1.75;color:var(--charcoal);margin:0;max-width:60ch;}
+.choice-maplink{margin:1.2rem 0 0;font-family:var(--sans);font-size:.94rem;}
+.choice-maplink a{color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);}
 .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;}
 .choice-card{border:0.5px solid var(--border);}
 .choice-card{background:var(--cream);display:flex;flex-direction:column;}
@@ -1187,7 +1212,6 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <img class="band" src="/images/31-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1117.jpg" alt="A couple walking down the Cathedral Park staircase under the gothic arch of the St. Johns Bridge after their ceremony" width="1024" height="1467" loading="lazy" decoding="async" style="object-position:center 58%;">
 </div>
 
-
 <!-- STATEMENT -->
 <section class="statement">
   <span class="statement-mark" aria-hidden="true">&ldquo;</span>
@@ -1244,6 +1268,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="eyebrow">Where you say your vows</span>
         <h3>One question to answer.</h3>
         <p>There are two places in the park we hold ceremonies. The stone staircase that runs up to the bridge, under the gothic arches, which is the picture everyone has in their head. Or the open lawn below, where everybody you love gets to watch. Tell us which 10 days before your date and we'll take it from there.</p>
+      <p class="choice-maplink"><a href="/faq#ceremony">See both spots on a map of the park</a></p>
       </div>
       <div class="choice-grid">
         <div class="choice-card">
@@ -1276,29 +1301,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           </div>
         </div>
       </div>
-      <figure class="map-block">
-        <img src="/images/CathedralParkCeremonyMap_300KB.jpg" alt="Map of Cathedral Park showing the staircase ceremony location beneath the St. Johns Bridge, the park lawn ceremony location, both picnic reception areas, restrooms and parking" width="1400" height="1867" loading="lazy" decoding="async">
-        <div class="map-legend">
-          <div class="map-key pick">
-            <h4>Park lawn ceremony</h4>
-            <ul>
-              <li>Covered by the park permit we help you get</li>
-              <li>Your full guest list can attend</li>
-              <li>ADA accessible, on level ground</li>
-              <li>Restrooms and parking nearby</li>
-            </ul>
-          </div>
-          <div class="map-key">
-            <h4>Staircase ceremony</h4>
-            <ul>
-              <li class="no">Five people, unless you buy a separate wedding permit</li>
-              <li class="no">From 2027 that permit is the only way to reserve it</li>
-              <li class="no">Not guaranteed without one</li>
-              <li class="no">Not ADA accessible</li>
-            </ul>
-          </div>
-        </div>
-      </figure>
+      
     </div>
   </div>
 </section>
@@ -1316,7 +1319,6 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <h2>Three ways to do it.</h2>
       <p>Every package includes a legal ceremony and a picnic reception in the park. The food is a grazing spread: cheeses, cured meats, fruit, dips and crackers laid out on the table to pick at all afternoon, with desserts alongside. Florals, photography, drinks, permit fees and all the setting up are in the price too.</p>
     </div>
-
 
     <div class="compare rise">
       <p class="compare-hint">Scroll sideways to compare all three.</p>
@@ -1929,7 +1931,6 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 <div class="band-wrap">
   <img class="band" src="/images/36-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1037.jpg" alt="Black and white photograph of newlyweds kissing among the dahlias at Cathedral Park" width="1024" height="1546" loading="lazy" decoding="async" style="object-position:center 25%;">
 </div>
-
 
 <!-- CLOSING CTA -->
 <section class="closing" id="book">
