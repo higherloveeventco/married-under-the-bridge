@@ -115,6 +115,13 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 /* FAQ */
 .faq-body{padding:3rem 0 5rem;}
 .cat{margin-bottom:3.5rem;scroll-margin-top:calc(var(--nav-h) + 20px);}
+/* photo bands between categories: 62 questions is a long read without them */
+.faq-band{margin:1rem 0 3.5rem;}
+.faq-band img{width:100%;height:420px;object-fit:cover;display:block;border:0.5px solid var(--border);}
+.faq-band figcaption{font-family:var(--sans);font-size:.8rem;color:var(--muted);
+  padding:.7rem 0 0;line-height:1.6;}
+@media(max-width:860px){.faq-band img{height:320px;}}
+@media(max-width:480px){.faq-band img{height:250px;}}
 .cat-head{border-bottom:1px solid var(--gold);padding-bottom:.8rem;margin-bottom:.4rem;}
 .cat-head h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.1;color:var(--black);}
 .cat-head p{font-size:.88rem;color:var(--muted);line-height:1.75;margin-top:.5rem;max-width:620px;}
@@ -282,8 +289,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <div class="wrap">
     <span class="eyebrow">Questions and answers</span>
     <h1>Ask us <em>anything.</em></h1>
-    <p>Every question couples have actually asked us, answered properly. Each one starts with the short answer in bold, so you can get what you need and move on, or keep reading if you want the detail.</p>
-    <p>If your question isn't here, that's our fault rather than yours. Email us and we'll answer it, and then it will be here for the next couple.</p>
+    <p>Short answers in bold, with the detail underneath if you want it.</p>
+    <p>Don't see your question? <a href="mailto:hello@higherloveeventco.com">Email us</a> and we'll answer it.</p>
   </div>
 </header>
 
@@ -523,6 +530,11 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <p>Your package covers a fixed window, and vendors have other commitments, so we can't extend the end time. If you arrive late your officiant may shorten the ceremony script, except the parts required by law, to keep everything on schedule.</p>
         </div>
       </details>
+    <figure class="faq-band">
+      <img src="/images/32-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1112.jpg" alt="Newlyweds holding hands on the Cathedral Park staircase beneath the gothic arch" width="1024" height="1298" loading="lazy" decoding="async" style="object-position:center 62%;">
+      <figcaption>The staircase, under the arches. Five people without a wedding permit.</figcaption>
+    </figure>
+
     </section>
 
     <!-- ============ GUESTS ============ -->
@@ -597,17 +609,11 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <details class="faq-item">
         <summary>When do we have to pay, and how much?</summary>
         <div class="faq-answer">
-          <span class="short">A deposit at booking, then the balance however suits you, settled 30 days before your wedding.</span>
+          <span class="short">A deposit at booking, then the balance 10 days before your wedding.</span>
           <p>Deposits are $1,000 for Just the Two of Us, $1,500 for The Garden Party, and $2,100 for The Soirée, and your date isn't held until the deposit arrives. That's the only payment the booking system takes. Everything after it is invoiced by us.</p>
-          <p>You choose how to pay the balance when you book, and you can change your mind at any time:</p>
-          <ul>
-            <li><strong>In full.</strong> One invoice, due 14 days after you book, and then it's done.</li>
-            <li><strong>Monthly.</strong> The balance split into equal monthly payments, the last one 30 days before your date. Available if your wedding is more than three months away.</li>
-            <li><strong>In two halves.</strong> Half at the midpoint between booking and your date, half 30 days before.</li>
-            <li><strong>All at once, later.</strong> One invoice for the whole balance, due 30 days before your date.</li>
-          </ul>
-          <p>Whichever you choose, the balance is settled 30 days before your wedding. That's deliberate: your park permit application goes in around the same time, and we'd rather the money side was finished before the last few weeks start.</p>
-          <p>No interest, no fees, and no penalty for paying early or switching plans. Ask at any time and we'll tell you exactly where you stand.</p>
+          <p>The balance is then invoiced by us and due 10 days before your wedding, the same day your final details are confirmed. That's one invoice, not a schedule of them.</p>
+          <p>You're welcome to pay it earlier if you'd rather have it off your mind. There's no interest and no fees either way, and you can ask us at any time what's outstanding.</p>
+          <p>If you spend less than your beverage allowance, we refund the difference after the wedding.</p>
         </div>
       </details>
 
@@ -784,6 +790,11 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <p>The ceremony takes place in Oregon, so an Oregon license is what makes it legal. Any Oregon county can issue it regardless of where you live.</p>
         </div>
       </details>
+    <figure class="faq-band">
+      <img src="/images/26-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1275.jpg" alt="Newlyweds toasting across the picnic table at Cathedral Park" width="1024" height="1388" loading="lazy" decoding="async" style="object-position:center 42%;">
+      <figcaption>Once the permit is in, this is the part you actually think about.</figcaption>
+    </figure>
+
     </section>
 
     <!-- ============ FOOD & DRINK ============ -->
@@ -846,6 +857,11 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <p>A cutting cake from Flower &amp; Flour: $75 serves 2, $105 serves 10, $165 serves 20. The dessert spread is included regardless and already has cookies, brownies and cupcakes in it.</p>
         </div>
       </details>
+    <figure class="faq-band">
+      <img src="/images/18-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1325.jpg" alt="A grazing spread of berries, peppers, cheese and charcuterie on a picnic table" width="1024" height="1536" loading="lazy" decoding="async" style="object-position:center 55%;">
+      <figcaption>A grazing spread from She Serves, laid out to pick at all afternoon.</figcaption>
+    </figure>
+
     </section>
 
     <!-- ============ ON THE DAY ============ -->
@@ -937,6 +953,11 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <p>Rain, cloud, wind or a cold afternoon wouldn't. That's what the indoor plan is for.</p>
         </div>
       </details>
+    <figure class="faq-band">
+      <img src="/images/36-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1037.jpg" alt="Black and white photograph of newlyweds kissing among the dahlias at Cathedral Park" width="1024" height="1546" loading="lazy" decoding="async" style="object-position:center 25%;">
+      <figcaption>Rain doesn't cancel anything. The bridge covers the ceremony either way.</figcaption>
+    </figure>
+
     </section>
 
     <!-- ============ ACCESSIBILITY ============ -->
