@@ -169,7 +169,13 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
   .intro-inner{grid-template-columns:1fr;gap:1.6rem;}
   .intro-head{position:static;}
 }
-.intro-inner h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.12;color:var(--black);margin-bottom:0;max-width:16ch;}
+.intro-inner h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,4.4vw,3.5rem);line-height:1.06;color:var(--black);margin-bottom:0;max-width:13ch;}
+/* the heading column was ending halfway down; this anchors its foot */
+.intro-credit{margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--gold);max-width:none;}
+.intro-credit span{display:block;font-family:var(--sans);font-size:.62rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);line-height:2.2;white-space:nowrap;}
+.intro-credit span:first-child{color:var(--gold-deep);}
+@media(max-width:900px){.intro-credit{margin-top:1.4rem;padding-top:1.2rem;max-width:none;}}
 .intro-inner p{font-size:1.02rem;line-height:1.75;color:var(--charcoal);margin-bottom:1.3rem;max-width:60ch;}
 
 /* EXPERIENCE FLOW */
@@ -1035,7 +1041,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       "name": "How many people can come to the ceremony?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Couples choose between two ceremony locations ten days before their date. Every booking requires a Portland Parks park permit, which Higher Love prepares and whose fee is included in the package price. On the park lawn, covered by that permit, every guest in the package may attend. On the Cathedral Park staircase, five people may attend: the couple, the officiant and two witnesses, with children counting toward that limit. Reserving the staircase for a full guest list requires a separate Portland Parks wedding permit at additional cost, which the couple must apply for themselves."
+        "text": "Couples choose between two ceremony locations ten days before their date. Every booking requires a Portland Parks site reservation permit, which Higher Love prepares and whose fee is included in the package price. On the park lawn, covered by that permit, every guest in the package may attend. On the Cathedral Park staircase, five people may attend: the couple, the officiant and two witnesses, with children counting toward that limit. Reserving the staircase for a full guest list requires a separate Portland Parks wedding permit at additional cost, which the couple must apply for themselves."
       }
     },
     {
@@ -1116,7 +1122,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <div class="wrap hero-content">
     <div class="hero-eyebrow"><span>A collaboration &middot; Higher Love Event Co. &amp; Weddinglandia &middot; St. Johns, Portland</span></div>
     <h1>Get Married <br><em>Under the Bridge.</em></h1>
-    <p class="hero-sub">A legal ceremony beneath the St. Johns Bridge. Portraits in Cathedral Park. A styled picnic reception in the golden afternoon light. One price, one team of St. Johns neighbors, everything done for you.</p>
+    <p class="hero-sub">A legal ceremony beneath the St. Johns Bridge. Portraits in Cathedral Park. A styled picnic reception in the golden afternoon light. One price, one team of St. Johns neighbors, a wedding you don't have to plan.</p>
     <div class="cta-row" style="justify-content:flex-start;">
       <a class="btn btn-gold" href="#packages">See the packages</a>
       <a class="btn btn-light" href="#dates">Get your date</a>
@@ -1138,7 +1144,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="glance-grid">
         <div class="glance-cell">
           <span class="glance-q">What it is</span>
-          <p class="glance-a">A legal wedding ceremony at Cathedral Park, portraits under the St. Johns Bridge, then a styled picnic reception in the park. One price, one team, nothing for you to organize. <a href="#experience">How the day runs</a></p>
+          <p class="glance-a">A legal wedding ceremony at Cathedral Park, portraits under the St. Johns Bridge, then a styled picnic reception in the park.</p>
         </div>
         <div class="glance-cell">
           <span class="glance-q">What it costs</span>
@@ -1146,27 +1152,27 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         </div>
         <div class="glance-cell">
           <span class="glance-q">How many people</span>
-          <p class="glance-a">Up to 20 in a package, or 24 with add-on guests. All of them can watch you get married, if you choose a ceremony on the lawn. <a href="#ceremony-options">See both ceremony location options</a></p>
+          <p class="glance-a">Up to 20 in a package, or 24 with add-on guests. All of your guests can attend your ceremony if you choose a ceremony on the lawn, or you can opt for more intimacy with an elopement style ceremony. <a href="#ceremony-options">See the ceremony location options</a></p>
         </div>
         <div class="glance-cell">
           <span class="glance-q">When</span>
-          <p class="glance-a">Every ceremony is at 3:00 PM. Just the Two of Us finishes at 6:00, the two larger packages at 7:30. From November the reception moves indoors. <a href="#dates">See open dates, or ask for one of your own</a></p>
+          <p class="glance-a">Every ceremony is at 3:00 PM. Just the Two of Us finishes at 6:00, while the packages with guests end at 7:30. From November the reception moves indoors (details to come). <a href="#dates">See open dates, or ask for one of your own</a></p>
         </div>
         <div class="glance-cell">
           <span class="glance-q">If it rains</span>
-          <p class="glance-a">The picnic moves indoors to Weddinglandia's wedding chapel, two blocks from the park, at no extra cost. We decide by 10 AM and tell you right then. <a href="/faq#weather">What counts as rain</a></p>
+          <p class="glance-a">The picnic moves indoors to Weddinglandia's wedding chapel, two blocks from the park, at no extra cost. We decide by 10 AM and notify you right away. <a href="/faq#weather">What counts as rain</a></p>
         </div>
         <div class="glance-cell">
           <span class="glance-q">Accessibility</span>
-          <p class="glance-a">Paved paths, accessible restrooms, and everyone at tables rather than on the ground. The lawn ceremony is on level ground; the staircase is the one part that isn't accessible. Tell us what your group needs and we'll work it out with you. <a href="/faq#accessibility">Getting around the park</a></p>
+          <p class="glance-a">Cathedral Park features paved paths, accessible restrooms, and picnic tables for seating. The lawn ceremony is on level ground; the staircase is the one location that isn't accessible. Tell us what your group needs and we'll come up with an accessibility plan. <a href="/faq#accessibility">Getting around the park</a></p>
         </div>
         <div class="glance-cell">
           <span class="glance-q">What you have to do</span>
-          <p class="glance-a">Two things. Get your Oregon marriage license, and join one short call with me and Portland Parks to apply for your park permit. Every booking needs a permit, and the fee is included in your package price. <a href="#after">Every step</a></p>
+          <p class="glance-a">Two things. Get your Oregon marriage license, and join one short call with me and Portland Parks to apply for your site reservation permit. Every booking needs this permit, and the fee is included in your package price. <a href="#after">Every step</a></p>
         </div>
         <div class="glance-cell">
           <span class="glance-q">How to book</span>
-          <p class="glance-a">2027 dates you book online in a few minutes. 2026 dates you send us and we confirm with the team, usually the same day. <a href="#dates">Both ways</a>, or text Kylie at <a href="sms:+15032178500" class="nowrap">503-217-8500</a>.</p>
+          <p class="glance-a">You can book 2027 dates online in a few minutes. For 2026 dates please send us an email and we will find a date that works, usually within 48 hours. <a href="#dates">Both ways</a>, or text Kylie at <a href="sms:+15032178500" class="nowrap">503-217-8500</a>.</p>
         </div>
       </div>
       </div>
@@ -1205,6 +1211,11 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="intro-head">
         <span class="eyebrow">The experience</span>
         <h2>A Cathedral Park wedding, a collaboration of St. Johns creatives.</h2>
+        <div class="intro-credit">
+          <span>Higher Love Event Co.</span>
+          <span>Weddinglandia</span>
+          <span>St. Johns, Portland</span>
+        </div>
       </div>
       <div class="intro-body">
       <p>Higher Love Event Co. and Weddinglandia both call St. Johns home. We're neighbors who love this community: the people, the bridge, the parks, the small town feel that's somehow survived in the middle of one of the busiest cities in the Pacific Northwest. This package is what happens when two local businesses pick collaboration over competition.</p>
@@ -1290,7 +1301,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <p class="choice-if"><strong>Choose the staircase location if</strong> those gothic arches are what made you want to get married here, or if you want your ceremony to feel more intimate.</p>
           <p>Children count toward the five, and witnesses have to be 18 or older.</p>
           <p>If you choose this option, your guests will begin arriving at the same time you finish up with your park photo shoot. You enter the picnic celebrated by the people who love you the most.</p>
-          <p>Want your whole guest list at the staircase instead? That takes a second permit, a Portland Parks wedding permit, on top of the usual park permit we require for every booking. It costs around $817, it isn't in your package, and you have to apply for it yourselves. <a href="/faq#ceremony">How that works</a>.</p>
+          <p>Want your whole guest list at the staircase instead? That takes a second permit, a Portland Parks wedding permit, on top of the usual site reservation permit we require for every booking. It costs around $817, it isn't in your package, and you have to apply for it yourselves. <a href="/faq#ceremony">How that works</a>.</p>
           <span class="choice-who">The staircase can't be booked in advance unless you get that spendy wedding permit, so it's first come, first served and five people only. If another couple is there at 3:00, we will move the ceremony to another location and carry on. The staircase is not ADA accessible and the restrooms are a fair walk away, though there's ample parking close by.</span>
           </div>
         </div>
@@ -1303,7 +1314,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <span class="choice-label-sm">Who can be there for the vows</span>
           <span class="choice-count">Everyone<small>Your whole guest list</small></span>
           <p class="choice-if"><strong>Choose the park lawn location if</strong> you'd be sad to have your guests miss the vows.</p>
-          <p>We hold a spot on the lawn with the bridge above you, confirmed in advance, so it's yours for the afternoon. It's covered by the park permit we help you apply for, and that fee is included in your package price.</p>
+          <p>We hold a spot on the lawn with the bridge above you, confirmed in advance, so it's yours for the afternoon. It's covered by the site reservation permit we help you apply for, and that fee is included in your package price.</p>
           <p>Children are welcome and count toward your guest number. Please note that everyone will need to stand for the vows.</p>
           <span class="choice-who">Mostly level ground and no steps to navigate, so it works for anyone who'd struggle with the staircase location. All of your guests can watch you say “I do”. Restrooms and parking are conveniently located nearby.</span>
           </div>
@@ -1514,7 +1525,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
             <li>Photography, with a handful of edited images sent within 48 hours and the full gallery to follow</li>
             <li>Fresh florals from Still City Flowers</li>
             <li>Linens, place settings, votives and candlelight</li>
-            <li>Your Portland Parks park permit fee</li>
+            <li>Your Portland Parks site reservation permit fee</li>
             <li>Every bit of setup and teardown</li>
             <li>Reserved picnic tables, plus blankets, cushions and trays on the lawn</li>
             <li>Your playlist, bocce, cornhole and a bubble send-off</li>
@@ -1529,7 +1540,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
             <li>Photography</li>
             <li>Table florals and centerpieces</li>
             <li>Linens, plates, glassware and candles</li>
-            <li>Park permit fees</li>
+            <li>Site reservation permit fees</li>
             <li>Setup and teardown</li>
             <li>Tables, blankets, cushions and trays</li>
             <li>Music, games and a send-off</li>
@@ -1559,7 +1570,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="dates-path">
         <span class="dates-path-label">Getting married in 2026</span>
         <h3>Tell us your date.</h3>
-        <p>Send us the date you have in mind. We check it with all nine vendors and come back to you, usually the same day and always within one business day. If the team is free, we send you a booking link and you're done.</p>
+        <p>Send us the date you have in mind. We check it with all nine vendors and come back to you, usually within 48 hours. If the team is free, we send you a booking link and you're done.</p>
         <p>It works this way because a 2026 wedding is only a few weeks out, and we'd rather confirm your team before you pay anything than take a deposit and hope.</p>
         <p class="dates-path-note">Any Friday, Saturday or Sunday with at least 21 days' notice. Outdoors through October, indoors from November.</p>
         <a class="btn btn-gold" href="mailto:hello@higherloveeventco.com?subject=2026%20date%20request">Request a 2026 date</a>
@@ -1629,7 +1640,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="step-when">About a month out</span>
         <div>
           <h3>We call Portland Parks together.</h3>
-          <p>Cathedral Park belongs to the city, so reserving part of it for a private event needs a park permit. Every booking needs one, the fee is included in your package price, and Portland Parks will only issue it to you rather than to us.</p>
+          <p>Cathedral Park belongs to the city, so reserving part of it for a private event needs a site reservation permit. Every booking needs one, the fee is included in your package price, and Portland Parks will only issue it to you rather than to us.</p>
             <p>You do the applying, I'm on the line to answer whatever they ask, and once it's in you hang up and I pay the fee. About fifteen minutes, and it's the only admin on this list.</p>
             <p>The one exception is the staircase. Reserving that for your whole guest list takes a separate wedding permit, at extra cost, which you arrange on your own. <a href="/faq#permits">Both permits explained</a>.</p>
           <span class="step-who">We do it together. The deadline is 21 days before your date.</span>
@@ -1902,7 +1913,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <summary>What do we actually have to do ourselves?</summary>
         <div class="faq-answer">
           <p>Two things. Get your Oregon marriage license, and be on one phone call about a month before your date.</p>
-          <p>Every booking needs a park permit, and Portland Parks will only issue it to the person named on it. So we call them together, you do the talking and applying, I'm there to answer anything, and once it's in you hang up and I pay the fee. About fifteen minutes, and the fee is included in your package price. <a href="#after">Every step is here.</a></p>
+          <p>Every booking needs a site reservation permit, and Portland Parks will only issue it to the person named on it. So we call them together, you do the talking and applying, I'm there to answer anything, and once it's in you hang up and I pay the fee. About fifteen minutes, and the fee is included in your package price. <a href="#after">Every step is here.</a></p>
         </div>
       </details>
 
