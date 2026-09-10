@@ -407,10 +407,10 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
   font-size:clamp(2.2rem,5.4vw,4.2rem);line-height:1.05;color:var(--cream);max-width:16ch;margin:0;}
 .statement-sub{margin:1.8rem 0 0;max-width:58ch;font-size:1.02rem;line-height:1.85;
   color:rgba(245,240,232,.62);}
-.statement-arch{position:absolute;right:7%;bottom:0;height:84%;width:auto;z-index:1;
-  color:rgba(184,137,42,.20);pointer-events:none;}
-@media(max-width:860px){.statement-arch{right:-6%;opacity:.6;}}
-@media(max-width:560px){.statement-arch{display:none;}}
+.statement-arch{position:absolute;right:6%;bottom:0;height:100%;width:auto;z-index:1;
+  color:rgba(184,137,42,.26);pointer-events:none;}
+@media(max-width:1000px){.statement-arch{right:-4%;height:84%;opacity:.55;}}
+@media(max-width:820px){.statement-arch{display:none;}}
 @media(max-width:860px){.statement{padding:4.5rem 0;}.statement-mark{font-size:22rem;right:-8%;top:-4%;}}
 
 /* Day flow: oversized numerals, photo and text swapping sides down the page. */
@@ -1226,11 +1226,33 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
 <!-- DAY FLOW OPENER -->
 <section class="statement">
-  <svg class="statement-arch" viewBox="0 0 420 760" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMax meet">
-    <path d="M20 760 L20 330 C20 150 110 40 210 18 C310 40 400 150 400 330 L400 760"
-          fill="none" stroke="currentColor" stroke-width="2"/>
-    <path d="M92 760 L92 366 C92 236 148 152 210 132 C272 152 328 236 328 366 L328 760"
-          fill="none" stroke="currentColor" stroke-width="2"/>
+  <svg class="statement-arch" viewBox="0 0 400 660" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMax meet">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4">
+      <!-- spire tips -->
+      <path d="M137 8 L137 44"/>
+      <path d="M263 8 L263 44"/>
+      <!-- ball finials -->
+      <circle cx="137" cy="53" r="8"/>
+      <circle cx="263" cy="53" r="8"/>
+      <!-- tapered legs, splaying out at the base -->
+      <path d="M129 64 L112 800"/>
+      <path d="M148 64 L163 800"/>
+      <path d="M271 64 L288 800"/>
+      <path d="M252 64 L237 800"/>
+      <path d="M129 64 L148 64"/>
+      <path d="M271 64 L252 64"/>
+      <!-- tower head: ogee top edge, then the side walls -->
+      <path d="M148 174 C170 170 186 142 200 108 C214 142 230 170 252 174"/>
+      <path d="M148 172 L148 268"/>
+      <path d="M252 172 L252 268"/>
+      <path d="M148 268 L252 268"/>
+      <!-- the arcade of three small arches inside the head -->
+      <path d="M159 268 L159 228 C159 208 165 194 172 190 C179 194 185 208 185 228 L185 268"/>
+      <path d="M187 268 L187 222 C187 200 193 186 200 182 C207 186 213 200 213 222 L213 268"/>
+      <path d="M215 268 L215 228 C215 208 221 194 228 190 C235 194 241 208 241 228 L241 268"/>
+      <!-- the main gothic arch -->
+      <path d="M156 800 L156 500 C156 404 174 336 200 314 C226 336 244 404 244 500 L244 800"/>
+    </g>
   </svg>
   <div class="wrap">
     <span class="eyebrow" style="color:var(--gold);">How the day flows</span>
@@ -1328,7 +1350,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <div class="wrap">
     <div class="sec-head rise">
       <span class="eyebrow">The packages</span>
-      <h2>Three ways to do it.</h2>
+      <h2>How many people are coming?</h2>
       <p>Every package includes a legal ceremony and a picnic reception in the park. The food is a grazing spread: cheeses, cured meats, fruit, dips and crackers laid out on the table to pick at all afternoon, with desserts alongside. Florals, photography, drinks, permit fees and all the setting up are in the price too.</p>
     </div>
 
@@ -1564,7 +1586,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="dates-path-label">Getting married in 2026</span>
         <h3>Tell us your date.</h3>
         <p>Send us the date you have in mind. We check it with all nine vendors and come back to you, usually within 48 hours. If the team is free, we send you a booking link and you're done.</p>
-        <p>It works this way because a 2026 wedding is only a few weeks out, and we'd rather confirm your team before you pay anything than take a deposit and hope.</p>
+        <p>It works this way because a 2026 wedding is only a few weeks out. We'd rather confirm your team first than take a deposit and hope.</p>
         <p class="dates-path-note">Any Friday, Saturday or Sunday with at least 21 days' notice. Outdoors through October, indoors from November.</p>
         <a class="btn btn-gold" href="mailto:hello@higherloveeventco.com?subject=2026%20date%20request">Request a 2026 date</a>
         <span class="dates-path-alt">Or text Kylie at <a href="sms:+15032178500" class="nowrap">503-217-8500</a></span>
@@ -1574,7 +1596,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="dates-path-label">Getting married in 2027</span>
         <h3>Book it now.</h3>
         <p>Pick your package and pay a deposit online. No inquiry form and no waiting to hear back. You'll book with January 1, 2027 as a placeholder and we choose your real date together in January.</p>
-        <p>Your deposit locks today's pricing, holds the whole vendor team, and takes your place in the queue. If nothing on the calendar suits you, we refund it in full.</p>
+        <p>Your deposit locks today's pricing, holds the whole vendor team, and reserves your place in the queue.</p>
         <p class="dates-path-note">More on how the 2027 calendar works just below.</p>
         <a class="btn btn-gold" href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book a 2027 date</a>
         <span class="dates-path-alt">Deposits from $1,000</span>
