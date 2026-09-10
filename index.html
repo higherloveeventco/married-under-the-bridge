@@ -163,11 +163,10 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 /* INTRO */
 .intro{padding:4.5rem 0 3rem;}
 .intro-inner{max-width:none;text-align:left;display:grid;grid-template-columns:0.85fr 1fr;gap:0 4.5rem;align-items:start;}
-.intro-head{position:sticky;top:calc(var(--nav-h) + 3rem);}
+.intro-head{position:static;}
 .intro-body p:last-child{margin-bottom:0;}
 @media(max-width:900px){
   .intro-inner{grid-template-columns:1fr;gap:1.6rem;}
-  .intro-head{position:static;}
 }
 .intro-inner h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.1rem,5.2vw,4.2rem);line-height:1.02;color:var(--black);margin-bottom:0;max-width:none;}
 /* the heading column was ending halfway down; this anchors its foot */
@@ -408,8 +407,10 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
   font-size:clamp(2.2rem,5.4vw,4.2rem);line-height:1.05;color:var(--cream);max-width:16ch;margin:0;}
 .statement-sub{margin:1.8rem 0 0;max-width:58ch;font-size:1.02rem;line-height:1.85;
   color:rgba(245,240,232,.62);}
-.statement-mark{position:absolute;right:2%;top:-18%;font-family:var(--serif);font-size:38rem;
-  line-height:1;color:rgba(184,137,42,.07);pointer-events:none;user-select:none;z-index:1;}
+.statement-arch{position:absolute;right:7%;bottom:0;height:84%;width:auto;z-index:1;
+  color:rgba(184,137,42,.20);pointer-events:none;}
+@media(max-width:860px){.statement-arch{right:-6%;opacity:.6;}}
+@media(max-width:560px){.statement-arch{display:none;}}
 @media(max-width:860px){.statement{padding:4.5rem 0;}.statement-mark{font-size:22rem;right:-8%;top:-4%;}}
 
 /* Day flow: oversized numerals, photo and text swapping sides down the page. */
@@ -1225,7 +1226,12 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
 <!-- DAY FLOW OPENER -->
 <section class="statement">
-  <span class="statement-mark" aria-hidden="true">3</span>
+  <svg class="statement-arch" viewBox="0 0 420 760" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMax meet">
+    <path d="M20 760 L20 330 C20 150 110 40 210 18 C310 40 400 150 400 330 L400 760"
+          fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M92 760 L92 366 C92 236 148 152 210 132 C272 152 328 236 328 366 L328 760"
+          fill="none" stroke="currentColor" stroke-width="2"/>
+  </svg>
   <div class="wrap">
     <span class="eyebrow" style="color:var(--gold);">How the day flows</span>
     <h2 class="statement-h">Vows, Portraits, and a Picnic.</h2>
