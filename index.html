@@ -190,20 +190,6 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 .flow-time{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem;}
 @media(max-width:860px){.experience-inner{grid-template-columns:1fr;gap:3rem;}}
 
-/* CREDIBILITY STRIP */
-.cred{background:var(--black);padding:2.2rem 0;}
-.cred-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(245,240,232,.10);}
-.cred-cell{background:var(--black);padding:1.2rem 1.3rem;}
-.cred-num{font-family:var(--serif);font-size:1.5rem;color:var(--gold);line-height:1.1;display:block;margin-bottom:.4rem;}
-.cred-cell p{font-size:.92rem;color:rgba(245,240,232,.65);line-height:1.6;margin:0;}
-@media(max-width:760px){.cred-inner{grid-template-columns:1fr 1fr;}}
-@media(max-width:480px){
-  .cred{padding:1.8rem 0;}
-  .cred-cell{padding:1.1rem 1.2rem;}
-  .cred-num{font-size:1.35rem;}
-  .cred-cell p{font-size:.9rem;}
-}
-
 /* COMPARISON TABLE */
 .compare{margin:0 0 3rem;}
 .compare-hint{font-family:var(--sans);font-size:.85rem;color:var(--muted);margin:0 0 .7rem;max-width:none;display:none;}
@@ -473,12 +459,10 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 .quotes .eyebrow{color:var(--gold);}
 .quotes h2{color:var(--cream);}
 .quotes .sec-head p{color:rgba(245,240,232,.62);}
-.quotes-grid{background:rgba(245,240,232,.12);border-color:rgba(245,240,232,.14);}
-.quote{background:rgba(245,240,232,.04);}
-.quote p{color:var(--cream);}
-.quote-who{color:var(--gold);}
-.quotes-more{color:rgba(245,240,232,.6);}
-.quotes-more a{color:var(--gold);border-bottom-color:rgba(184,137,42,.5);}
+.quotes .quotes-grid{background:rgba(245,240,232,.14);border-color:rgba(245,240,232,.16);}
+.quotes .quote-who{color:#856016;}
+.quotes .quotes-more{color:rgba(245,240,232,.7);}
+.quotes .quotes-more a{color:var(--gold);border-bottom-color:rgba(184,137,42,.55);}
 .quotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
   border:0.5px solid var(--border);margin-top:2.2rem;}
 .quote{background:var(--cream);padding:2.2rem 2rem;display:flex;flex-direction:column;}
@@ -1186,30 +1170,6 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   </div>
 </section>
 
-<!-- CREDIBILITY -->
-<section class="cred" id="cred">
-  <div class="wrap">
-    <div class="cred-inner">
-      <div class="cred-cell">
-        <span class="cred-num">Since 2019</span>
-        <p>Kylie has been planning and coordinating weddings since 2019. She's a St. Johns native who calls Cathedral Park her backyard.</p>
-      </div>
-      <div class="cred-cell">
-        <span class="cred-num">Preferred planner</span>
-        <p>Higher Love is the preferred planner for the St. Johns Inn and for Weddinglandia, who officiate your ceremony.</p>
-      </div>
-      <div class="cred-cell">
-        <span class="cred-num">Best in Portland</span>
-        <p>Weddinglandia was named Portland's Best Wedding Planner by Willamette Week in 2025, and is a three time Best of Oregon Weddings finalist.</p>
-      </div>
-      <div class="cred-cell">
-        <span class="cred-num">Nine vendors</span>
-        <p>Photography, florals, food, desserts, wine and beer, nearly all of them from St. Johns and North Portland.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- INTRO -->
 <section class="intro">
   <div class="wrap">
@@ -1299,7 +1259,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
               <span class="flow-num">03</span>
             <span class="flow-time">4:30 to 7:30 PM</span>
             <h3>The picnic awaits</h3>
-            <p>The picnic opens when your portraits are done. Linen-draped picnic tables, blankets, cushions and trays out on the lawn, florals, candles, a full spread from She Serves and desserts from Flower &amp; Flour. If your guests came to the ceremony they walk over with you. If they didn't, they're waiting here at 4:30 to welcome you as newlyweds. Either way you sit down and enjoy it.</p>
+            <p>The picnic opens when your portraits are done. Linen-draped picnic tables, blankets, cushions and trays out on the lawn, florals, candles, a full spread from She Serves and desserts from Flower &amp; Flour. If your guests came to the ceremony they walk over with you. Either way you sit down and enjoy it.</p>
             </div>
             <img class="flow-img" src="/images/26-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1275.jpg" alt="Newlyweds toasting across the picnic table over the grazing spread at Cathedral Park" width="1024" height="1388" loading="lazy" decoding="async" style="object-position:center 42%;">
         </div>
@@ -1310,7 +1270,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <div class="choice-head">
         <span class="eyebrow">Where you say your vows</span>
         <h3>One question to answer.</h3>
-        <p>There are two places in the park we hold ceremonies. The stone staircase that runs up to the bridge, under the gothic arches, which is the picture everyone has in their head. Or the open lawn below, where everybody you love gets to watch. Tell us which 10 days before your date and we'll take it from there.</p>
+        <p>Two places in the park, and the choice is yours. Tell us which one 10 days before your date and we'll take it from there.</p>
       <p class="choice-maplink"><a href="/faq#ceremony">See both spots on a map of the park</a></p>
       </div>
       <div class="choice-grid">
@@ -1486,7 +1446,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 
     </div>
 
-    <p class="tier-note-plain rise">Every package includes the legal ceremony, officiant, license filing, photography, florals, food, desserts, drinks, permit fees and all setup. <a href="#included">See exactly what that covers</a>, or <a href="/faq">read the 62 questions couples ask us</a>.</p>
+    <p class="tier-note-plain rise"><a href="#included">See exactly what all-inclusive covers</a>, or <a href="/faq">read the 62 questions couples ask us</a>.</p>
 
     <div class="prebook rise">
       <div class="prebook-col">
@@ -1568,7 +1528,6 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           </ul>
         </div>
       </div>
-      <p class="usually-note rise">The only things you pay for separately are your marriage license, which goes to the county, and personal florals if you want a bouquet or boutonniere. Rings, what you wear and travel are yours too. Everything else on the day is ours. <a href="/faq#basics">The full list of what's included</a>.</p>
     </div>
   </div>
 </section>
@@ -1821,7 +1780,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <span class="eyebrow">Who you're booking with</span>
         <h2>Hi, I'm Kylie.</h2>
         <p>I founded Higher Love Event Co. and I've been planning and coordinating weddings since 2019. I'm a St. Johns native, and Cathedral Park is my backyard. I know which corner stays quiet on a Saturday afternoon, where the light lands at five o'clock in October, and exactly how far it is from the picnic tables to the nearest restroom. That last one matters more than you'd think.</p>
-        <p>Married Under the Bridge exists because Jasmine and Zach at Weddinglandia and I are neighbors, four blocks apart, and we kept meeting couples who wanted to marry under that bridge and couldn't find a way to do it. So we built one, and then we filled it with people from our own neighborhood.</p>
+        <p>Married Under the Bridge exists because Jasmine and Zach at Weddinglandia and I are neighbors, four blocks apart, and we kept meeting couples who wanted to marry under that bridge and couldn't find a way to do it. So we built one, and then we filled it with people from our own neighborhood. Higher Love is the preferred planner for both Weddinglandia and the St. Johns Inn.</p>
         <p>The part I care most about is that you're not left guessing. Portland Parks permitting is genuinely confusing, and I'd rather over-explain something than have you piece it together on your own. Email me a question and you'll get a real answer from me, usually the same day, and usually longer than you expected.</p>
         <p>If something on this page isn't clear, that's on me and I'd like to know. Ask me anything, including the things that feel too small to ask.</p>
         <span class="meet-sig">Kylie</span>
