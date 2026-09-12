@@ -141,12 +141,11 @@ footer a{color:var(--gold-deep);}
         <div class="field">
           <label for="ph">Phone</label>
           <input type="tel" id="ph" name="Phone" data-fs-field>
-          <span class="hint">Texting is often fastest on the day.</span>
         </div>
       </div>
       <div class="field">
         <label for="pr">Your pronouns <span class="req">*</span></label>
-        <input type="text" id="pr" name="Your pronouns" required data-fs-field placeholder="she/her">
+        <input type="text" id="pr" name="Your pronouns" required data-fs-field>
         <span data-fs-error="Your pronouns"></span>
       </div>
     </fieldset>
@@ -161,7 +160,7 @@ footer a{color:var(--gold-deep);}
         </div>
         <div class="field">
           <label for="ppr">Their pronouns <span class="req">*</span></label>
-          <input type="text" id="ppr" name="Partner pronouns" required data-fs-field placeholder="they/them">
+          <input type="text" id="ppr" name="Partner pronouns" required data-fs-field>
           <span data-fs-error="Partner pronouns"></span>
         </div>
       </div>
@@ -179,7 +178,7 @@ footer a{color:var(--gold-deep);}
 
     <fieldset>
       <legend>Your wedding</legend>
-      <p class="set-note">Your ceremony location is named on the Portland Parks permit application, so we need it settled before we make that call together.</p>
+      <p class="set-note">Your ceremony location is named on the Portland Parks permit application, so we need it settled before we make that call together. For your date, give us a specific day if you have one, otherwise a range or a few options in order of preference. 2027 dates cannot be confirmed until Portland Parks publishes its calendar in January. We then contact couples in booking order, and move to the next couple if we do not hear back within three to five days.</p>
       <div class="row">
         <div class="field">
           <label for="pkg">Your package <span class="req">*</span></label>
@@ -191,8 +190,9 @@ footer a{color:var(--gold-deep);}
           </select>
         </div>
         <div class="field">
-          <label for="dt">Your wedding date</label>
-          <input type="text" id="dt" name="Wedding date" placeholder="Or the placeholder date, if 2027">
+          <label for="dt">Your wedding date, or the dates you are considering <span class="req">*</span></label>
+          <input type="text" id="dt" name="Wedding date" required data-fs-field placeholder="A date, a range, or a few options in order of preference">
+          <span data-fs-error="Wedding date"></span>
         </div>
       </div>
       <div class="field">
@@ -220,7 +220,7 @@ footer a{color:var(--gold-deep);}
       </div>
       <div class="field">
         <label for="acc">Will you or your guests require accessibility accommodations?</label>
-        <textarea id="acc" name="Accessibility" rows="3" placeholder="Anything at all. Nothing is a special request and nothing costs extra."></textarea>
+        <textarea id="acc" name="Accessibility" rows="3"></textarea>
       </div>
     </fieldset>
 
@@ -228,7 +228,7 @@ footer a{color:var(--gold-deep);}
       <legend>Food and drink</legend>
       <div class="field">
         <label for="diet">Any dietary restrictions, allergies or intolerances we should know about? <span class="req">*</span></label>
-        <textarea id="diet" name="Dietary" rows="3" required data-fs-field placeholder="Please include everyone in your party. If none, simply say none."></textarea>
+        <textarea id="diet" name="Dietary" rows="3" required data-fs-field></textarea>
         <span data-fs-error="Dietary"></span>
       </div>
       <div class="field">
@@ -237,13 +237,13 @@ footer a{color:var(--gold-deep);}
       </div>
       <div class="field">
         <label>Beverage election <span class="req">*</span></label>
-        <p class="hint" style="margin:0 0 .7rem;">This is the election referred to in Section 15 of your terms. Water and lemonade are included either way and are never drawn from your allowance.</p>
+        <p class="hint" style="margin:0 0 .7rem;">This is the election referred to in Section 15 of your terms. Water and lemonade are included either way and are NOT drawn from your allowance.</p>
         <div class="elect">
           <label class="elect-opt">
             <input type="radio" name="Beverage election" value="Option A: beer, wine and/or champagne" required>
             <span>
               <strong>A. Beer, wine and/or champagne.</strong>
-              I request that Higher Love Event Co. use my beverage allowance to purchase beer, wine and/or champagne for my event, acting as a purchasing agent on my behalf, subject to the terms of Section 15.
+              I request that Higher Love Event Co. use my beverage allowance to purchase beer, wine and/or champagne for my event, acting as a purchasing agent on my behalf.
             </span>
           </label>
           <label class="elect-opt">
@@ -257,18 +257,20 @@ footer a{color:var(--gold-deep);}
       </div>
 
       <div class="field">
-        <label for="dpref">If you elected A, what would you like?</label>
+        <label>If you elected A, what would you like? Choose as many as you please.</label>
         <div class="choices">
-          <label class="choice"><input type="radio" name="Drink preference" value="Beer"><span>Beer</span></label>
-          <label class="choice"><input type="radio" name="Drink preference" value="Wine"><span>Wine</span></label>
-          <label class="choice"><input type="radio" name="Drink preference" value="Champagne"><span>Champagne</span></label>
-          <label class="choice"><input type="radio" name="Drink preference" value="A mix"><span>A mix</span></label>
+          <label class="choice"><input type="checkbox" name="Drink preference" value="Red wine"><span>Red wine</span></label>
+          <label class="choice"><input type="checkbox" name="Drink preference" value="White wine"><span>White wine</span></label>
+          <label class="choice"><input type="checkbox" name="Drink preference" value="Champagne"><span>Champagne</span></label>
+          <label class="choice"><input type="checkbox" name="Drink preference" value="Beer"><span>Beer</span></label>
+          <label class="choice"><input type="checkbox" name="Drink preference" value="Hard seltzers"><span>Hard seltzers</span></label>
+          <label class="choice"><input type="checkbox" name="Drink preference" value="Ciders"><span>Ciders</span></label>
         </div>
       </div>
       <div class="field">
         <label for="dd">If you elected A, please give us some details on what you would like available</label>
         <textarea id="dd" name="Drink details" rows="3" placeholder="Wine type, beer type, ciders, seltzers, sodas, anything you love or would rather avoid."></textarea>
-        <span class="hint">We buy at the shop price with nothing added. Spend less and the difference is credited to your final invoice; spend more and we agree it with you in writing first. Cans or plastic only, no glass anywhere in the park, and no spirits.</span>
+        <span class="hint">We buy at the shop price and do not upcharge. If we do not spend your entire beverage credit, the balance is credited to your final invoice. If you choose to spend more, such as a better canned wine or sparkling, we agree it with you in writing two weeks out and the excess is charged on your final invoice. Cans or plastic only, no glass anywhere in the park, and no spirits.</span>
       </div>
     </fieldset>
 
@@ -290,11 +292,17 @@ footer a{color:var(--gold-deep);}
         <label class="addon"><input type="checkbox" name="Add-ons" value="3 additional guests ($225)"><span class="nm">3 additional guests</span><span class="pr">$225</span></label>
         <label class="addon"><input type="checkbox" name="Add-ons" value="4 additional guests ($300)"><span class="nm">4 additional guests</span><span class="pr">$300</span></label>
         <label class="addon"><input type="checkbox" name="Add-ons" value="Bouquet and boutonniere ($195)"><span class="nm">Bouquet and boutonniere</span><span class="pr">$195</span></label>
+        <label class="addon"><input type="checkbox" name="Add-ons" value="Two bouquets ($295)"><span class="nm">Two bouquets</span><span class="pr">$295</span></label>
+        <label class="addon"><input type="checkbox" name="Add-ons" value="Two boutonnieres ($95)"><span class="nm">Two boutonnieres</span><span class="pr">$95</span></label>
+        <label class="addon"><input type="checkbox" name="Add-ons" value="Cutting cake, small ($75)"><span class="nm">Cutting cake, small</span><span class="pr">$75</span></label>
+        <label class="addon"><input type="checkbox" name="Add-ons" value="Cutting cake, medium ($105)"><span class="nm">Cutting cake, medium</span><span class="pr">$105</span></label>
+        <label class="addon"><input type="checkbox" name="Add-ons" value="Cutting cake, large, serves 20 ($165)"><span class="nm">Cutting cake, large, serves 20</span><span class="pr">$165</span></label>
         <label class="addon"><input type="checkbox" name="Add-ons" value="Ceremony livestream ($75)"><span class="nm">Ceremony livestream</span><span class="pr">$75</span></label>
-        <label class="addon"><input type="checkbox" name="Add-ons" value="Digital videography ($600)"><span class="nm">Digital videography</span><span class="pr">$600</span></label>
-        <label class="addon"><input type="checkbox" name="Add-ons" value="Film photography ($50)"><span class="nm">Film photography</span><span class="pr">$50</span></label>
-        <label class="addon"><input type="checkbox" name="Add-ons" value="Large cutting cake, serves 20 ($165)"><span class="nm">Large cutting cake, serves 20</span><span class="pr">$165</span></label>
-        <label class="addon"><input type="checkbox" name="Add-ons" value="Live event painting ($1,800)"><span class="nm">Live event painting with guest involvement</span><span class="pr">$1,800</span></label>
+        <label class="addon"><input type="checkbox" name="Add-ons" value="Digital videography (from $500)"><span class="nm">Digital videography</span><span class="pr">From $500</span></label>
+        <label class="addon"><input type="checkbox" name="Add-ons" value="Super 8 videography (from $1,000)"><span class="nm">Super 8 videography</span><span class="pr">From $1,000</span></label>
+        <label class="addon"><input type="checkbox" name="Add-ons" value="Film photography ($50 per roll)"><span class="nm">Film photography</span><span class="pr">$50 per roll</span></label>
+        <label class="addon"><input type="checkbox" name="Add-ons" value="Polaroid camera ($30)"><span class="nm">Polaroid camera</span><span class="pr">$30</span></label>
+        <label class="addon"><input type="checkbox" name="Add-ons" value="Live event painting ($1,800)"><span class="nm">Live event painting</span><span class="pr">$1,800</span></label>
       </div>
     </fieldset>
 
