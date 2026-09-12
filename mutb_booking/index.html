@@ -178,7 +178,7 @@ footer a{color:var(--gold-deep);}
 
     <fieldset>
       <legend>Your wedding</legend>
-      <p class="set-note">Your ceremony location is named on the Portland Parks permit application, so we need it settled before we make that call together. For your date, give us a specific day if you have one, otherwise a range or a few options in order of preference. 2027 dates cannot be confirmed until Portland Parks publishes its calendar in January. We then contact couples in booking order, and move to the next couple if we do not hear back within three to five days.</p>
+      <p class="set-note">Give us a specific day if you have one, otherwise a range or a few options in order of preference. 2027 dates cannot be confirmed until Portland Parks publishes its calendar in January. We then contact couples in booking order, and move to the next couple if we do not hear back within three to five days.</p>
       <div class="row">
         <div class="field">
           <label for="pkg">Your package <span class="req">*</span></label>
@@ -190,13 +190,14 @@ footer a{color:var(--gold-deep);}
           </select>
         </div>
         <div class="field">
-          <label for="dt">Your wedding date, or the dates you are considering <span class="req">*</span></label>
-          <input type="text" id="dt" name="Wedding date" required data-fs-field placeholder="A date, a range, or a few options in order of preference">
+          <label for="dt">Your wedding date <span class="req">*</span></label>
+          <input type="text" id="dt" name="Wedding date" required data-fs-field placeholder="A date, a range, or a few options">
           <span data-fs-error="Wedding date"></span>
         </div>
       </div>
-      <div class="field">
+      <div class="field" style="margin-top:1.6rem;">
         <label>Ceremony location <span class="req">*</span></label>
+        <p class="hint" style="margin:0 0 .7rem;">This is named on the Portland Parks permit application, so we need it settled before we make that call together.</p>
         <div class="choices">
           <label class="choice"><input type="radio" name="Ceremony location" value="Park lawn" required><span>Park lawn, all guests</span></label>
           <label class="choice"><input type="radio" name="Ceremony location" value="Staircase"><span>Staircase, five people</span></label>
