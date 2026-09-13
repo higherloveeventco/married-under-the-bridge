@@ -31,6 +31,7 @@ fieldset{border:0;border-top:1px solid var(--border);padding:2.4rem 0 0;margin:0
 legend{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.2em;
   text-transform:uppercase;color:var(--gold-deep);padding:0 1rem 0 0;}
 .set-note{font-size:.92rem;color:var(--muted);margin:.6rem 0 1.6rem;max-width:60ch;}
+.set-note a,.hint a{color:var(--gold-deep);font-weight:600;border-bottom:1px solid rgba(184,137,42,.5);}
 
 .row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
 .row + .row,.row + .field,.field + .row,.field + .field{margin-top:1.3rem;}
@@ -179,7 +180,7 @@ footer a{color:var(--gold-deep);}
 
     <fieldset>
       <legend>Your wedding</legend>
-      <p class="set-note">Give us a specific day if you have one, otherwise a range or a few options in order of preference. 2027 dates cannot be confirmed until Portland Parks publishes its calendar in January. We then contact couples in booking order, and move to the next couple if we do not hear back within three to five days.</p>
+      <p class="set-note">A specific day if you have one, otherwise a range or a few options in order of preference. <a href="https://marriedunderthebridge.com/faq#dates2027">How 2027 dates work</a>.</p>
       <div class="row">
         <div class="field">
           <label for="dt">Your wedding date <span class="req">*</span></label>
@@ -197,7 +198,7 @@ footer a{color:var(--gold-deep);}
       </div>
       <div class="field" style="margin-top:1.6rem;">
         <label>Ceremony location <span class="req">*</span></label>
-        <p class="hint" style="margin:0 0 .7rem;">This is named on the Portland Parks permit application, so we need it settled before we make that call together.</p>
+        <p class="hint" style="margin:0 0 .7rem;">This is named on your Portland Parks permit. <a href="https://marriedunderthebridge.com/faq#ceremony">Both locations compared</a>.</p>
         <div class="choices">
           <label class="choice"><input type="radio" name="Ceremony location" value="Park lawn" required><span>Park lawn</span></label>
           <label class="choice"><input type="radio" name="Ceremony location" value="Staircase"><span>Staircase, under the arches</span></label>
