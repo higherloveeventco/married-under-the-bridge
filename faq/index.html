@@ -51,12 +51,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,240,232,0.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:0.5px solid var(--border);z-index:100;}
 .nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:100%;padding:0 2.5rem;}
-.nav-logo{font-family:var(--serif);font-size:1rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);}
+.nav-logo{font-family:var(--serif);font-size:1rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);;white-space:nowrap;}
 .nav-logo span{color:var(--gold);}
 .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
 .nav-links a{font-size:.60rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--charcoal);transition:color .2s;}
 .nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--gold);}
-.nav-cta{background:var(--gold);color:var(--cream)!important;padding:.48rem 1.1rem;}
+.nav-cta{background:var(--gold);color:var(--cream)!important;padding:.48rem 1.1rem;;white-space:nowrap;flex-shrink:0;}
 .nav-cta:hover{background:var(--black)!important;color:var(--cream)!important;}
 .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:none;border:none;cursor:pointer;min-width:44px;min-height:44px;margin-right:-10px;}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--black);transition:transform .3s,opacity .3s;}
@@ -67,7 +67,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
 #mob-menu.open{display:flex;}
 #mob-menu a{display:flex;align-items:center;min-height:48px;font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--charcoal);border-bottom:0.5px solid var(--border);}
 #mob-menu a:last-child{border-bottom:none;color:var(--gold-deep);}
-@media(max-width:860px){.nav-links{display:none;}.hamburger{display:flex;}}
+@media(max-width:1120px){.nav-links{display:none;}.hamburger{display:flex;}}
 
 /* BUTTONS */
 .btn{display:inline-block;font-family:var(--sans);font-weight:600;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;padding:.95rem 2rem;border:1.5px solid var(--black);color:var(--black);background:transparent;transition:all .22s;cursor:pointer;}
@@ -236,13 +236,13 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   "mainEntity": [
     {"@type":"Question","name":"What isn't included in the price?","acceptedAnswer":{"@type":"Answer","text":"Not included: the Oregon marriage license and its county fee, hair, makeup and attire, rings, personal florals such as bouquets and boutonnieres which are available as add-ons, transportation and lodging, a rehearsal, and a Portland Parks wedding permit if the couple wishes to reserve the staircase for their full guest list, which costs approximately $817 and must be applied for by the couple. The site reservation permit that every booking requires is included. Everything else is included: the ceremony, officiant, license filing, photography, florals, food, desserts, drinks, permit fees, and all setup and teardown."}}, {"@type":"Question","name":"What is Married Under the Bridge?","acceptedAnswer":{"@type":"Answer","text":"An all-inclusive elopement and picnic reception at Cathedral Park in St. Johns, Portland, beneath the St. Johns Bridge. It is a collaboration between Higher Love Event Co. and Weddinglandia. One price covers the legal ceremony, officiant, marriage license filing, photography, florals, food, desserts, beverages, site reservation permit fees, and all setup and styling."}},
     {"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"$2,500 for the couple alone, $3,600 for the couple plus up to 8 guests, and $5,000 for the couple plus up to 18 guests. Every price is all-inclusive. The only things not covered are your marriage license fee, personal florals, rings, attire, and travel."}},
-    {"@type":"Question","name":"How many people can attend the ceremony?","acceptedAnswer":{"@type":"Answer","text":"It depends which of two ceremony locations you choose. At the Cathedral Park staircase without a wedding permit, five people: the couple, the officiant, and two witnesses, with children counting toward that limit and witnesses aged 18 or over. At a location reserved elsewhere in the park under the Restricted Special Permit, every guest in your package may attend. Couples must confirm their ceremony location at least 21 days before the date, because it is named on the Portland Parks permit application."}},
+    {"@type":"Question","name":"How many people can attend the ceremony?","acceptedAnswer":{"@type":"Answer","text":"It depends which of two ceremony locations you choose. At the Cathedral Park staircase without a wedding permit, five people: the couple, the officiant, and two witnesses, with children counting toward that limit and witnesses aged 18 or over. At a location reserved elsewhere in the park under the Restricted Special Permit, every guest in your package may attend. Couples must confirm their ceremony location before the Portland Parks permit application is made, approximately one month before the date, because the location is named on the permit."}},
     {"@type":"Question","name":"How many guests can we have in total?","acceptedAnswer":{"@type":"Answer","text":"Ten people for The Garden Party, being the couple plus 8 guests, and twenty for The Soiree, being the couple plus 18. Up to four additional guests can be added to either at $75 each, taking The Garden Party to 14 and The Soiree to 24. Twenty-four is the maximum. Children aged three and over count toward the total; children under three do not."}},
     {"@type":"Question","name":"What is the difference between the two Cathedral Site reservation permits?","acceptedAnswer":{"@type":"Answer","text":"Every Married Under the Bridge booking requires a Portland Parks site reservation permit, which covers the picnic reception and the park lawn ceremony. Its fee is included in the package price and Higher Love applies for it together with the couple on a scheduled phone call with Portland Parks about a month before the date. A second, optional wedding permit is required only to reserve the Cathedral Park staircase for a full guest list. It costs approximately $817, is not included in the package, and must be obtained by the couple themselves because Portland Parks will only issue it to the permit holder. Without a wedding permit the staircase remains available on a first come, first served basis for five people."}}, {"@type":"Question","name":"Why is the Cathedral Park staircase wedding permit hard to get in 2027?","acceptedAnswer":{"@type":"Answer","text":"Portland Parks is reinstating wedding permits at Cathedral Park in 2027 after approximately five years without them, so several years of demand is concentrated in one application season. Applications open in person in January and are processed in the order people arrive, rather than online. Popular summer dates are typically taken on the first morning, so couples who want the staircase reserved should plan to queue early. Higher Love cannot apply on behalf of the couple or reserve a place in advance."}}, {"@type":"Question","name":"What do we have to do ourselves?","acceptedAnswer":{"@type":"Answer","text":"Two things. Obtain an Oregon marriage license, and join one short phone call about a month before the date. The Portland Parks permit must be in the couple's name because Portland Parks will only communicate with the permittee, so Higher Love schedules a three-way call with the couple and the Parks office. The couple makes the request and submits the application while Higher Love stays on the line to answer questions, then Higher Love pays the fee once the couple has hung up. The fee is included in the package price."}},
-    {"@type":"Question","name":"What happens if it rains?","acceptedAnswer":{"@type":"Answer","text":"The picnic reception moves indoors to the Weddinglandia chapel two blocks from the park, at no extra cost, with the ceremony, food, florals and everything else unchanged. The decision is made by Higher Love no later than 10:00 AM on the day and the couple is notified immediately. Light rain is not a reason to move indoors."}},
+    {"@type":"Question","name":"What happens if it rains?","acceptedAnswer":{"@type":"Answer","text":"The ceremony proceeds outdoors and Higher Love provides clear umbrellas for the couple and all guests. The picnic reception moves indoors to the Weddinglandia chapel, two blocks from Cathedral Park, at no additional cost. Food, florals, photography and everything else in the package remain the same. The decision is made by Higher Love no later than 10:00 AM on the day and the couple is notified immediately. Light rain is not a reason to move indoors."}},
     {"@type":"Question","name":"Is Cathedral Park accessible?","acceptedAnswer":{"@type":"Answer","text":"Cathedral Park has paved accessible paths and accessible restrooms, the reserved picnic area is reachable on paved path, and reception seating is at picnic tables rather than at ground level. The staircase and deck beneath the bridge is not ADA accessible, so couples with accessibility needs should choose the park lawn ceremony, which is on level ground and also allows every guest to attend. Higher Love will accommodate access requirements at no additional cost, including seating placement, keeping paths clear for wheelchairs, providing a chair for a guest who cannot stand for long, or reserving a space close to the restrooms. Couples are encouraged to raise any requirement at any time before their date."}},
-    {"@type":"Question","name":"How do beer and wine work?","acceptedAnswer":{"@type":"Answer","text":"Water and lemonade are included in every package. Beer and wine are optional and covered by a beverage allowance: $75 for Just the Two of Us, $225 for The Garden Party, and $450 for The Soiree, increasing by $25 for each additional guest. Because the site reservation permit is held in the couple's name, the couple is the host and the alcohol is theirs. Higher Love purchases beer, wine and champagne at cost with no markup and delivers it sealed. No spirits and no glass are permitted in the park. Any part of the allowance not spent on alcohol is refunded to the couple."}},
-    {"@type":"Question","name":"Can we book a date in 2027?","acceptedAnswer":{"@type":"Answer","text":"Yes. Portland Parks publishes each year's park availability calendar in January of that year, so 2027 dates cannot be confirmed until January 2027. Couples may reserve now using January 1, 2027 as a placeholder. Doing so locks current pricing, holds the vendor team, and secures a place in the queue: when the calendar publishes, couples already holding a deposit choose their dates in the order those deposits were received, ahead of anyone booking later. If no date on the calendar is acceptable, the couple may withdraw and the deposit is refunded in full."}},
+    {"@type":"Question","name":"How do beer and wine work?","acceptedAnswer":{"@type":"Answer","text":"Water and lemonade are included in every package. Beer and wine are optional and covered by a beverage allowance: $75 for Just the Two of Us, $225 for The Garden Party, and $450 for The Soiree, increasing by $25 for each additional guest. Because the site reservation permit is held in the couple's name, the couple is the host and the alcohol is theirs. Higher Love purchases beer, wine and champagne at cost with no markup and delivers it sealed. No spirits and no glass are permitted in the park. Any part of the allowance not spent on alcohol is credited to the couple's final invoice."}},
+    {"@type":"Question","name":"Can we book a date in 2027?","acceptedAnswer":{"@type":"Answer","text":"Yes. Portland Parks publishes each year's park availability calendar in January of that year, so 2027 dates cannot be confirmed until January 2027. Couples may reserve now using January 1, 2027 as a placeholder. Doing so locks current pricing, holds the vendor team, and secures a place in the queue: when the calendar publishes, couples already holding a deposit choose their dates in the order those deposits were received, ahead of anyone booking later. If no date on the calendar is acceptable, the couple may withdraw and the deposit is refunded in full. When the calendar publishes, Higher Love contacts booked couples in the order their deposits arrived. Couples who do not respond within three to five days are passed over and the next couple in line is contacted."}},
     {"@type":"Question","name":"When should we get our marriage license?","acceptedAnswer":{"@type":"Answer","text":"Roughly two months before the wedding, and no later than about a week beforehand. An Oregon license takes three days to become valid and expires 60 days after issue. It costs $60 in Multnomah County and most Oregon counties, or $65 to waive the three day wait. Any Oregon county clerk's office may issue it and both parties must attend in person with photo identification."}}
   ]
 }
@@ -263,7 +263,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <li><a href="/#after">After You Book</a></li>
       <li><a href="/#setup">The Setup</a></li>
       <li><a href="/faq" aria-current="page">FAQ</a></li>
-      <li><a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge" class="nav-cta">Book Now</a></li>
+      <li><a href="/#dates" class="nav-cta">Check your date</a></li>
     </ul>
     <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
   </div>
@@ -280,7 +280,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <a href="/#kylie">Meet Kylie</a>
   <a href="/real-weddings">Real Weddings</a>
   <a href="/faq">FAQ</a>
-  <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book Now</a>
+  <a href="/#dates">Check your date</a>
 </div>
 
 <main id="main-content">
@@ -289,8 +289,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   <div class="wrap">
     <span class="eyebrow">Questions and answers</span>
     <h1>Ask us <em>anything.</em></h1>
-    <p>Short answers in bold, with the detail underneath if you want it.</p>
-    <p>Don't see your question? <a href="mailto:hello@higherloveeventco.com">Email us</a> and we'll answer it.</p>
+    <p>Short answers in bold, with the detail beneath if you would like it.</p>
+    <p>If your question is not here, <a href="mailto:hello@higherloveeventco.com">email us</a> and we will answer it.</p>
   </div>
 </header>
 
@@ -445,7 +445,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <span class="short">Five at the staircase. Everyone in your package on the park lawn. It's your choice.</span>
           <p>The staircase beneath the arches is one of two locations Portland Parks treats as an official wedding venue, and reserving it takes a wedding permit that only you can apply for. Without one you can still marry there, but only as a simple ceremony of five: the two of you, your officiant, and two witnesses. Everyone counts toward that five, children included, and witnesses have to be 18 or over. It isn't something we can flex.</p>
           <p>Everywhere else in Cathedral Park is covered by the site reservation permit we already hold for your reception, and that permit allows up to 30 people at a ceremony. That's more than any of our packages hold, so your whole guest list can be there, children included. There's no seating, so guests stand, and then you all walk to the picnic together.</p>
-          <p>We need to know which one at least 21 days before your date, because the location goes on your permit. <a href="/#ceremony-options">Both options are laid out here.</a></p>
+          <p>We need to know before we call Portland Parks, because the location goes on your permit application. <a href="/#ceremony-options">Both options are laid out here.</a></p>
           <figure class="map-block">
                   <img src="/images/CathedralParkCeremonyMap_300KB.jpg" alt="Map of Cathedral Park showing the staircase ceremony location beneath the St. Johns Bridge, the park lawn ceremony location, both picnic reception areas, restrooms and parking" width="1400" height="1867" loading="lazy" decoding="async">
                   <div class="map-legend">
@@ -600,9 +600,9 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <details class="faq-item">
         <summary>How do we book?</summary>
         <div class="faq-answer">
-          <span class="short">Online, in one sitting. No inquiry form and no waiting to hear back.</span>
-          <p>Pick your date and package, choose any add-ons and your beverage preference, sign, and pay your deposit. It all happens in the same flow. <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book here.</a></p>
-          <p>If you'd rather talk to a person first, that's completely fine. <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call with Kylie</a> and she'll go through it with you. No pressure and no sales pitch.</p>
+          <span class="short">Send us your dates, or book a call. We come back within 48 hours with what is available.</span>
+          <p>Tell us the dates or months you are considering and approximately how many guests. We check with our vendor team and come back to you, usually within 48 hours. If the team is free, we send you a contract and an invoice. You sign, pay the deposit, and your date is held. <a href="/#dates">Check your date.</a></p>
+          <p>If you would rather talk it through first, that is completely fine. <a href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call with Kylie</a> and she'll go through it with you. No pressure and no sales pitch.</p>
         </div>
       </details>
 
@@ -613,7 +613,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <p>Deposits are $1,000 for Just the Two of Us, $1,500 for The Garden Party, and $2,100 for The Soirée, and your date isn't held until the deposit arrives. That's the only payment the booking system takes. Everything after it is invoiced by us.</p>
           <p>The balance is then invoiced by us and due 10 days before your wedding, the same day your final details are confirmed. That's one invoice, not a schedule of them.</p>
           <p>You're welcome to pay it earlier if you'd rather have it off your mind. There's no interest and no fees either way, and you can ask us at any time what's outstanding.</p>
-          <p>If you spend less than your beverage allowance, we refund the difference after the wedding.</p>
+          <p>Anything you don't spend from your beverage allowance is credited to your final invoice.</p>
         </div>
       </details>
 
@@ -643,7 +643,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <div class="faq-answer">
           <span class="short">Usually yes, upward. Ask us as early as you can.</span>
           <p>Moving up a tier is normally fine if the vendor team can accommodate it. It gets harder close to the date, and once the site reservation permit application has gone in, any increase in numbers needs Portland Parks to agree and may not be possible.</p>
-          <p>Everything is locked 10 days before your date, apart from your ceremony location, which we need at least 21 days ahead because it goes on your permit.</p>
+          <p>Add-ons and drinks lock 14 days before your date, and your final guest count 10 days before. Your ceremony location we need earlier still, before we call Portland Parks for your permit.</p>
         </div>
       </details>
 
@@ -669,14 +669,14 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
     <section class="cat" id="dates2027">
       <div class="cat-head">
         <h2>Dates and 2027</h2>
-        <p>What's bookable now, and how a 2027 wedding works.</p>
+        <p>How to find an available date, and how a 2027 wedding works.</p>
       </div>
 
       <details class="faq-item">
-        <summary>Can we request a date that isn't listed?</summary>
+        <summary>How do we find out whether our date is available?</summary>
         <div class="faq-answer">
-          <span class="short">Yes. The listed dates are the instantly bookable ones, not the only ones.</span>
-          <p><a href="mailto:hello@higherloveeventco.com">Email us</a> or click Join Waitlist on our booking page with the date you have in mind and we'll check it against the vendor team.</p>
+          <span class="short">Send us the dates you are considering and we will check them with the vendor team.</span>
+          <p><a href="mailto:hello@higherloveeventco.com">Email us</a> with the dates or months you have in mind and approximately how many guests, and we will come back within 48 hours with what is available.</p>
           <p>Give us as much notice as you can. Availability depends on eight or nine people, not just us.</p>
         </div>
       </details>
@@ -688,7 +688,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <p>Portland Parks publishes the list of dates the park is closed to private events in January of each year. Until that comes out, nobody knows which 2027 dates are unavailable, including us.</p>
           <p>You have two ways to go:</p>
           <ul>
-            <li><strong>Reserve now.</strong> You book using January 1, 2027 as a placeholder. That locks today's pricing, holds the vendor team, and takes your place in the queue. When the calendar publishes in January we work through our booked couples in the order their deposits arrived, so you choose your date before anyone who waited. We pick it together and update your booking. Nothing about your package or price changes. If nothing on the calendar works for you, you can withdraw and we refund your deposit in full.</li>
+            <li><strong>Reserve now.</strong> You book using January 1, 2027 as a placeholder. That locks today's pricing, holds the vendor team, and takes your place in the queue. When the calendar publishes in January we work through our booked couples in the order their deposits arrived, so you choose your date before anyone who waited. We pick it together and update your booking. Nothing about your package or price changes. We will email you when it is your turn, and if we do not hear back within three to five days we move on to the next couple in line, so please watch for that email in January. If nothing on the calendar works for you, you can withdraw and we refund your deposit in full.</li>
             <li><strong>Wait and book in January.</strong> You see the calendar first and decide with full information. The tradeoff is that you're behind everyone already holding a deposit, so the popular dates may be gone before you get to choose.</li>
           </ul>
           <p>Neither is wrong. The first protects your pricing and your team and gets you first pick of the calendar. The second gives you certainty about the date before you commit anything, but you'll be choosing from what's left after the couples already holding deposits have picked, and Saturdays go first.</p>
@@ -826,9 +826,9 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <div class="faq-answer">
           <span class="short">Water and lemonade are included. Beer and wine are optional, and we buy them for you at cost with no markup.</span>
           <p>The allowance is $75 for Just the Two of Us, $225 for The Garden Party, and $450 for The Soirée. It goes up $25 for each additional guest you add. It covers beer, wine and champagne.</p>
-          <p>Because the site reservation permit is in your name, you're the host and the alcohol is yours. We buy it on your behalf, at cost with receipts available, and hand it over sealed for you to serve. We don't pour or serve alcohol at any point, so you'll want to nominate someone to open bottles.</p>
+          <p>Because the site reservation permit is in your name, you're the host and the alcohol is yours. We buy it on your behalf, at cost with receipts available, and hand it over sealed for you to serve. We do not pour or serve alcohol at any point, so you will want to nominate someone to hand it out.</p>
           <p>Park rules: no glass anywhere, so cans or plastic only, and no spirits.</p>
-          <p>The allowance is a budget rather than a fixed charge. Spend less and the difference is refunded to you. Spend more and the difference is invoiced, agreed with you in writing beforehand.</p>
+          <p>The allowance is a budget rather than a fixed charge. Spend less and the difference is credited to your final invoice. Spend more and the difference is invoiced, agreed with you in writing beforehand.</p>
         </div>
       </details>
 
@@ -836,7 +836,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <summary>What if we don't drink?</summary>
         <div class="faq-answer">
           <span class="short">Then you don't pay for it. Water and lemonade come with every package regardless.</span>
-          <p>The beverage allowance covers beer and wine only, and it's a budget rather than part of the price. Decline alcohol at booking, or simply don't spend it, and the full amount is refunded to you: $75, $225 or $450 depending on your package, plus any increase from additional guests.</p>
+          <p>The beverage allowance covers beer and wine only, and it's a budget rather than part of the price. Decline alcohol at booking, or simply don't spend it, and the full amount is credited to your final invoice: $75, $225 or $450 depending on your package, plus any increase from additional guests.</p>
           <p>You're not paying for drinks you didn't want, and nobody has to hold a glass of something to be part of the toast.</p>
         </div>
       </details>
@@ -931,9 +931,10 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <details class="faq-item">
         <summary>What happens if it rains?</summary>
         <div class="faq-answer">
-          <span class="short">The picnic moves indoors to the Weddinglandia chapel, two blocks away, at no extra cost.</span>
-          <p>Your ceremony, food, florals, photography and everything else in your package stays exactly the same. It's a real backup rather than a fallback.</p>
-          <p>We make that call by 10:00 AM on the day and tell you straight away, so you're never standing in the park wondering what's happening.</p>
+          <span class="short">The ceremony goes ahead with clear umbrellas. The picnic moves indoors to the Weddinglandia chapel, two blocks away, at no extra cost.</span>
+          <p>We provide clear umbrellas for you and all of your guests, so the ceremony proceeds outdoors as planned.</p>
+          <p>Your food, florals, photography and everything else in your package stays exactly the same. It is a real backup rather than a fallback.</p>
+          <p>We make that call by 10:00 AM on the day and tell you straight away, so you are never standing in the park wondering what is happening.</p>
         </div>
       </details>
 
@@ -941,7 +942,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <summary>What counts as too wet?</summary>
         <div class="faq-answer">
           <span class="short">More than light rain. A drizzle isn't a problem.</span>
-          <p>This package is built for Portland, and a grey sky or a light shower is part of the experience rather than something to solve. A staircase ceremony has the bridge overhead as natural cover. If we're on the lawn, we'll pick the spot with the best shelter for the conditions.</p>
+          <p>This package is built for Portland, and a grey sky or a light shower is part of the experience rather than something to solve. We provide clear umbrellas for you and all of your guests, so a shower does not interrupt anything. On the lawn we will also choose the spot with the best shelter for the conditions.</p>
         </div>
       </details>
 
@@ -955,7 +956,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       </details>
     <figure class="faq-band">
       <img src="/images/36-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1037.jpg" alt="Black and white photograph of newlyweds kissing among the dahlias at Cathedral Park" width="1024" height="1546" loading="lazy" decoding="async" style="object-position:center 25%;">
-      <figcaption>Rain doesn't cancel anything. The bridge covers the ceremony either way.</figcaption>
+      <figcaption>Rain does not cancel anything. We provide clear umbrellas for the ceremony.</figcaption>
     </figure>
 
     </section>
@@ -974,8 +975,8 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <p>The park has paved, accessible paths and accessible restrooms. The picnic area we reserve is reachable on paved path, and everyone sits at picnic tables rather than on the ground, so no guest has to get down to a blanket to be included.</p>
           <p>The staircase and deck beneath the bridge is the exception. If anyone in your group uses a wheelchair or a walker, or finds stairs difficult, choose the lawn ceremony. It's on level ground, it's reachable on paved path, and it's also the option where every one of your guests can be there for the vows.</p>
           <p>The permanent restrooms sit lower in the park, a few minutes' walk from the picnic area.</p>
-          <p>Beyond that, tell us what your group needs and we'll work it out with you. Seating someone where they can hear, keeping a path clear for a wheelchair, putting a chair somewhere for a guest who can't stand for long, holding a space near the restrooms, anything at all. None of it is a special request and none of it costs extra.</p>
-          <p>The earlier you tell us the easier it is to plan properly, but you can raise it any time right up to your date. If you're not sure whether something is workable, ask. The answer is usually yes.</p>
+          <p>Beyond that, tell us what your group needs and we will work it out with you. Seating someone where they can hear, keeping a path clear for a wheelchair, putting a chair somewhere for a guest who can't stand for long, holding a space near the restrooms, anything at all. None of it is a special request and none of it costs extra.</p>
+          <p>The earlier you tell us the easier it is to plan properly, but you can raise it any time right up to your date. If you are unsure whether something is workable, please ask. The answer is usually yes.</p>
           <figure class="map-block">
             <img src="/images/CathedralParkCeremonyMap_300KB.jpg" alt="Map of Cathedral Park showing both ceremony locations, the picnic reception areas, restrooms and parking" width="1400" height="1867" loading="lazy" decoding="async">
             <div class="map-legend">
@@ -1086,7 +1087,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
         <summary>Are personal florals included?</summary>
         <div class="faq-answer">
           <span class="short">No. Table florals are included, bouquets and boutonnieres are add-ons.</span>
-          <p>They're separate because couples need different combinations. Two bouquets, two boutonnieres, or one of each. Confirm your choice 10 days before your date.</p>
+          <p>They're separate because couples need different combinations. Two bouquets, two boutonnieres, or one of each. Confirm your choice 14 days before your date.</p>
         </div>
       </details>
 
@@ -1119,14 +1120,14 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
       <a class="btn btn-gold" href="https://app.acuityscheduling.com/schedule/1a462a64/appointment/97840537/calendar/14145177?appointmentTypeIds[]=97840537">Book a free 20 minute call</a>
       <a class="btn btn-light" href="mailto:hello@higherloveeventco.com">Email your question</a>
     </div>
-    <p class="stuck-note">Or go straight to <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">booking a date</a>. Packages start at $2,500, all-inclusive.</p>
+    <p class="stuck-note">Or go straight to <a href="/#dates">getting in touch</a>. Packages start at $2,500, all-inclusive.</p>
   </div>
 </section>
 
 </main>
 
 <div class="book-bar" id="book-bar">
-  <a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book your date</a>
+  <a href="/#dates">Check your date</a>
   <span>From $2,500, all-inclusive</span>
 </div>
 
@@ -1152,7 +1153,7 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
           <li><a href="/#kylie">Meet Kylie</a></li>
           <li><a href="/real-weddings">Real Weddings</a></li>
       <li><a href="/faq">FAQ</a></li>
-          <li><a href="https://app.acuityscheduling.com/schedule/1a462a64/category/Married%2520Under%2520The%2520Bridge">Book Your Date</a></li>
+          <li><a href="/#dates">Check your date</a></li>
         </ul>
       </div>
       <div class="foot-col">
