@@ -227,6 +227,15 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   .foot-brand p,.foot-col a,.foot-col address{font-size:.92rem;}
   .foot-bottom{flex-direction:column;gap:.4rem;font-size:.72rem;}
 }
+
+/* BACK LINK TO HIGHER LOVE (stacked above the logo, upper left) */
+.nav-brand{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;min-width:0;}
+.nav-back{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--sans);font-size:.68rem;font-weight:500;
+  letter-spacing:.02em;line-height:1;color:#7A5A16;white-space:nowrap;padding:2px 0;transition:color .2s;}
+.nav-back-arrow{font-size:.9rem;line-height:1;position:relative;top:-1px;color:var(--gold);transition:transform .2s;}
+.nav-back:hover{color:var(--black);}
+.nav-back:hover .nav-back-arrow{transform:translateX(-3px);}
+@media(prefers-reduced-motion:reduce){.nav-back-arrow{transition:none;}}
 </style>
 
 <script type="application/ld+json">
@@ -256,7 +265,10 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="/">Married <span>Under the Bridge</span></a>
+    <div class="nav-brand">
+      <a class="nav-back" href="https://www.higherloveeventco.com/"><span class="nav-back-arrow" aria-hidden="true">&larr;</span>Go to the Higher Love Event Co. website</a>
+      <a class="nav-logo" href="/">Married <span>Under the Bridge</span></a>
+    </div>
     <ul class="nav-links">
       <li><a href="/#packages">Packages</a></li>
       <li><a href="/#dates">Dates</a></li>
