@@ -133,14 +133,14 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(245,
   background:linear-gradient(to right,rgba(20,20,18,0.62) 0%,rgba(20,20,18,0.26) 48%,rgba(20,20,18,0.04) 100%),
              linear-gradient(to top,rgba(20,20,18,0.86) 0%,rgba(20,20,18,0.48) 50%,rgba(20,20,18,0.28) 100%);}
 @media(max-width:640px){.hero::after{background:linear-gradient(to top,rgba(20,20,18,0.88) 0%,rgba(20,20,18,0.58) 48%,rgba(20,20,18,0.30) 100%);}}
-.hero .hero-content{position:relative;z-index:2;width:100%;flex:1 1 auto;padding-bottom:calc(5rem + 130px);}
+.hero .hero-content{position:relative;z-index:2;width:100%;flex:1 1 auto;padding-bottom:calc(5rem + 320px);}
 .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.8rem,7vw,6rem);line-height:.95;color:var(--white);margin-bottom:1.8rem;max-width:14ch;text-shadow:0 2px 32px rgba(0,0,0,0.8),0 1px 8px rgba(0,0,0,0.9);}
 .hero-sub{max-width:50ch;font-size:1.08rem;line-height:1.85;color:rgba(255,255,255,.95);margin-bottom:2.4rem;text-shadow:0 1px 16px rgba(0,0,0,0.9),0 1px 4px rgba(0,0,0,1);}
 .hero-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;}
 .hero-eyebrow::before{content:"";width:34px;flex:0 0 34px;height:1px;background:var(--gold);}
 .hero-eyebrow span{font-family:var(--sans);font-size:.63rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:#E7D8B5;}
 .hero h1 em{font-style:italic;color:var(--gold);}
-.hero-credit{position:absolute;bottom:.7rem;right:max(2.5rem, calc((100% - var(--maxw)) / 2 + 2.5rem));z-index:2;font-family:var(--sans);font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.55);}
+.hero-credit{position:absolute;bottom:calc(300px + .7rem);right:max(2.5rem, calc((100% - var(--maxw)) / 2 + 2.5rem));z-index:2;font-family:var(--sans);font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.55);}
 .hero-credit a{color:rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.35);}
 
 /* PHOTO BANDS */
@@ -374,7 +374,7 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
    ============================================================ */
 
 /* Lift the summary card up over the hero so the two overlap. */
-.glance{position:relative;z-index:3;margin-top:-110px;padding-top:0;background:transparent;}
+.glance{position:relative;z-index:3;margin-top:-300px;padding-top:0;background:transparent;}
 .glance .wrap{position:relative;}
 .glance-card{background:var(--cream);box-shadow:0 40px 80px -40px rgba(26,26,24,.55);}
 .glance-head{padding:2.2rem 2.4rem 1.4rem;border-bottom:0.5px solid var(--border);}
@@ -382,7 +382,7 @@ table.cmp tr.price td.feat{color:var(--gold-deep);}
 .glance-head .eyebrow{margin-bottom:.7rem;}
 .glance-inner{background:var(--cream);}
 @media(max-width:860px){
-  .glance{margin-top:-70px;}
+  .glance{margin-top:-200px;}
   .glance-head{padding:1.7rem 1.5rem 1.2rem;}
 }
 
@@ -904,14 +904,14 @@ footer{background:var(--charcoal);padding:72px 0 48px;}
   /* --- hero: no forced viewport height, so CTAs are never pushed
          under the iOS toolbar --- */
   .hero{min-height:72svh;padding-top:calc(var(--nav-h) + 2rem);}
-  .hero .hero-content{padding-bottom:calc(3.5rem + 96px);}
+  .hero .hero-content{padding-bottom:calc(3.5rem + 226px);}
   .hero h1{font-size:2.3rem;max-width:none;margin-bottom:1.3rem;}
   .hero-sub{font-size:.98rem;line-height:1.75;margin-bottom:1.8rem;}
   .hero-eyebrow{display:block;margin-bottom:1.4rem;}
   .hero-eyebrow::before{display:block;width:24px;margin-bottom:.6rem;}
   .hero-eyebrow span{font-size:.68rem;letter-spacing:.14em;line-height:1.7;}
   .hero .cta-row{flex-direction:column;align-items:stretch;margin-top:2rem;}
-  .hero-credit{left:1.25rem;right:1.25rem;bottom:.5rem;text-align:right;font-size:.68rem;}
+  .hero-credit{left:1.25rem;right:1.25rem;bottom:calc(200px + .5rem);text-align:right;font-size:.68rem;}
   /* narrow viewports crop a landscape hero to a slice — aim it at the tower */
   .hero-img{object-position:46% 58%;}
 
@@ -1271,7 +1271,7 @@ nav{display:flex;flex-direction:column;}
       </div>
       <div class="intro-body">
       <p>Higher Love Event Co. calls St. Johns home. I love this community: the people, the bridge, the parks, the small town feel that's somehow survived in the middle of one of the busiest cities in the Pacific Northwest. This package is what happens when neighborhood businesses pick collaboration over competition.</p>
-      <p>Higher Love plans and runs your day: the picnic reception, the vendor team and the logistics. Weddinglandia officiates your ceremony. Everything that has to be permitted, booked, sourced, arranged, set up and packed down is done before you arrive.</p>
+      <p>Higher Love plans and runs your day: the picnic reception, the vendor team and the logistics. Everything that has to be permitted, booked, sourced, arranged, set up and packed down is done before you arrive.</p>
       <p>The rest of the day belongs to our neighbors. Your officiant, photographer, florist, baker and beer all come from St. Johns, just like your planner. The grazing spread is from a Portland caterer, and the wine is from right here in Oregon. People we know by name and have worked with directly. One neighborhood, showing up for your wedding day.</p>
       </div>
     </div>
@@ -1729,7 +1729,6 @@ nav{display:flex;flex-direction:column;}
               <option value="">Please choose</option>
               <option value="Instagram">Instagram</option>
               <option value="Google or another search">Google or another search</option>
-              <option value="Weddinglandia">Weddinglandia</option>
               <option value="A friend or past client">A friend or a past client</option>
               <option value="Another vendor">Another vendor</option>
               <option value="Saw a wedding at Cathedral Park">Saw a wedding at Cathedral Park</option>
@@ -1954,26 +1953,26 @@ nav{display:flex;flex-direction:column;}
     <div class="sec-head rise">
       <span class="eyebrow">In their words</span>
       <h2>What couples say.</h2>
-      <p>Married Under the Bridge is new, so these are Google reviews of Higher Love, who plans and runs your day, and Weddinglandia, who officiates your ceremony.</p>
+      <p>Married Under the Bridge is new, so these are Google reviews of Higher Love, who plans and runs your day.</p>
     </div>
     <div class="quotes-grid rise">
       <div class="quote">
         <div class="quote-stars" aria-label="Five out of five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>Neither of us were contacted by anyone once for clarification during the wedding.</p>
-        <span class="quote-who">Sage T. &middot; Higher Love</span>
+        <span class="quote-who">Sage T. &middot; Wedding client</span>
       </div>
       <div class="quote">
         <div class="quote-stars" aria-label="Five out of five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>Zach was very sweet to my kids. Asked them questions to get them included.</p>
-        <span class="quote-who">Wedding client &middot; Weddinglandia</span>
+        <p>We had less than 3 months to pull together a formal wedding. Kylie was able to make that happen.</p>
+        <span class="quote-who">Amanda R. &middot; Wedding client</span>
       </div>
       <div class="quote">
         <div class="quote-stars" aria-label="Five out of five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>So much more than signing some papers at the courthouse.</p>
-        <span class="quote-who">Wedding client &middot; Weddinglandia</span>
+        <p>Kylie seamlessly coordinated multiple events and locations, ensuring everything ran smoothly.</p>
+        <span class="quote-who">Bailey O. &middot; Photographer</span>
       </div>
     </div>
-    <p class="quotes-more rise">Weddinglandia has married more than 250 people since opening in St. Johns in 2024, and was named Portland's Best Wedding Planner by Willamette Week in 2025. <a href="/real-weddings#reviews">Read all six reviews</a>.</p>
+    <p class="quotes-more rise"><a href="/real-weddings#reviews">Read more reviews</a>.</p>
   </div>
 </section>
 
@@ -1991,7 +1990,7 @@ nav{display:flex;flex-direction:column;}
         <span class="eyebrow">Who you're booking with</span>
         <h2>Hi, I'm Kylie.</h2>
         <p>I founded Higher Love Event Co. and I've been planning and coordinating weddings since 2019. I'm a St. Johns native, and Cathedral Park is my backyard. I know which corner stays quiet on a Saturday afternoon, where the light lands at five o'clock in October, and exactly how far it is from the picnic tables to the nearest restroom. That last one matters more than you'd think.</p>
-        <p>Married Under the Bridge exists because I kept meeting couples who wanted to marry under that bridge and couldn't find a way to do it. So I built one, and then I filled it with people from my own neighborhood. Higher Love is the preferred planner for Weddinglandia.</p>
+        <p>Married Under the Bridge exists because I kept meeting couples who wanted to marry under that bridge and couldn't find a way to do it. So I built one, and then I filled it with people from my own neighborhood.</p>
         <p>The part I care most about is that you're not left guessing. Portland Parks permitting is genuinely confusing, and I would rather over-explain something than leave you to piece it together on your own. Email me a question and you will receive a considered answer, usually the same day, and usually longer than you expected.</p>
         <p>If anything on this page is unclear, that is on me and I would like to know. Ask me anything at all. No question is too small.</p>
         <span class="meet-sig">Kylie</span>
@@ -2010,8 +2009,8 @@ nav{display:flex;flex-direction:column;}
 <!-- VENDOR MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Weddinglandia</span><span>Megan Moore</span><span>Still City Flowers</span><span>She Serves</span><span>Flower &amp; Flour</span><span>Underwood</span><span>Occidental</span><span>Lost Fox Creative</span><span>Hummingbird Films</span><span>Yoonie Mae</span><span>Higher Love</span>
-    <span>Weddinglandia</span><span>Megan Moore</span><span>Still City Flowers</span><span>She Serves</span><span>Flower &amp; Flour</span><span>Underwood</span><span>Occidental</span><span>Lost Fox Creative</span><span>Hummingbird Films</span><span>Yoonie Mae</span><span>Higher Love</span>
+    <span>Megan Moore</span><span>Still City Flowers</span><span>She Serves</span><span>Flower &amp; Flour</span><span>Weddinglandia</span><span>Underwood</span><span>Occidental</span><span>Lost Fox Creative</span><span>Hummingbird Films</span><span>Yoonie Mae</span><span>Higher Love</span>
+    <span>Megan Moore</span><span>Still City Flowers</span><span>She Serves</span><span>Flower &amp; Flour</span><span>Weddinglandia</span><span>Underwood</span><span>Occidental</span><span>Lost Fox Creative</span><span>Hummingbird Films</span><span>Yoonie Mae</span><span>Higher Love</span>
   </div>
 </div>
 
@@ -2020,7 +2019,7 @@ nav{display:flex;flex-direction:column;}
     <div class="sec-head rise">
       <span class="eyebrow">The vendor team</span>
       <h2>The people behind the day.</h2>
-      <p><a href="/real-weddings" style="color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);">See real weddings at Cathedral Park</a>. Higher Love plans and runs the day, and Weddinglandia officiates your ceremony. Everyone else on this list is someone we know, trust and have worked with directly, and most of them are based right here in St. Johns. Higher Love is woman-owned. We're proud to marry LGBTQIA+ couples, and we welcome couples of every background.</p>
+      <p><a href="/real-weddings" style="color:var(--gold-deep);font-weight:600;border-bottom:1px solid var(--gold);">See real weddings at Cathedral Park</a>. Higher Love plans and runs the day, and everyone on this list is someone we know, trust and have worked with directly, and most of them are based right here in St. Johns. Higher Love is woman-owned. We're proud to celebrate LGBTQIA+ couples, and we welcome couples of every background.</p>
     </div>
     <div class="vendor-grid rise">
       <div class="vendor-cell">
@@ -2128,7 +2127,7 @@ nav{display:flex;flex-direction:column;}
   </div>
 </section>
 
-<!-- WEDDINGLANDIA BAND -->
+<!-- PHOTO BAND -->
 <div class="band-wrap">
   <img class="band" src="/images/36-StJohnsCathedralParkPortlandOregonWeddingPicnicElopement1037.jpg" alt="Black and white photograph of newlyweds kissing among the dahlias at Cathedral Park" width="1024" height="1546" loading="lazy" decoding="async" style="object-position:center 25%;">
 </div>
