@@ -200,6 +200,20 @@ nav{display:flex;flex-direction:column;}
 .nav-back:hover .nav-back-arrow{transform:translateX(-3px);}
 @media(max-width:480px){.nav-bar{padding:0 1.25rem;}}
 @media(prefers-reduced-motion:reduce){.nav-back-arrow{transition:none;}}
+
+/* DARK HEADER: blends into the hero photo instead of a pale strip */
+nav{background:rgba(31,30,27,.97);border-bottom-color:rgba(245,240,232,.08);}
+.nav-bar{border-bottom-color:rgba(245,240,232,.08);}
+.nav-back{color:#CDB98C;}
+.nav-back:hover{color:var(--cream);}
+.nav-logo{color:var(--cream);}
+.nav-links a{color:rgba(245,240,232,.82);}
+.nav-links a:hover,.nav-links a.here{color:var(--gold);}
+.nav-cta:hover{background:var(--cream)!important;color:var(--black)!important;}
+.hamburger span{background:var(--cream);}
+#mob-menu{background:#1F1E1B;border-bottom-color:rgba(245,240,232,.08);}
+#mob-menu a{color:rgba(245,240,232,.85);border-bottom-color:rgba(245,240,232,.08);}
+#mob-menu a:last-child{color:var(--gold);}
 </style>
 
 <script type="application/ld+json">
